@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { EXAMES_BUILTIN } from "../../../data/exames";
+import { normalizeExamName } from "../../../utils/catalogImport";
 import { useApp } from "../../../store/AppContext";
 import { api } from "../../../store/api";
 import { Session } from "../../../store/auth";
@@ -40,17 +41,18 @@ export default function SolicitacoesExames({ session }: { session?: Session }) {
   // ── Exam catalog ────────────────────────────────────────────────────────────
   const allExames = useMemo(() => {
     const merged: Record<string, Record<string, true>> = {};
+    const enabled = new Set(data.produtos.filter((p) => p.ativo).map((p) => normalizeExamName(p.nome)));
     for (const [cat, sub] of Object.entries(EXAMES_BUILTIN)) {
       merged[cat] = merged[cat] ?? {};
-      for (const n of Object.keys(sub)) merged[cat][n] = true;
+      for (const n of Object.keys(sub)) if (enabled.has(normalizeExamName(n))) merged[cat][n] = true;
     }
     for (const ex of data.examesCustomRaw ?? []) {
       const cat = ex.categoria || "Outros";
       merged[cat] = merged[cat] ?? {};
-      merged[cat][ex.nome] = true;
+      if (enabled.has(normalizeExamName(ex.nome))) merged[cat][ex.nome] = true;
     }
     return merged;
-  }, [data.examesCustomRaw]);
+  }, [data.examesCustomRaw, data.produtos]);
 
   // ── Load my requests ────────────────────────────────────────────────────────
   const load = useCallback(async () => {

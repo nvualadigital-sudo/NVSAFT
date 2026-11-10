@@ -246,6 +246,10 @@ export const api = {
   produtos: {
     list: () => req<any[]>("GET", "/produtos"),
     create: (data: any) => req<any>("POST", "/produtos", data),
+    importar: (produtos: any[]) =>
+      req<{ importados: number; ignorados: number; nomesIgnorados: string[] }>(
+        "POST", "/produtos/importar", { produtos },
+      ),
     update: (id: number, data: any) => req<any>("PUT", `/produtos/${id}`, data),
     delete: (id: number) => req("DELETE", `/produtos/${id}`),
   },

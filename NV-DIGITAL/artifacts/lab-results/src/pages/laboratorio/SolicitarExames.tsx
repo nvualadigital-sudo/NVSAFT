@@ -3,6 +3,7 @@ import { useApp } from "../../store/AppContext";
 import { api } from "../../store/api";
 import { Session } from "../../store/auth";
 import { EXAMES_BUILTIN } from "../../data/exames";
+import { normalizeExamName } from "../../utils/catalogImport";
 
 // Configuração visual dos estados
 const ESTADO_CFG: Record<string, { label: string; cls: string }> = {
@@ -141,21 +142,22 @@ export default function SolicitarExames({ session }: { session?: Session }) {
   // Construção do catálogo de exames (Builtin + Customizados)
   const allExames = useMemo(() => {
     const merged: Record<string, Record<string, true>> = {};
+    const enabled = new Set(data.produtos.filter((p) => p.ativo).map((p) => normalizeExamName(p.nome)));
 
     // Adiciona exames nativos
     for (const [cat, sub] of Object.entries(EXAMES_BUILTIN)) {
       merged[cat] = merged[cat] || {};
-      for (const nome of Object.keys(sub)) merged[cat][nome] = true;
+      for (const nome of Object.keys(sub)) if (enabled.has(normalizeExamName(nome))) merged[cat][nome] = true;
     }
 
     // Adiciona exames customizados do banco
     for (const ex of data.examesCustomRaw ?? []) {
       const cat = ex.categoria || "Outros";
       merged[cat] = merged[cat] || {};
-      merged[cat][ex.nome] = true;
+      if (enabled.has(normalizeExamName(ex.nome))) merged[cat][ex.nome] = true;
     }
     return merged;
-  }, [data.examesCustomRaw]);
+  }, [data.examesCustomRaw, data.produtos]);
 
   // Controle de Visualização (Lista vs Formulário)
   const [view, setView] = useState<"lista" | "form">("lista");

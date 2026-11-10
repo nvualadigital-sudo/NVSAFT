@@ -588,7 +588,8 @@ export default function CadastrarExames() {
       const items: SyncProd[] = [];
       const seen = new Set<string>();
       for (const p of prods) {
-        if (!p.nome) continue;
+        // Produtos desactivados pertencem à tabela comercial, não à oferta clínica da unidade.
+        if (!p.ativo || !p.nome) continue;
         const key = p.nome.toLowerCase().trim();
         if (!nomesExistentes.has(key) && !seen.has(key)) {
           seen.add(key);
@@ -1140,7 +1141,7 @@ export default function CadastrarExames() {
       {syncOpen && (
         <Modal
           title="Sincronizar com Lista de Produtos"
-          subtitle="Importar produtos como exames personalizados (apenas os que ainda não existem)"
+          subtitle="Importar apenas produtos activos como exames personalizados (quando ainda não existem)"
           onClose={() => !syncSaving && setSyncOpen(false)}
           maxW="max-w-2xl"
           footer={
@@ -1180,6 +1181,9 @@ export default function CadastrarExames() {
               {syncError}
             </p>
           )}
+          <p className="mx-5 mt-3 rounded-sm border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
+            Os parâmetros e intervalos de referência existentes no catálogo serão sugeridos. Para exames novos, a referência fica por validar: o Director Técnico deve preencher e confirmar unidades, método, equipamento e intervalos aplicáveis antes da emissão clínica.
+          </p>
           {syncLoading ? (
             <div className="py-16 text-center">
               <div

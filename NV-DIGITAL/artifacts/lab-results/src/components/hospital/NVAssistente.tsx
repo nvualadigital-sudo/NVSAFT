@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, Mic, MicOff, Send, Sparkles, Square, Volume2, VolumeX, X } from "lucide-react";
+import { Check, Mic, MicOff, Paperclip, Send, Sparkles, Square, Volume2, VolumeX, X } from "lucide-react";
 import { reqDirect } from "../../store/api";
+import CatalogImportDialog from "./CatalogImportDialog";
 
 type Phase = "ready" | "wake" | "listening" | "thinking" | "speaking" | "confirmation" | "error";
 type Line = { id: number; role: "user" | "assistant"; text: string; source?: string };
@@ -18,6 +19,7 @@ export default function NVAssistente({ companyName, modules, navigate }: { compa
   const [model, setModel] = useState(false);
   const [consent, setConsent] = useState(false);
   const [voice, setVoice] = useState(false);
+  const [importOpen, setImportOpen] = useState(false);
   const count = useRef(1), request = useRef(0), recognizer = useRef<any>(null);
   const active = useRef(false), armed = useRef(false), microphone = useRef(false);
   const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -39,7 +41,7 @@ export default function NVAssistente({ companyName, modules, navigate }: { compa
     active.current = false; request.current++;
     // O cartão desaparece ao fechar e o pedido pendente é também invalidado na API.
     if (pending) void reqDirect("POST", `/ai/actions/${pending.actionId}/cancel`, {}).catch(() => {});
-    stopMic(); silence(); setPending(null); setConsent(false); setError(""); setBusy(false); setOpen(false); setPhase("ready");
+    stopMic(); silence(); setPending(null); setConsent(false); setError(""); setBusy(false); setImportOpen(false); setOpen(false); setPhase("ready");
   }
   function say(words: string) {
     if (!voice || !active.current || !window.speechSynthesis) return;
@@ -135,8 +137,13 @@ export default function NVAssistente({ companyName, modules, navigate }: { compa
     </div>
     {error && <p className="nv-agent-error" role="alert">{error}</p>}
     <form className="nv-agent-form" onSubmit={(e) => { e.preventDefault(); void submit(text); }}><label htmlFor="nv-agent-text">Escreva ou dite um comando</label><div className="nv-agent-compose"><textarea id="nv-agent-text" rows={2} maxLength={4000} value={text} placeholder="Ex.: abrir laboratório" onChange={(e) => setText(e.target.value)} /><button type="submit" disabled={busy || !!pending || !text.trim()} aria-label="Enviar"><Send size={18} /></button></div>
-      <div className="nv-agent-controls"><button type="button" disabled={busy || !!pending || microphone.current} onClick={() => listen(false)}><Mic size={16} /> Falar</button><button type="button" disabled={busy || !!pending || microphone.current} onClick={() => listen(true)}><Sparkles size={16} /> «Olá NV»</button>{microphone.current && <button type="button" onClick={() => { stopMic(); setPhase("ready"); }}><MicOff size={16} /> Parar</button>}<button type="button" aria-pressed={voice} onClick={() => { setVoice((x) => !x); silence(); }}>{voice ? <Volume2 size={16} /> : <VolumeX size={16} />}{voice ? "Voz ligada" : "Sem áudio"}</button>{phase === "speaking" && <button type="button" onClick={() => { silence(); setPhase("ready"); }}><Square size={16} /> Interromper</button>}</div>
+      <div className="nv-agent-controls"><button type="button" disabled={busy || !!pending || microphone.current} onClick={() => listen(false)}><Mic size={16} /> Falar</button><button type="button" disabled={busy || !!pending || microphone.current} onClick={() => listen(true)}><Sparkles size={16} /> «Olá NV»</button>{microphone.current && <button type="button" onClick={() => { stopMic(); setPhase("ready"); }}><MicOff size={16} /> Parar</button>}<button type="button" aria-pressed={voice} onClick={() => { setVoice((x) => !x); silence(); }}>{voice ? <Volume2 size={16} /> : <VolumeX size={16} />}{voice ? "Voz ligada" : "Sem áudio"}</button>{phase === "speaking" && <button type="button" onClick={() => { silence(); setPhase("ready"); }}><Square size={16} /> Interromper</button>}<button type="button" disabled={busy || !!pending} onClick={() => setImportOpen(true)}><Paperclip size={16} /> Importar exames/preços</button></div>
       <label className="nv-agent-consent"><input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} /> Autorizo o envio de perguntas sem dados de pacientes ao fornecedor de IA. {model ? "IA disponível." : "IA externa não configurada."}</label>
     </form>
+    {importOpen && <CatalogImportDialog onClose={() => setImportOpen(false)} onSaved={(importados, ignorados) => {
+      setImportOpen(false);
+      append("assistant", `${importados} produto(s) importado(s) na empresa actual; ${ignorados} já existiam. Os preços de outras empresas não foram alterados.`);
+      window.dispatchEvent(new Event("nv:catalog-updated"));
+    }} />}
   </section>;
 }

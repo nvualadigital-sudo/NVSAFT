@@ -348,14 +348,15 @@ const CATALOGO: [string, string, number, string][] = [
 
 export function gerarProdutosDosCatalogo(): ProdutoSeed[] {
   const produtos: ProdutoSeed[] = CATALOGO.map(
-    ([codigo, nome, preco, categoria]) => ({
+    // Os preços antigos da lista PVD não são preços da empresa actual.
+    ([codigo, nome, _precoHistorico, categoria]) => ({
       codigo,
       nome,
       categoria,
-      preco,
+      preco: 0,
       ivaIsento: false,
       descricao: "",
-      ativo: true,
+      ativo: false,
       stock: 0,
       stockMinimo: 0,
     }),
@@ -474,5 +475,5 @@ export function gerarProdutosDosCatalogo(): ProdutoSeed[] {
     },
   ];
 
-  return [...produtos, ...extras];
+  return [...produtos, ...extras.map((p) => ({ ...p, preco: 0, ativo: false }))];
 }

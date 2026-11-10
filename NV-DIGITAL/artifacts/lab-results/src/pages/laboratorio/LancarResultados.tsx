@@ -8,6 +8,7 @@ import {
 } from "react";
 import { useApp } from "../../store/AppContext";
 import { EXAMES_BUILTIN } from "../../data/exames";
+import { normalizeExamName } from "../../utils/catalogImport";
 import { Session } from "../../store/auth";
 import { Fatura } from "../../store/AppContext";
 import { api } from "../../store/api";
@@ -893,13 +894,15 @@ export default function LancarResultados({
 
   const filteredExames = useMemo(() => {
     const q = exameSearch.toLowerCase().trim();
-    if (!q) return allExames;
+    const enabled = new Set(data.produtos.filter((p) => p.ativo).map((p) => normalizeExamName(p.nome)));
     const result: typeof allExames = {};
     for (const [cat, sub] of Object.entries(allExames)) {
       const matchedSub: typeof sub = {};
       for (const [nome, ps] of Object.entries(sub)) {
+        if (!enabled.has(normalizeExamName(nome))) continue;
         const codigo = refByNome.get(nome.toLowerCase().trim()) || "";
         if (
+          !q ||
           nome.toLowerCase().includes(q) ||
           cat.toLowerCase().includes(q) ||
           codigo.toLowerCase().includes(q)
@@ -909,7 +912,7 @@ export default function LancarResultados({
       if (Object.keys(matchedSub).length > 0) result[cat] = matchedSub;
     }
     return result;
-  }, [allExames, exameSearch, refByNome]);
+  }, [allExames, exameSearch, refByNome, data.produtos]);
 
   const filteredPacientes = useMemo(() => {
     const q = pacienteSearch.toLowerCase().trim();

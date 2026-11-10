@@ -491,6 +491,74 @@ router.get("/produtos", requireEmpresa, async (req, res): Promise<void> => {
   res.json(rows);
 });
 
+// A lista de exames é partilhável; o produto/preço/estado é SEMPRE institucional.
+// A importação só recebe linhas confirmadas na pré-visualização, nunca o ficheiro.
+router.post("/produtos/importar", requireEmpresa, async (req, res): Promise<void> => {
+  const empresaId = getEmpresaId(req);
+  const funcao = getUser(req).funcao || "";
+  if (!["admin", "gestor", "financeiro"].includes(funcao)) {
+    res.status(403).json({ error: "A tabela de preços só pode ser alterada pela administração ou área financeira." });
+    return;
+  }
+  const incoming = req.body?.produtos;
+  if (!Array.isArray(incoming) || incoming.length === 0 || incoming.length > 300) {
+    res.status(400).json({ error: "Seleccione entre 1 e 300 produtos por importação." });
+    return;
+  }
+  const normalize = (v: string) => v.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLocaleLowerCase("pt-PT").replace(/\s+/g, " ");
+  const entries: { codigo: string; nome: string; categoria: string; preco: number; ativo: boolean }[] = [];
+  const incomingNames = new Set<string>();
+  const incomingCodes = new Set<string>();
+  for (const item of incoming) {
+    const nome = typeof item?.nome === "string" ? item.nome.trim().slice(0, 300) : "";
+    const codigo = typeof item?.codigo === "string" ? item.codigo.trim().slice(0, 80) : "";
+    const categoria = typeof item?.categoria === "string" ? item.categoria.trim().slice(0, 100) : "Geral";
+    const preco = Number(item?.preco);
+    if (!nome || !codigo || !Number.isFinite(preco) || preco < 0 || preco > 1_000_000_000) {
+      res.status(400).json({ error: "Existe um produto sem nome/código ou com preço inválido. Reveja a pré-visualização." });
+      return;
+    }
+    if (incomingNames.has(normalize(nome)) || incomingCodes.has(normalize(codigo))) {
+      res.status(400).json({ error: "A importação contém nomes ou códigos repetidos. Corrija antes de guardar." });
+      return;
+    }
+    incomingNames.add(normalize(nome));
+    incomingCodes.add(normalize(codigo));
+    entries.push({ codigo, nome, categoria: categoria || "Geral", preco, ativo: item?.ativo === true });
+  }
+  const client = await pool.connect();
+  try {
+    await client.query("BEGIN");
+    // Evita duas importações concorrentes para a mesma empresa.
+    await client.query("SELECT pg_advisory_xact_lock(hashtext($1))", ["produtos:" + empresaId]);
+    const existing = await client.query("SELECT nome,codigo FROM public.produtos WHERE empresa_id=$1", [empresaId]);
+    const names = new Set(existing.rows.map((p: any) => normalize(String(p.nome))));
+    const codes = new Set(existing.rows.map((p: any) => normalize(String(p.codigo))));
+    const imported: string[] = [];
+    const skipped: string[] = [];
+    for (const item of entries) {
+      if (names.has(normalize(item.nome)) || codes.has(normalize(item.codigo))) {
+        skipped.push(item.nome);
+        continue; // Nunca altera preços/estados de outra importação ou empresa.
+      }
+      await client.query(
+        "INSERT INTO public.produtos(empresa_id,codigo,nome,categoria,preco,iva_isento,descricao,ativo,stock,stock_minimo) VALUES($1,$2,$3,$4,$5,false,'',$6,0,0)",
+        [empresaId, item.codigo, item.nome, item.categoria, item.preco, item.ativo],
+      );
+      names.add(normalize(item.nome));
+      codes.add(normalize(item.codigo));
+      imported.push(item.nome);
+    }
+    await client.query("COMMIT");
+    res.status(201).json({ importados: imported.length, ignorados: skipped.length, nomesIgnorados: skipped });
+  } catch (_error) {
+    await client.query("ROLLBACK");
+    res.status(500).json({ error: "A importação foi cancelada por completo. Confirme os dados e tente novamente." });
+  } finally {
+    client.release();
+  }
+});
+
 router.post("/produtos", requireEmpresa, async (req, res): Promise<void> => {
   const empresaId = getEmpresaId(req);
   const d = req.body;

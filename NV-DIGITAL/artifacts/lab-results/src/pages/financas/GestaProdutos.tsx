@@ -5,6 +5,9 @@ import { formatCurrency } from "../../store/storage";
 import { gerarProdutosDosCatalogo } from "../../utils/seedProdutos";
 import { EXAMES_BUILTIN } from "../../data/exames";
 import { downloadProdutosPDF } from "../../utils/listPdfGenerator";
+import { api } from "../../store/api";
+import { normalizeExamName } from "../../utils/catalogImport";
+import CatalogImportDialog from "../../components/hospital/CatalogImportDialog";
 
 const CATEGORIAS = [
   "Hematologia",
@@ -49,7 +52,7 @@ const emptyForm: Omit<Produto, "id"> = {
   preco: 0,
   ivaIsento: false,
   descricao: "",
-  ativo: true,
+  ativo: false,
   stock: 0,
   stockMinimo: 0,
 };
@@ -123,7 +126,7 @@ function InlinePreco({
 }
 
 export default function GestaProdutos() {
-  const { data, addProduto, updateProduto, removeProduto } = useApp();
+  const { data, addProduto, updateProduto, removeProduto, reload } = useApp();
   const moeda = data.config.moeda || "AOA";
   const produtos = data.produtos ?? [];
 
@@ -137,6 +140,12 @@ export default function GestaProdutos() {
   const [filtroPreco, setFiltroPreco] = useState<"todos" | "sempreco">("todos");
   const [msg, setMsg] = useState<{ text: string; ok: boolean } | null>(null);
   const [syncing, setSyncing] = useState(false);
+  const [catalogOpen, setCatalogOpen] = useState(false);
+  const [fileImportOpen, setFileImportOpen] = useState(false);
+  const [catalogSearch, setCatalogSearch] = useState("");
+  const [catalogSelected, setCatalogSelected] = useState<Set<string>>(new Set());
+  const [catalogPrices, setCatalogPrices] = useState<Record<string, number>>({});
+  const [catalogActive, setCatalogActive] = useState<Set<string>>(new Set());
 
   const semPrecoCount = useMemo(
     () => produtos.filter((p) => p.ativo && p.preco === 0).length,
@@ -165,122 +174,46 @@ export default function GestaProdutos() {
     return items;
   }, [data.examesCustom]);
 
-  // Exams missing from products (either from builtin or custom)
+  // O catálogo não transporta preços: o que existe é apenas a oferta possível.
   const examesSemProduto = useMemo(() => {
     const nomesExistentes = new Set(
-      produtos.map((p) => p.nome.toLowerCase().trim()),
+      produtos.map((p) => normalizeExamName(p.nome)),
     );
-    return [...builtinExames, ...customExames].filter(
-      (e) => !nomesExistentes.has(e.nome.toLowerCase().trim()),
-    );
+    const candidatos = [...builtinExames, ...customExames, ...gerarProdutosDosCatalogo().map((p) => ({ cat: p.categoria, nome: p.nome }))];
+    const vistos = new Set<string>();
+    return candidatos.filter((e) => {
+      const key = normalizeExamName(e.nome);
+      if (!key || nomesExistentes.has(key) || vistos.has(key)) return false;
+      vistos.add(key); return true;
+    });
   }, [produtos, builtinExames, customExames]);
 
   function handleImportarCatalogo() {
-    const seeds = gerarProdutosDosCatalogo();
-    const existentes = new Set(
-      produtos.map((p) => p.nome.toLowerCase().trim()),
-    );
-    const novos = seeds.filter(
-      (s) => !existentes.has(s.nome.toLowerCase().trim()),
-    );
-    if (novos.length === 0) {
-      setMsg({
-        text: "Todos os exames do catálogo já estão importados.",
-        ok: true,
-      });
-      return;
-    }
-    if (
-      !window.confirm(
-        `Importar ${novos.length} exame(s) do catálogo como produtos? (preço definido conforme tabela PVD)`,
-      )
-    )
-      return;
-    novos.forEach((p) => addProduto(p));
-    setMsg({
-      text: `${novos.length} produto(s) importado(s) com sucesso.`,
-      ok: true,
-    });
+    setCatalogOpen(true);
   }
 
   async function handleSincronizarCatalogo() {
-    // 1. Sync from CATALOGO (seedProdutos) — with prices
-    const seeds = gerarProdutosDosCatalogo();
-    const existentes = new Set(
-      produtos.map((p) => p.nome.toLowerCase().trim()),
-    );
-    const novosDoCatalogo = seeds.filter(
-      (s) => !existentes.has(s.nome.toLowerCase().trim()),
-    );
+    setCatalogOpen(true);
+  }
 
-    // 2. Sync from EXAMES_BUILTIN + examesCustom — without prices (preco = 0)
-    const existentesAposSeed = new Set([
-      ...Array.from(existentes),
-      ...novosDoCatalogo.map((s) => s.nome.toLowerCase().trim()),
-    ]);
-    const novosDoExames = examesSemProduto.filter(
-      (e) => !existentesAposSeed.has(e.nome.toLowerCase().trim()),
-    );
-
-    const totalNovos = novosDoCatalogo.length + novosDoExames.length;
-    if (totalNovos === 0) {
-      setMsg({
-        text: "Catálogo já sincronizado — todos os exames estão na lista de produtos.",
-        ok: true,
-      });
-      return;
-    }
-
-    const partes = [];
-    if (novosDoCatalogo.length)
-      partes.push(`${novosDoCatalogo.length} do catálogo PVD (com preço)`);
-    if (novosDoExames.length)
-      partes.push(
-        `${novosDoExames.length} do catálogo de exames (preço a definir)`,
-      );
-
-    if (
-      !window.confirm(
-        `Sincronizar ${totalNovos} novo(s) exame(s)?\n\n${partes.join("\n")}`,
-      )
-    )
-      return;
-
+  async function confirmarCatalogo() {
+    const chosen = examesSemProduto.filter((e) => catalogSelected.has(normalizeExamName(e.nome)));
+    if (!chosen.length) return setMsg({ text: "Seleccione os exames que esta empresa pretende disponibilizar.", ok: false });
+    if (!window.confirm(`Criar ${chosen.length} produto(s) nesta empresa, sem copiar preços de outras unidades?`)) return;
     setSyncing(true);
     try {
-      let codigoBase = Math.max(
-        0,
-        ...produtos
-          .map((p) => parseInt(p.codigo.replace(/\D/g, "") || "0"))
-          .filter((n) => !isNaN(n)),
-      );
-
-      for (const p of novosDoCatalogo) {
-        await addProduto(p);
-      }
-
-      for (const e of novosDoExames) {
-        codigoBase++;
-        await addProduto({
-          codigo: "EX-" + String(codigoBase).padStart(3, "0"),
-          nome: e.nome,
-          categoria: e.cat,
-          preco: 0,
-          ivaIsento: false,
-          descricao: "",
-          ativo: true,
-          stock: 0,
-          stockMinimo: 0,
-        });
-      }
-
-      setMsg({
-        text: `Sincronização concluída: ${totalNovos} novo(s) produto(s) adicionado(s).${novosDoExames.length ? ` Defina os preços dos ${novosDoExames.length} novos exames.` : ""}`,
-        ok: true,
-      });
-    } finally {
-      setSyncing(false);
-    }
+      const prefix = `EX-${Date.now().toString(36).toUpperCase()}`;
+      const result = await api.produtos.importar(chosen.slice(0, 300).map((e, i) => ({
+        codigo: `${prefix}-${String(i + 1).padStart(3, "0")}`,
+        nome: e.nome, categoria: e.cat,
+        preco: catalogPrices[normalizeExamName(e.nome)] ?? 0,
+        ativo: catalogActive.has(normalizeExamName(e.nome)),
+      })));
+      await reload();
+      setCatalogOpen(false); setCatalogSelected(new Set()); setCatalogActive(new Set()); setCatalogPrices({});
+      setMsg({ text: `${result.importados} produto(s) criados para esta empresa; ${result.ignorados} já existiam. Nenhum preço anterior foi alterado.`, ok: true });
+    } catch (e: any) { setMsg({ text: e?.message || "Falha na sincronização.", ok: false }); }
+    finally { setSyncing(false); }
   }
 
   function handleInlinePreco(id: number, novoPreco: number) {
@@ -379,12 +312,17 @@ export default function GestaProdutos() {
             Tabela de Preços (PVD)
           </span>
         </div>
-        <button
-          onClick={() => downloadProdutosPDF(produtos, data.config, moeda)}
-          className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm whitespace-nowrap"
-        >
-          📄 Baixar PDF
-        </button>
+        <div className="flex gap-2 flex-wrap">
+          <button onClick={() => setFileImportOpen(true)} className="flex items-center gap-2 bg-[#0d7a8a] hover:opacity-90 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
+            📎 Importar PDF / Excel / CSV
+          </button>
+          <button
+            onClick={() => downloadProdutosPDF(produtos, data.config, moeda)}
+            className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm whitespace-nowrap"
+          >
+            📄 Baixar PDF
+          </button>
+        </div>
       </div>
 
       {/* Alerta de exames sem preço */}
@@ -433,7 +371,7 @@ export default function GestaProdutos() {
               onClick={handleImportarCatalogo}
               className="bg-blue-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-blue-800 transition whitespace-nowrap"
             >
-              ⬇ Importar catálogo PVD
+              ⬇ Escolher exames do catálogo
             </button>
             <button
               onClick={handleSincronizarCatalogo}
@@ -457,7 +395,7 @@ export default function GestaProdutos() {
               onClick={handleImportarCatalogo}
               className="bg-blue-700 text-white text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-blue-800 transition whitespace-nowrap"
             >
-              ⬇ Importar catálogo PVD
+              ⬇ Escolher exames do catálogo
             </button>
             <button
               onClick={handleSincronizarCatalogo}
@@ -499,6 +437,26 @@ export default function GestaProdutos() {
           <div className="text-xs text-muted-foreground">Categorias</div>
         </div>
       </div>
+      {catalogOpen && <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-slate-950/65 p-3" role="dialog" aria-modal="true" aria-label="Seleccionar exames e preços">
+        <div className="w-full max-w-5xl max-h-[92vh] overflow-y-auto rounded-xl bg-white p-5 shadow-2xl">
+          <div className="flex justify-between gap-3"><div><h3 className="text-lg font-bold text-primary">Catálogo de exames — empresa actual</h3><p className="mt-1 text-sm text-slate-600">Seleccione só os exames que esta unidade realiza. Preços são próprios e começam em 0 Kz; nenhum preço antigo será copiado.</p></div><button type="button" className="rounded border px-3 py-1" onClick={() => setCatalogOpen(false)}>Fechar</button></div>
+          <input className="my-3 w-full rounded border px-3 py-2 text-sm" placeholder="Pesquisar exame ou categoria" value={catalogSearch} onChange={(e) => setCatalogSearch(e.target.value)} />
+          <p className="mb-2 text-sm font-semibold">{examesSemProduto.length} disponível(is) · {catalogSelected.size} seleccionado(s)</p>
+          <div className="max-h-[52vh] overflow-auto rounded border"><table className="w-full min-w-[730px] text-left text-sm"><thead className="sticky top-0 bg-slate-100"><tr><th className="p-2">Escolher</th><th className="p-2">Exame</th><th className="p-2">Categoria</th><th className="p-2">Preço (Kz)</th><th className="p-2">Activar</th></tr></thead><tbody>
+            {examesSemProduto.filter((e) => normalizeExamName(e.nome + " " + e.cat).includes(normalizeExamName(catalogSearch))).slice(0, 80).map((e) => {
+              const key = normalizeExamName(e.nome);
+              return <tr key={key} className="border-t"><td className="p-2"><input type="checkbox" checked={catalogSelected.has(key)} onChange={(ev) => setCatalogSelected((old) => { const s = new Set(old); if (ev.target.checked) s.add(key); else s.delete(key); return s; })} /></td><td className="p-2 font-medium">{e.nome}</td><td className="p-2 text-xs">{e.cat}</td><td className="p-2"><input aria-label={`Preço de ${e.nome}`} type="number" min="0" step="0.01" value={catalogPrices[key] ?? 0} className="w-28 rounded border px-2 py-1 text-right" onChange={(ev) => setCatalogPrices((s) => ({ ...s, [key]: Number(ev.target.value) }))} /></td><td className="p-2"><input type="checkbox" aria-label={`Activar ${e.nome}`} checked={catalogActive.has(key)} onChange={(ev) => setCatalogActive((old) => { const s = new Set(old); if (ev.target.checked) { s.add(key); setCatalogSelected((sel) => new Set(sel).add(key)); } else s.delete(key); return s; })} /></td></tr>;
+            })}
+          </tbody></table></div>
+          <p className="mt-2 text-xs text-slate-600">Apresentados até 80 resultados por pesquisa. Pesquise outros nomes para seleccionar mais. A importação admite até 300 exames por operação.</p>
+          <div className="mt-4 flex justify-end gap-2"><button type="button" onClick={() => setCatalogOpen(false)} className="rounded border px-4 py-2 text-sm">Cancelar</button><button type="button" onClick={() => void confirmarCatalogo()} disabled={syncing || catalogSelected.size === 0 || catalogSelected.size > 300} className="rounded bg-[#0d7a8a] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">{syncing ? "A sincronizar…" : `Guardar ${catalogSelected.size} exame(s)`}</button></div>
+        </div>
+      </div>}
+      {fileImportOpen && <CatalogImportDialog onClose={() => setFileImportOpen(false)} onSaved={(importados, ignorados) => {
+        setFileImportOpen(false);
+        void reload();
+        setMsg({ text: `${importados} produto(s) importado(s); ${ignorados} já existiam nesta empresa e foram preservados.`, ok: true });
+      }} />}
 
       {msg && (
         <div

@@ -359,6 +359,12 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
+    const updated = () => { void reload(); };
+    window.addEventListener("nv:catalog-updated", updated);
+    return () => window.removeEventListener("nv:catalog-updated", updated);
+  }, [reload]);
+
+  useEffect(() => {
     reload();
   }, [reload]);
 
