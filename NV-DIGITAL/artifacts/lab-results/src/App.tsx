@@ -9,7 +9,7 @@ import { api } from "./store/api";
 import { IdleTimeout } from "./components/IdleTimeout";
 import { NotificationBell } from "./components/NotificationBell";
 
-import Login from "./pages/admin/Login";
+import Login from "./pages/admin/LoginModern";
 
 // Cada página só é descarregada quando é aberta (arranque mais rápido)
 const AdminEmpresas = lazy(() => import("./pages/admin/AdminEmpresas"));

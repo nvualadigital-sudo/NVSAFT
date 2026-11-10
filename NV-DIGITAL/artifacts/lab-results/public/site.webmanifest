@@ -1,25 +1,16 @@
 {
   "id": "/",
-  "name": "NV-DIGITAL — Gestão Hospitalar e Laboratorial",
+  "name": "NV-DIGITAL — Gestão Hospitalar",
   "short_name": "NV-DIGITAL",
-  "description": "Plataforma NV-DIGITAL de gestão clínica, hospitalar e laboratorial.",
+  "description": "Sistema integrado de gestão clínica, laboratorial e hospitalar.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0b2346",
+  "lang": "pt-AO",
+  "theme_color": "#0a1e43",
+  "background_color": "#f7fbff",
   "icons": [
-    {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
-    }
+    { "src": "/brand/nv-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/brand/nv-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
   ]
 }
