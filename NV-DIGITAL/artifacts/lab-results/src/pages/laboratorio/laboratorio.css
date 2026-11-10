@@ -1,0 +1,313 @@
+.lab-workspace {
+  --lab-surface: var(--nv-surface, #fff);
+  --lab-raised: var(--nv-raised, #f5f6f7);
+  --lab-ink: var(--nv-text, #243444);
+  --lab-muted: var(--nv-muted, #54677e);
+  --lab-line: var(--nv-line, #d7e1ee);
+  --lab-accent: #0d7a8a;
+  --lab-soft: #e6f4f6;
+  --lab-warning-bg: #fdfbea;
+  --lab-warning-ink: #6b5b04;
+  container: laboratorio / inline-size;
+  color: var(--lab-ink);
+  width: 100%;
+  min-width: 0;
+}
+
+:root[data-nv-theme="navy"] .lab-workspace,
+html.dark .lab-workspace {
+  --lab-accent: #6bd5df;
+  --lab-soft: #143d4f;
+  --lab-warning-bg: #42391c;
+  --lab-warning-ink: #ffe49d;
+}
+
+.lab-workspace :is(.lab-launch, .lab-review) {
+  min-width: 0;
+  width: 100%;
+  padding: 24px;
+  color: var(--lab-ink);
+  background: var(--lab-surface);
+}
+
+.lab-workspace :is(.text-gray-700, .text-gray-800) {
+  color: var(--lab-ink);
+}
+.lab-workspace :is(.text-gray-400, .text-gray-500, .text-gray-600) {
+  color: var(--lab-muted);
+}
+.lab-workspace :is(input, select, textarea) {
+  min-width: 0;
+  max-width: 100%;
+  color: var(--lab-ink);
+  background: var(--lab-surface);
+  border-color: var(--lab-line);
+}
+.lab-workspace :is(button, a, input, select, textarea):focus-visible {
+  outline: 2px solid var(--lab-accent);
+  outline-offset: 3px;
+}
+.lab-workspace button {
+  cursor: pointer;
+}
+.lab-workspace button:disabled {
+  cursor: not-allowed;
+}
+
+.lab-module-header {
+  background: var(--lab-surface);
+}
+.lab-module-tabs {
+  gap: 4px;
+}
+.lab-module-tabs button {
+  min-height: 42px;
+}
+.lab-card-head,
+.lab-review-head {
+  gap: 12px;
+  color: var(--lab-ink);
+  background: var(--lab-raised);
+}
+.lab-review-head {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+.lab-review-head > div {
+  min-width: 0;
+}
+.lab-review-head h3 {
+  overflow-wrap: anywhere;
+}
+.lab-review-head button {
+  min-height: 40px;
+}
+.lab-workspace .lab-primary {
+  color: #fff;
+  background: #0d7a8a;
+  border-color: #0d7a8a;
+}
+
+.lab-validation-panel {
+  scroll-margin-top: 100px;
+  background: var(--lab-surface);
+}
+.lab-validation-panel textarea {
+  resize: vertical;
+}
+.lab-validation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: start;
+}
+.lab-validation-action {
+  flex: 1 1 220px;
+  min-width: 0;
+}
+.lab-validation-action button {
+  width: 100%;
+}
+.lab-action-reason {
+  margin-top: 6px;
+  font-size: 12px;
+}
+.lab-validation-panel p:last-child {
+  flex-basis: 100%;
+  line-height: 1.6;
+  color: var(--lab-ink);
+}
+
+.lab-patient-fields {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.lab-patient-fields > label {
+  min-width: 0;
+}
+.lab-launch-grid {
+  display: grid;
+  grid-template-columns: minmax(210px, 248px) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+.lab-launch-grid > div {
+  min-width: 0;
+}
+.lab-exam-list {
+  max-height: 480px;
+  overscroll-behavior: contain;
+}
+.lab-exam-list label {
+  min-height: 36px;
+}
+.lab-exam-list input {
+  flex: 0 0 auto;
+}
+.lab-exam-list label > span:last-child {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.lab-entry-scroll {
+  max-height: 520px;
+  overscroll-behavior: contain;
+}
+.lab-entry-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.lab-entry-table th:nth-child(1) {
+  width: 38%;
+}
+.lab-entry-table th:nth-child(2) {
+  width: 22%;
+}
+.lab-entry-table th:nth-child(3) {
+  width: 16%;
+}
+.lab-entry-table th:nth-child(4) {
+  width: 24%;
+}
+.lab-entry-table :is(th, td) {
+  padding: 10px;
+  overflow-wrap: anywhere;
+}
+.lab-entry-table th {
+  color: var(--lab-muted);
+}
+.lab-entry-table td {
+  font-size: 13px;
+}
+.lab-entry-table .lab-desktop-reference {
+  display: table-cell;
+}
+.lab-entry-table input {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  font-size: 14px;
+}
+.lab-mobile-reference {
+  display: none;
+}
+.lab-review-table {
+  min-width: 620px;
+}
+.lab-review-table :is(th, td) {
+  overflow-wrap: anywhere;
+}
+.lab-review-table td:first-child {
+  color: var(--lab-accent);
+}
+
+:root[data-nv-theme="navy"] .lab-workspace .lab-card-head,
+:root[data-nv-theme="navy"] .lab-workspace .lab-review-head {
+  background: var(--lab-raised);
+}
+:root[data-nv-theme="navy"] .lab-workspace .lab-review-table td:first-child {
+  color: var(--lab-accent) !important;
+}
+:root[data-nv-theme="navy"] .lab-review .bg-amber-50 {
+  background: var(--lab-soft);
+  color: var(--lab-ink);
+}
+
+@container laboratorio (max-width: 1000px) {
+  .lab-patient-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lab-launch-grid {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+  .lab-entry-table :is(th, td) {
+    padding: 8px;
+  }
+}
+@container laboratorio (max-width: 760px) {
+  .lab-launch-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lab-exam-list {
+    max-height: 250px;
+  }
+  .lab-module-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 3px;
+  }
+  .lab-module-tabs button {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .lab-entry-table .lab-desktop-reference {
+    display: none;
+  }
+  .lab-entry-table th:nth-child(1) {
+    width: 62%;
+  }
+  .lab-entry-table th:nth-child(2) {
+    width: 38%;
+  }
+  .lab-mobile-reference {
+    display: block;
+    margin-top: 5px;
+    color: var(--lab-muted);
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .lab-mobile-reference > span {
+    display: block;
+  }
+}
+@container laboratorio (max-width: 520px) {
+  .lab-workspace :is(.lab-launch, .lab-review) {
+    padding: 12px;
+  }
+  .lab-patient-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lab-module-header {
+    padding: 16px 12px 0;
+  }
+  .lab-card-head {
+    padding: 12px;
+  }
+  .lab-card-head h3 {
+    font-size: 12px;
+  }
+  .lab-review-head {
+    position: static;
+    padding: 12px;
+  }
+  .lab-review-head > div {
+    width: 100%;
+  }
+  .lab-review-head > div:last-child {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lab-review-head .lab-primary {
+    grid-column: 1 / -1;
+  }
+  .lab-workspace :is(input:not([type="checkbox"]), select, textarea) {
+    min-height: 42px;
+    font-size: 16px;
+  }
+  .lab-validation-panel {
+    padding: 12px;
+  }
+  .lab-validation-panel button {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab-workspace {
+    scroll-behavior: auto;
+  }
+}
