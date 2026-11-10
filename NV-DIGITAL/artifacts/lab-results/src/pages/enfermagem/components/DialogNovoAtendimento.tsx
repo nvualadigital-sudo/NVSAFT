@@ -72,7 +72,7 @@ export default function DialogNovoAtendimento() {
         if (!open) resetFormNovo();
       }}
     >
-      <DialogContent className="max-w-6xl max-h-[92vh] overflow-y-auto">
+      <DialogContent className="max-h-[92dvh] w-[calc(100vw-1rem)] max-w-6xl overflow-x-hidden overflow-y-auto sm:w-full">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <HeartPulse className="w-5 h-5 text-teal-600" />
@@ -84,7 +84,7 @@ export default function DialogNovoAtendimento() {
         </DialogHeader>
 
         <Tabs defaultValue="dados" className="mt-4">
-          <TabsList className="grid grid-cols-5 w-full">
+          <TabsList className="grid w-full max-w-full grid-flow-col auto-cols-[minmax(118px,1fr)] justify-start overflow-x-auto">
             <TabsTrigger value="dados" className="gap-1.5 text-xs sm:text-sm">
               <User className="w-3.5 h-3.5" /> Dados
             </TabsTrigger>
@@ -269,7 +269,7 @@ export default function DialogNovoAtendimento() {
                 </Select>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               <div className="space-y-2">
                 <Label>Data</Label>
                 <Input
@@ -715,7 +715,7 @@ export default function DialogNovoAtendimento() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-6 gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-6">
               {Object.entries(TIPOS_ANEXO_ENF).map(([key, tipo]) => {
                 const Icon = tipo.icon;
                 return (

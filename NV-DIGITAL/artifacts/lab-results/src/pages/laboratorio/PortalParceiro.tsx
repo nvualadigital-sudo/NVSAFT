@@ -629,7 +629,7 @@ function NovoPacienteModal({
           </button>
         </div>
         <form onSubmit={handle} className="p-6 space-y-4">
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <div>
               <label className="text-[11px] font-bold text-slate-400 uppercase mb-1 block">
                 Código
@@ -796,7 +796,7 @@ function ProdutoModal({
           onSubmit={handle}
           className="p-6 space-y-4 overflow-y-auto flex-1"
         >
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <div>
               <label className="text-[11px] font-bold text-slate-400 uppercase mb-1 block">
                 Ref. Código

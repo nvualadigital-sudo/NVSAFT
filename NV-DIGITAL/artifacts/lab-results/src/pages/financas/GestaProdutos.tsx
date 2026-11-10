@@ -409,7 +409,7 @@ export default function GestaProdutos() {
       )}
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
         <div className="bg-white border border-border rounded-xl p-4 text-center">
           <div className="text-2xl font-bold text-primary">
             {produtos.length}

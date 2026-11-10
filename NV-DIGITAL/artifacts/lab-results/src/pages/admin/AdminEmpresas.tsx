@@ -289,7 +289,7 @@ export default function AdminEmpresas({ onLogout }: { onLogout: () => void }) {
 
       <div className="max-w-6xl mx-auto p-6 space-y-6">
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
           <div className="bg-white border border-border rounded-xl p-4 text-center shadow-sm">
             <div className="text-2xl font-bold text-primary">
               {empresas.length}

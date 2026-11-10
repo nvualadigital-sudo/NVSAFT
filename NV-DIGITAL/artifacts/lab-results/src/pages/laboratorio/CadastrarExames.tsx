@@ -1045,13 +1045,13 @@ export default function CadastrarExames() {
               <div>
                 <span className={labelCls}>Parâmetros</span>
                 <div className="space-y-2">
-                  <div className="grid grid-cols-3 gap-2 px-1 text-[11px] font-bold uppercase tracking-wider text-gray-500">
+                  <div className="hidden grid-cols-3 gap-2 px-1 text-[11px] font-bold uppercase tracking-wider text-gray-500 sm:grid">
                     <div>Parâmetro</div>
                     <div>Unidade</div>
                     <div>Referência</div>
                   </div>
                   {editParams.map((p, i) => (
-                    <div key={i} className="grid grid-cols-3 gap-2">
+                    <div key={i} className="grid grid-cols-1 gap-2 sm:grid-cols-3">
                       <input
                         value={p.param}
                         onChange={(e) => {

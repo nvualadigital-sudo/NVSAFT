@@ -54,7 +54,7 @@ export default function DialogDetalhes() {
   } = useEnfermagemContext();
   return (
     <Dialog open={showDetalhes} onOpenChange={setShowDetalhes}>
-      <DialogContent className="max-w-6xl max-h-[92vh] overflow-y-auto">
+      <DialogContent className="max-h-[92dvh] w-[calc(100vw-1rem)] max-w-6xl overflow-x-hidden overflow-y-auto sm:w-full">
         <DialogHeader>
           <div className="flex items-center justify-between">
             <DialogTitle className="flex items-center gap-3">
@@ -85,7 +85,7 @@ export default function DialogDetalhes() {
         </DialogHeader>
 
         <Tabs defaultValue="sinais" className="mt-4">
-          <TabsList className="grid grid-cols-6">
+          <TabsList className="grid w-full max-w-full grid-flow-col auto-cols-[minmax(105px,1fr)] justify-start overflow-x-auto">
             <TabsTrigger value="sinais" className="gap-1">
               <HeartPulse className="w-3 h-3" /> Sinais
             </TabsTrigger>
@@ -396,7 +396,7 @@ export default function DialogDetalhes() {
                 </div>
               </CardContent>
             </Card>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
               <Card>
                 <CardContent className="p-4">
                   <p className="text-xs text-slate-500">Enfermeiro</p>

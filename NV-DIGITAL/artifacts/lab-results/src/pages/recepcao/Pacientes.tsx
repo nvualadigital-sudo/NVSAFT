@@ -3022,7 +3022,7 @@ function PacientesWorkspace({
             </div>
           </div>
 
-          <div className="grid grid-cols-4 border-b border-border divide-x divide-border">
+          <div className="grid grid-cols-2 border-b border-border divide-x divide-border sm:grid-cols-4">
             {[
               { label: "Resultados", value: resultados.length, icon: "🔬" },
               { label: "Telefone", value: p.telefone || "—", icon: "" },

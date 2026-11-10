@@ -177,9 +177,15 @@ const CSS = `
 .gx{--gx-ink:#0a2a52;--gx-ink2:#081f3d;--gx-primary:#0f4c9a;--gx-link:#0f4c9a;--gx-accent:#1d63b8;--gx-tint:#eaf2fc;--gx-line:#dbe4ef;--gx-bg:#f3f6fa;--gx-surface:#fff;--gx-text:#14233a;--gx-muted:#5d6d84;--gx-onink:#b9cde8;--gx-danger:#b42318}
 .gx[data-theme="dark"]{--gx-ink:#071a33;--gx-ink2:#05142a;--gx-primary:#2a6fcf;--gx-link:#8ab8f5;--gx-accent:#5b9bf0;--gx-tint:#1b3558;--gx-line:#2a3d59;--gx-bg:#0c1729;--gx-surface:#13233a;--gx-text:#e6edf7;--gx-muted:#9fb0c8;--gx-onink:#a9bedc;--gx-danger:#ff7b6b;color-scheme:dark}
 .gx{font-family:${FONTE};color:${C.text};-webkit-font-smoothing:antialiased}
+.gx,.gx-app-main,.gx-page{min-width:0;max-width:100%}
+.gx-app-main{overflow-x:auto;overscroll-behavior-x:contain}
+.gx-page{width:100%;min-height:0}
+.gx-page :where(.flex,.grid)>*{min-width:0}
+.gx-page :where(img,video,canvas,iframe){max-width:100%}
 .gx-surface{background:${C.surface}}
 .gx-page{color:#14233a;color-scheme:light}
-.gx[data-theme="dark"] .gx-page{background:#f3f6fa;border-radius:10px;margin:10px;overflow:hidden}
+.gx[data-theme="dark"] .gx-page{background:#f3f6fa;border-radius:10px;margin:0;overflow:visible}
+@media(min-width:1024px){.gx[data-theme="dark"] .gx-page{margin:10px;width:calc(100% - 20px)}}
 .gx button{cursor:pointer}
 .gx :focus-visible{outline:2px solid ${C.accent};outline-offset:2px}
 .gx-dark :focus-visible{outline-color:#fff}
@@ -243,6 +249,7 @@ const FLOATING_CSS = `
 .gx-float-button{width:60px;height:60px;font-size:9px;gap:4px}
 .gx-colour-panel,.gx .nv-assistant{right:12px;bottom:calc(var(--gx-tools-bottom) + 76px);max-height:calc(100dvh - var(--gx-tools-bottom) - 96px)}
 }
+@media(max-width:420px){.gx-floating-tools{right:8px;gap:6px}.gx-float-button{width:50px;height:50px;font-size:8px}.gx-colour-panel,.gx .nv-assistant{right:8px;bottom:calc(var(--gx-tools-bottom) + 64px)}}
 @media(prefers-reduced-motion:reduce){.gx-float-button{transition:none}.gx-float-button:hover{transform:none}}
 @media print{.gx-floating-tools,.gx-colour-panel,.gx .nv-assistant{display:none!important}.gx .gx-app-main{padding-bottom:0}}
 
@@ -1017,7 +1024,7 @@ interface ActionsProps {
 }
 function HeaderActions({ session, layout, onLayout, onSearch, onLogout, onNav, theme, onTheme }: ActionsProps) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex min-w-0 flex-wrap items-center justify-end gap-1.5 sm:gap-2">
       <button className="gx-btn" onClick={onSearch} title="Procurar módulo (Ctrl+K)">
         <IconSearch />
         <span className="hidden sm:inline" style={{ color: C.muted }}>Procurar</span>
@@ -1101,15 +1108,15 @@ function CommandPalette({ tabs, recents, current, onPick, onClose }: { tabs: Tab
 function PageHeader({ session, current, leading, actions }: { session: Session; current?: TabDef; leading?: React.ReactNode; actions: ActionsProps }) {
   const grupo = MENU_GROUPS.find((g) => current && g.ids.includes(current.id));
   return (
-    <header className="sticky top-0 z-20 flex items-center justify-between gap-3 border-b gx-surface px-4 py-2.5 sm:px-6" style={{ borderColor: C.line }}>
-      <div className="flex min-w-0 items-center gap-3">
+    <header className="sticky top-0 z-20 flex min-w-0 flex-wrap items-center justify-between gap-x-3 gap-y-2 border-b gx-surface px-3 py-2.5 sm:flex-nowrap sm:px-6" style={{ borderColor: C.line }}>
+      <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-3">
         {leading}
         <div className="min-w-0 leading-tight">
           <div className="truncate text-[11px]" style={{ color: C.muted }}>{grupo?.label ?? ""}</div>
           <h1 className="truncate text-[15px] font-semibold">{current?.label ?? ""}</h1>
         </div>
       </div>
-      <HeaderActions {...actions} session={session} />
+      <div className="ml-auto min-w-0 max-w-full shrink-0"><HeaderActions {...actions} session={session} /></div>
     </header>
   );
 }
@@ -1227,8 +1234,8 @@ function TopNav({ session, groups, tab, onPick, actions }: { session: Session; g
   const [mobile, setMobile] = useState(false);
   return (
     <header className="gx-dark sticky top-0 z-40" style={{ background: C.ink }}>
-      <div className="flex items-center gap-3 px-4 py-2.5">
-        <Brand onDark session={session} />
+      <div className="flex min-w-0 flex-wrap items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4 lg:flex-nowrap">
+        <div className="min-w-0 flex-1 lg:flex-none"><Brand onDark session={session} /></div>
         <nav className="ml-3 hidden flex-1 items-center gap-0.5 lg:flex" aria-label="Menu principal">
           {groups.map((g) => {
             const active = g.ids.includes(tab);
@@ -1255,9 +1262,8 @@ function TopNav({ session, groups, tab, onPick, actions }: { session: Session; g
             );
           })}
         </nav>
-        <div className="flex-1 lg:hidden" />
-        <div><HeaderActions {...actions} session={session} /></div>
-        <button className="rounded-md border p-2 lg:hidden" style={{ borderColor: "rgba(255,255,255,.25)", color: C.onInk }}
+        <div className="order-3 w-full min-w-0 sm:order-none sm:w-auto lg:ml-auto"><HeaderActions {...actions} session={session} /></div>
+        <button className="ml-auto rounded-md border p-2 lg:hidden" style={{ borderColor: "rgba(255,255,255,.25)", color: C.onInk }}
           onClick={() => setMobile((m) => !m)} aria-label="Abrir menu" aria-expanded={mobile}><IconMenu /></button>
       </div>
       {mobile && (
@@ -1316,13 +1322,13 @@ function BottomNav({ groups, tab, onPick }: { groups: NavGroup[]; tab: Tab; onPi
           </div>
         </div>
       )}
-      <nav className="fixed inset-x-0 bottom-0 z-30 flex border-t gx-surface" aria-label="Navegação inferior"
+      <nav className="fixed inset-x-0 bottom-0 z-30 flex min-w-0 border-t gx-surface" aria-label="Navegação inferior"
         style={{ borderColor: C.line, paddingBottom: "env(safe-area-inset-bottom)" }}>
         {[...main.map((t) => ({ id: t.id as string, label: t.label, active: tab === t.id, icon: <TabIcon id={t.id} size={20} />, go: () => onPick(t.id) })),
           { id: "mais", label: "Mais", active: !inMain, icon: <Svg size={20} html='<circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>' stroke={2.5} />, go: () => setMore(true) },
         ].map((b) => (
           <button key={b.id} onClick={b.go} aria-current={b.active ? "page" : undefined}
-            className="relative flex flex-1 flex-col items-center gap-0.5 px-1 pb-1.5 pt-2.5 text-[11px] font-medium"
+            className="relative flex min-w-0 flex-1 flex-col items-center gap-0.5 px-1 pb-1.5 pt-2.5 text-[11px] font-medium"
             style={{ color: b.active ? C.link : C.muted }}>
             {b.active && <span className="absolute inset-x-5 top-0 h-[3px] rounded-b" style={{ background: C.primary }} />}
             {b.icon}
@@ -1783,7 +1789,7 @@ function Shell({ session, onLogout }: { session: Session; onLogout: () => void }
   };
 
   const page = (
-    <div className="gx-page">
+    <div className="gx-page w-full min-w-0">
       <PageBoundary key={currentTab}>
         <Suspense fallback={<PageLoading />}>{renderPage(currentTab, session, handleTabChange, allowedTabs.map((t) => t.id))}</Suspense>
       </PageBoundary>
@@ -1803,7 +1809,7 @@ function Shell({ session, onLogout }: { session: Session; onLogout: () => void }
               </button>
             )
           } />
-        <main className="gx-app-main flex-1">
+        <main className="gx-app-main min-w-0 flex-1">
           {home ? <CardsHome session={session} groups={groups} recents={recentTabs} onPick={go} /> : page}
         </main>
       </div>
@@ -1812,29 +1818,29 @@ function Shell({ session, onLogout }: { session: Session; onLogout: () => void }
     body = (
       <div className="flex min-h-screen flex-col" style={{ background: C.bg }}>
         <TopNav session={session} groups={groups} tab={currentTab} onPick={go} actions={actions} />
-        <main className="gx-app-main flex-1">{page}</main>
+        <main className="gx-app-main min-w-0 flex-1">{page}</main>
       </div>
     );
   } else if (layout === "rodape") {
     body = (
       <div className="flex min-h-screen flex-col" style={{ background: C.bg }}>
         <PageHeader session={session} current={current} actions={actions} leading={<Brand compact session={session} />} />
-        <main className="gx-app-main flex-1 pb-20">{page}</main>
+        <main className="gx-app-main min-w-0 flex-1 pb-20">{page}</main>
         <BottomNav groups={groups} tab={currentTab} onPick={go} />
       </div>
     );
   } else {
     body = (
-      <div className="flex h-screen overflow-hidden" style={{ background: C.bg }}>
+      <div className="flex h-screen min-w-0 overflow-hidden" style={{ background: C.bg, height: "100dvh" }}>
         <Sidebar session={session} groups={groups} tab={currentTab} onPick={go}
           open={sidebarOpen} onClose={() => setSidebarOpen(false)} onSearch={() => setPalette(true)}
           collapsed={collapsed} onToggle={() => setCollapsed((c) => !c)} onLogout={onLogout} />
-        <div className={`flex flex-1 flex-col overflow-hidden transition-[margin] duration-200 ${collapsed ? "lg:ml-[68px]" : "lg:ml-[248px]"}`}>
+        <div className={`flex min-w-0 flex-1 flex-col overflow-hidden transition-[margin] duration-200 ${collapsed ? "lg:ml-[68px]" : "lg:ml-[248px]"}`}>
           <PageHeader session={session} current={current} actions={actions}
             leading={
               <button className="gx-btn !p-2 lg:hidden" onClick={() => setSidebarOpen(true)} aria-label="Abrir menu"><IconMenu /></button>
             } />
-          <main className="gx-app-main gx-scroll flex-1 overflow-auto">{page}</main>
+          <main className="gx-app-main gx-scroll min-h-0 min-w-0 flex-1 overflow-auto">{page}</main>
         </div>
       </div>
     );
