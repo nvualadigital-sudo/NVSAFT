@@ -1751,7 +1751,7 @@ function Shell({ session, onLogout }: { session: Session; onLogout: () => void }
   };
 
   const page = (
-    <div className="gx-page w-full min-w-0">
+    <div className="gx-page nv-unified-module w-full min-w-0" data-nv-module={currentTab}>
       <PageBoundary key={currentTab}>
         <Suspense fallback={<PageLoading />}>{renderPage(currentTab, session, handleTabChange, allowedTabs.map((t) => t.id))}</Suspense>
       </PageBoundary>

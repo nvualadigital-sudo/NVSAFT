@@ -334,7 +334,7 @@ function CardHeader({
 }) {
   return (
     <div
-      className="flex items-center justify-between border-b px-5 py-3"
+      className="lab-card-head flex items-center justify-between border-b px-5 py-3"
       style={{ ...BD, backgroundColor: HEAD_BG }}
     >
       <h3 className="flex items-center gap-2 text-[13px] font-bold uppercase tracking-wide text-gray-700">
@@ -1538,7 +1538,7 @@ export default function LancarResultados({
 
     return (
       <div
-        className="min-h-screen bg-white p-6 md:p-8"
+        className="lab-launch min-h-screen bg-white p-6 md:p-8"
         style={{ fontFamily: FONTE }}
       >
         <div
@@ -1861,7 +1861,7 @@ export default function LancarResultados({
     );
     return (
       <div
-        className="min-h-screen bg-white p-6 md:p-8"
+        className="lab-launch min-h-screen bg-white p-6 md:p-8"
         style={{ fontFamily: FONTE }}
       >
         <div
@@ -2147,7 +2147,7 @@ export default function LancarResultados({
     const pendentesFila = fila.filter((i) => !i.temResultados).length;
     return (
       <div
-        className="min-h-screen bg-white p-6 md:p-8"
+        className="lab-launch min-h-screen bg-white p-6 md:p-8"
         style={{ fontFamily: FONTE }}
       >
         <div
@@ -2368,7 +2368,7 @@ export default function LancarResultados({
   /* ════════════════════════════════════════════════════════════════════════ */
   return (
     <div
-      className="min-h-screen bg-white p-6 md:p-8"
+      className="lab-launch min-h-screen bg-white p-6 md:p-8"
       style={{ fontFamily: FONTE }}
     >
       <div
@@ -2419,7 +2419,7 @@ export default function LancarResultados({
       <div className="mb-5 rounded-sm border bg-white" style={BD}>
         <CardHeader num="1" title="Identificação e Colheita" />
         <div className="space-y-4 p-5">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="lab-patient-fields">
             <Field label="Pesquisar Paciente">
               <div className="relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
@@ -2604,7 +2604,7 @@ export default function LancarResultados({
       </div>
 
       {/* Exames + Resultados */}
-      <div className="mb-5 grid grid-cols-1 gap-4 lg:grid-cols-[260px_1fr]">
+      <div className="lab-launch-grid">
         <div className="overflow-hidden rounded-sm border bg-white" style={BD}>
           <CardHeader
             num="2"
@@ -2644,7 +2644,7 @@ export default function LancarResultados({
               </div>
             )}
           </div>
-          <div className="max-h-[450px] space-y-1 overflow-auto p-2">
+          <div className="lab-exam-list max-h-[450px] space-y-1 overflow-auto p-2">
             {Object.keys(filteredExames).length === 0 && (
               <div className="py-6 text-center text-xs text-gray-400">
                 Nenhum exame.
@@ -2776,8 +2776,8 @@ export default function LancarResultados({
               </p>
             </div>
           ) : (
-            <div className="max-h-[450px] overflow-auto">
-              <table className="w-full text-sm">
+            <div className="lab-entry-scroll max-h-[450px] overflow-auto">
+              <table className="lab-entry-table w-full text-sm">
                 <thead
                   className="sticky top-0"
                   style={{ backgroundColor: HEAD_BG }}
@@ -2789,10 +2789,10 @@ export default function LancarResultados({
                     <th className="w-36 px-4 py-2.5 text-center text-[11px] font-bold uppercase tracking-wide text-gray-500">
                       Resultado
                     </th>
-                    <th className="w-28 px-4 py-2.5 text-center text-[11px] font-bold uppercase tracking-wide text-gray-500">
+                    <th className="lab-desktop-reference w-28 px-4 py-2.5 text-center text-[11px] font-bold uppercase tracking-wide text-gray-500">
                       Unidade
                     </th>
-                    <th className="w-40 px-4 py-2.5 text-center text-[11px] font-bold uppercase tracking-wide text-gray-500">
+                    <th className="lab-desktop-reference w-40 px-4 py-2.5 text-center text-[11px] font-bold uppercase tracking-wide text-gray-500">
                       Referência
                     </th>
                   </tr>
@@ -2825,6 +2825,10 @@ export default function LancarResultados({
                             >
                               <td className="px-4 py-1.5 text-xs text-gray-800">
                                 {p.parametro}
+                                <div className="lab-mobile-reference">
+                                  <span>Unidade: {p.unidade || "—"}</span>
+                                  <span>Referência: {p.referencia || "—"}</span>
+                                </div>
                               </td>
                               <td className="px-2 py-1 text-center">
                                 <input
@@ -2836,10 +2840,10 @@ export default function LancarResultados({
                                   placeholder="—"
                                 />
                               </td>
-                              <td className="px-4 py-1.5 text-center text-xs text-gray-400">
+                              <td className="lab-desktop-reference px-4 py-1.5 text-center text-xs text-gray-400">
                                 {p.unidade}
                               </td>
-                              <td className="px-4 py-1.5 text-center text-xs text-gray-400">
+                              <td className="lab-desktop-reference px-4 py-1.5 text-center text-xs text-gray-400">
                                 {p.referencia}
                               </td>
                             </tr>
