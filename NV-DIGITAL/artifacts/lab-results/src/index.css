@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "./styles/nv-digital.css";
+@import "./styles/nv-unified-responsive.css";
 
 @custom-variant dark (&:is(.dark *));
 
