@@ -14,6 +14,7 @@ import CadastrarExames from "./CadastrarExames";
 import CircuitoLaboratorial from "./CircuitoLaboratorial";
 import ResultadosProntos from "./ResultadosProntos";
 import type { ReportDetail } from "./relatorios";
+import "./laboratorio.css";
 
 export default function Laboratorio({
   session,
@@ -84,13 +85,14 @@ export default function Laboratorio({
   ];
   return (
     <section
+      className="lab-workspace"
       style={{
         fontFamily: "'Segoe UI',Tahoma,Geneva,Verdana,sans-serif",
         minWidth: 0,
       }}
     >
       <header
-        className="border-b bg-white px-6 pt-5"
+        className="lab-module-header border-b bg-white px-6 pt-5"
         style={{ borderColor: "#e5e7eb" }}
       >
         <div className="flex flex-wrap items-center justify-between gap-3 pb-4">
@@ -121,7 +123,7 @@ export default function Laboratorio({
         </div>
         <nav
           aria-label="Módulos do laboratório"
-          className="flex flex-wrap gap-1"
+          className="lab-module-tabs flex flex-wrap gap-1"
         >
           {tabs.map(({ id, label, Icon }) => (
             <button
