@@ -1,0 +1,114 @@
+/*
+ * NV-DIGITAL — estrutura partilhada pelos módulos.
+ * As regras são limitadas à área de cada página, sem tocar na autenticação,
+ * Chat, MedLink, NV-ASSISTENTE, impressão ou controlos flutuantes.
+ * Uma única cor é herdada dos temas --nv-* já configurados pelo utilizador.
+ */
+.gx-page.nv-unified-module {
+  --nv-module-surface: var(--nv-surface, #fff);
+  --nv-module-raised: var(--nv-raised, #f5f6f7);
+  --nv-module-ink: var(--nv-text, #243444);
+  --nv-module-muted: var(--nv-muted, #54677e);
+  --nv-module-line: var(--nv-line, #d7e1ee);
+  --nv-module-accent: var(--nv-accent, #0d7a8a);
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  container: nv-module / inline-size;
+}
+
+.nv-unified-module > :is(div, section, article),
+.nv-unified-module :is(main, section, article, form, fieldset) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Campos completos e legíveis em qualquer largura de ecrã. */
+.nv-unified-module :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  max-width: 100%;
+  min-width: 0;
+}
+.nv-unified-module :is(button, a, input, select, textarea):focus-visible {
+  outline: 2px solid var(--nv-module-accent);
+  outline-offset: 3px;
+}
+
+/* A tabela mantém TODAS as colunas, com deslocamento horizontal quando necessário. */
+.nv-unified-module :is(div, section, article):has(> table) {
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+.nv-unified-module table {
+  max-width: 100%;
+}
+.nv-unified-module :is(th, td) {
+  overflow-wrap: anywhere;
+}
+
+/* Paleta neutra do Laboratório aplicada às páginas funcionais, não à comunicação. */
+.nv-unified-module:not([data-nv-module="chat"]):not([data-nv-module="medlink"])
+  :is(.bg-white, .bg-slate-50) {
+  background-color: var(--nv-module-surface);
+}
+.nv-unified-module:not([data-nv-module="chat"]):not([data-nv-module="medlink"])
+  :is(.border-slate-200, .border-gray-200) {
+  border-color: var(--nv-module-line);
+}
+.nv-unified-module:not([data-nv-module="chat"]):not([data-nv-module="medlink"])
+  :is(.rounded-xl, .rounded-2xl) {
+  border-radius: 8px;
+}
+
+/* O contraste de texto acompanha o tema escuro. */
+:root[data-nv-theme="navy"] .nv-unified-module
+  :is(.text-slate-900, .text-slate-800, .text-gray-900, .text-gray-800, .text-gray-700),
+html.dark .nv-unified-module
+  :is(.text-slate-900, .text-slate-800, .text-gray-900, .text-gray-800, .text-gray-700) {
+  color: var(--nv-module-ink);
+}
+:root[data-nv-theme="navy"] .nv-unified-module
+  :is(.text-slate-600, .text-slate-500, .text-gray-600, .text-gray-500),
+html.dark .nv-unified-module
+  :is(.text-slate-600, .text-slate-500, .text-gray-600, .text-gray-500) {
+  color: var(--nv-module-muted);
+}
+
+@container nv-module (max-width: 760px) {
+  /* Cartões e formulários com colunas largas passam para uma única coluna. */
+  [data-nv-module="recepcao"] .grid[class*="lg:grid-cols-["],
+  [data-nv-module="pacientes"] .grid[class*="lg:grid-cols-["],
+  [data-nv-module="farmacia"] .grid[class*="lg:grid-cols-["],
+  [data-nv-module="medico"] .grid[class*="lg:grid-cols-["],
+  [data-nv-module="faturacao"] .grid[class*="lg:grid-cols-["] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nv-unified-module :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+    min-height: 42px;
+    font-size: 16px;
+  }
+  .nv-unified-module :is(header, nav) {
+    max-width: 100%;
+  }
+  .nv-unified-module :is(.overflow-x-auto, .overflow-auto) {
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+  }
+}
+
+@container nv-module (max-width: 520px) {
+  .nv-unified-module :is(button, [role="button"]) {
+    min-height: 38px;
+  }
+  .nv-unified-module :is(.gap-6, .gap-8) {
+    gap: 12px;
+  }
+}
+
+@media print {
+  .nv-unified-module :is(div, section, article):has(> table) {
+    overflow: visible;
+  }
+}
