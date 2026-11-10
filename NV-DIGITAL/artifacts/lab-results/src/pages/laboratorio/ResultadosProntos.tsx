@@ -217,7 +217,7 @@ export default function ResultadosProntos({
     isLegacy = detail && !current;
   return (
     <div
-      className="min-h-screen bg-white p-6 md:p-8"
+      className="lab-review min-h-screen bg-white p-6 md:p-8"
       style={{ fontFamily: "'Segoe UI',Tahoma,Geneva,Verdana,sans-serif" }}
     >
       <header
@@ -480,7 +480,7 @@ export default function ResultadosProntos({
               style={{ borderColor: C.line }}
             >
               <header
-                className="flex flex-wrap items-center justify-between gap-3 border-b bg-[#f5f6f7] px-5 py-3"
+                className="lab-review-head flex flex-wrap items-center justify-between gap-3 border-b bg-[#f5f6f7] px-5 py-3"
                 style={{ borderColor: C.line }}
               >
                 <div>
@@ -528,7 +528,7 @@ export default function ResultadosProntos({
                 </div>
               </header>
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm">
+                <table className="lab-review-table w-full text-left text-sm">
                   <thead className="text-[11px] uppercase text-gray-500">
                     <tr>
                       {[
