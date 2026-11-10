@@ -1,0 +1,35 @@
+{
+  "version": "AO-DPA-14-24-20261028",
+  "source": "https://c2a.portais.gov.ao/uploads/LEI_14_24_5_de_SETEMBRO_LEI_DA_DPA_043a0de85f.pdf",
+  "pdf_sha256": "37b74dc28f2d092122b41be4032be7dfed67c1921a84e41b303315bc1dff476a",
+  "source_pages": [
+    340,
+    352,
+    365,
+    390,
+    404,
+    422,
+    431,
+    450,
+    476,
+    505,
+    526,
+    542,
+    556,
+    567,
+    588,
+    607,
+    632,
+    643,
+    668,
+    684,
+    697
+  ],
+  "counts": {
+    "provinces": 21,
+    "municipalities": 326,
+    "communes": 378
+  },
+  "identifier_policy": "IDs internos estáveis por nome e hierarquia; não são apresentados como códigos oficiais.",
+  "neighbourhood_policy": "Sem lista nacional fictícia. Localidades em falta são registadas por instituição e sujeitas a revisão; moradas históricas são preservadas."
+}

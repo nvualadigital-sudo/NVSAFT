@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-28",
+  "baseline": "Projecto com Facturação Integrada e Escalas/Salários; cinco ficheiros actuais enviados pelo utilizador",
+  "files": {
+    "README.md": "5086a4f3ee053bdcdaba573903b304fffbd275f6d2cfd7501ceb0c69d0dbe810",
+    "artifacts/api-server/src/routes/index.ts": "16863864b98878c637d6628d0cbe877d4723625843538b3d56635427882bc783",
+    "artifacts/lab-results/src/pages/financas/Faturacao.tsx": "51a53857e4dd832a5f0122b5e1e9ecca3b3cec8766913788fb5c09cdc0067c93",
+    "lib/api-zod/src/index.ts": "bd0cdbe9a5e4a788fdafcaedf28716e5cfdee159ae62460194e5544703999e9c",
+    "package.json": "9f08f835d7951d26496996abc4dbfed9df642b4d7618b765dcd1d2ff6abda908"
+  },
+  "packages": {
+    "NVUALASOFT_Escalas_Salarios.zip": "96294c3a38f7cdcfd2d2098884337289f559530024ce1c966b4a358f2f821bea",
+    "NVUALASOFT_Facturacao_Integrada.zip": "4e1661f20990d29bfd778e5813d34aed6e91e631f102f79e95865b70762cbcd3"
+  },
+  "unchanged": [
+    "App.tsx",
+    "Login",
+    "credenciais",
+    "SQL das migrações anteriores",
+    "cálculos e regras do módulo de Escalas/Salários"
+  ],
+  "remote_database_changed": false,
+  "prior_chat_direct_access": "Indisponível; usados os pacotes recuperados e os cinco ficheiros enviados. Não foi possível ler directamente o chat Saudação cordial."
+}

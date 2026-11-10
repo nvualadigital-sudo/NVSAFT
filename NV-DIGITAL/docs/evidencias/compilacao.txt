@@ -1,0 +1,79 @@
+$ pnpm run typecheck && pnpm --filter @workspace/api-server build && pnpm --filter @workspace/lab-results build
+$ pnpm exec tsc -b --force && pnpm --filter @workspace/api-server typecheck && pnpm --filter @workspace/lab-results typecheck
+$ tsc -p tsconfig.json --noEmit
+$ tsc -p tsconfig.json --noEmit
+$ node ./build.mjs
+
+  dist/index.mjs                       2.6mb ⚠️
+  dist/pino-worker.mjs               153.5kb
+  dist/pino-file.mjs                 142.1kb
+  dist/pino-pretty.mjs               114.6kb
+  dist/thread-stream-worker.mjs        7.3kb
+  dist/index.mjs.map                   5.9mb
+  dist/pino-worker.mjs.map           256.9kb
+  dist/pino-file.mjs.map             229.1kb
+  dist/pino-pretty.mjs.map           204.0kb
+  dist/thread-stream-worker.mjs.map   12.0kb
+
+⚡ Done in 228ms
+$ vite build --config vite.config.ts
+vite v7.3.5 building client environment for production...
+transforming...
+src/components/ui/label.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+src/components/ui/select.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+src/components/ui/avatar.tsx (2:0): Error when using sourcemap for reporting an error: Can't resolve original location of error.
+✓ 2552 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/public/index.html                                 1.49 kB │ gzip:   0.65 kB
+dist/public/assets/index-IrxTMIaA.css                189.83 kB │ gzip:  30.20 kB
+dist/public/assets/Honorarios-DbWlMn2a.js              0.15 kB │ gzip:   0.14 kB
+dist/public/assets/Imagiologia-BrOim_Vq.js             0.15 kB │ gzip:   0.15 kB
+dist/public/assets/Salarios-CXX-PyIE.js                0.15 kB │ gzip:   0.15 kB
+dist/public/assets/PedidosCompra-pcQw6JDE.js           0.15 kB │ gzip:   0.15 kB
+dist/public/assets/activity-DJbEt81h.js                0.24 kB │ gzip:   0.20 kB
+dist/public/assets/plus--JwZw_1f.js                    0.27 kB │ gzip:   0.20 kB
+dist/public/assets/flask-conical-ZFkVDfIe.js           0.30 kB │ gzip:   0.23 kB
+dist/public/assets/save-CzrPK10S.js                    0.33 kB │ gzip:   0.23 kB
+dist/public/assets/Nutricao-BzrX012K.js                0.33 kB │ gzip:   0.25 kB
+dist/public/assets/Cardiologia-BP1yROcu.js             0.33 kB │ gzip:   0.24 kB
+dist/public/assets/Ginecologia-DW-N-Lx6.js             0.33 kB │ gzip:   0.24 kB
+dist/public/assets/Receitas-CwdfQiZR.js                0.33 kB │ gzip:   0.25 kB
+dist/public/assets/building-2-DY7lB8ru.js              0.38 kB │ gzip:   0.24 kB
+dist/public/assets/Urgencia-DpIZ6lHB.js                0.48 kB │ gzip:   0.33 kB
+dist/public/assets/Internamento-BUPZOUL9.js            0.48 kB │ gzip:   0.33 kB
+dist/public/assets/ResumoFinanceiro-C9uwjMjs.js        1.03 kB │ gzip:   0.59 kB
+dist/public/assets/Relatorios-Bh0RcTIa.js              1.04 kB │ gzip:   0.54 kB
+dist/public/assets/store-CIMErSZR.js                   1.52 kB │ gzip:   0.85 kB
+dist/public/assets/PassApp-BhhBcNbW.js                 1.91 kB │ gzip:   0.92 kB
+dist/public/assets/Historico-CFDe7WnG.js               3.05 kB │ gzip:   1.28 kB
+dist/public/assets/Agendamento-Bm3OdMZS.js             3.44 kB │ gzip:   1.39 kB
+dist/public/assets/Registos-ahR1Q9YL.js                4.49 kB │ gzip:   1.83 kB
+dist/public/assets/Medlik-CelxgFqI.js                  4.59 kB │ gzip:   1.75 kB
+dist/public/assets/Chat-CL5ehvTB.js                    4.60 kB │ gzip:   2.11 kB
+dist/public/assets/Biblioteca-BGzZ_xIh.js              5.14 kB │ gzip:   2.16 kB
+dist/public/assets/Farmacia-CsxTqYtY.js                6.68 kB │ gzip:   2.40 kB
+dist/public/assets/ServicosHospitalares-kkAiBE6q.js    7.08 kB │ gzip:   2.71 kB
+dist/public/assets/AdminFuncionarios-DCT3bmTa.js       8.17 kB │ gzip:   2.54 kB
+dist/public/assets/GestaParceiros-CR0L-FHx.js          8.57 kB │ gzip:   2.52 kB
+dist/public/assets/Instituicao-C7XSYvz2.js            10.24 kB │ gzip:   3.44 kB
+dist/public/assets/Recepcao-DWCYOh23.js               16.68 kB │ gzip:   5.44 kB
+dist/public/assets/Configuracoes-C-R6hzkJ.js          17.25 kB │ gzip:   4.75 kB
+dist/public/assets/Seguradoras-Ct4LLj7d.js            17.29 kB │ gzip:   5.25 kB
+dist/public/assets/NotasCredito-of1yaFSe.js           17.31 kB │ gzip:   5.33 kB
+dist/public/assets/ContaCorrente-De2fN1Tz.js          18.12 kB │ gzip:   4.71 kB
+dist/public/assets/SolicitarExames-CU9NcWh6.js        20.59 kB │ gzip:   5.20 kB
+dist/public/assets/Dashboard-CUxGrCPq.js              21.63 kB │ gzip:   7.80 kB
+dist/public/assets/browser-C6LGOPsH.js                25.40 kB │ gzip:   9.97 kB
+dist/public/assets/Laboratorio-DEpMgAni.js            27.38 kB │ gzip:   8.55 kB
+dist/public/assets/Medico-BAPrK0HI.js                 27.79 kB │ gzip:   8.45 kB
+dist/public/assets/GestaProdutos-GmgdqvKJ.js          39.50 kB │ gzip:  11.27 kB
+dist/public/assets/GestaStock-Bjv6O_h2.js             40.30 kB │ gzip:   8.28 kB
+dist/public/assets/hospital-domain-BGU0mlTF.js        58.26 kB │ gzip:  14.18 kB
+dist/public/assets/Pacientes-CfC2etNY.js              86.98 kB │ gzip:  20.28 kB
+dist/public/assets/jsQR-sSBjl8kS.js                  130.33 kB │ gzip:  47.29 kB
+dist/public/assets/Faturacao-CncUJxmn.js             166.14 kB │ gzip:  35.18 kB
+dist/public/assets/Enfermagem-Co1eXAvG.js            267.75 kB │ gzip:  76.18 kB
+dist/public/assets/PieChart-DQeOArZV.js              411.28 kB │ gzip: 111.67 kB
+dist/public/assets/index-x-5KYoeX.js                 422.18 kB │ gzip: 114.94 kB
+✓ built in 5.68s

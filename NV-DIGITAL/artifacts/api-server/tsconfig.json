@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["node"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true
+  },
+  // The active API is typechecked from its real entrypoint. Legacy route files
+  // remain in the project for reference but are not registered by routes/index.ts
+  // and target tables that are not part of the current database schema.
+  "include": ["src/index.ts"],
+  "references": [
+    {
+      "path": "../../lib/db"
+    },
+    {
+      "path": "../../lib/api-zod"
+    }
+  ]
+}

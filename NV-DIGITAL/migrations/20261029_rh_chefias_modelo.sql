@@ -1,0 +1,2 @@
+CREATE UNIQUE INDEX IF NOT EXISTS nv_hr_access_worker_tenant ON public.funcionarios(empresa_id,id);
+CREATE TABLE public.nv_hr_access(empresa_id uuid NOT NULL REFERENCES public.empresas(id),worker_id uuid NOT NULL,can_schedule boolean NOT NULL DEFAULT false,can_payroll boolean NOT NULL DEFAULT false,reason text NOT NULL,actor text NOT NULL,revision integer NOT NULL DEFAULT 1,updated_at timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(empresa_id,worker_id),FOREIGN KEY(empresa_id,worker_id) REFERENCES public.funcionarios(empresa_id,id));

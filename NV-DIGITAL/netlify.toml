@@ -1,0 +1,17 @@
+# NV-DIGITAL: interface na Netlify; /api encaminhado para o backend Node.
+[build]
+  command = "pnpm build:netlify"
+  publish = "artifacts/lab-results/dist/public"
+
+[build.environment]
+  NODE_VERSION = "24"
+  PNPM_FLAGS = "--frozen-lockfile"
+
+# As regras /api e o fallback SPA são gerados em dist/public/_redirects.
+# NV_NETLIFY_API_ORIGIN deve ser configurado no ambiente de build da Netlify.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

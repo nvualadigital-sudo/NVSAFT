@@ -1,0 +1,75 @@
+# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# compiled output
+dist
+tmp
+out-tsc
+*.tsbuildinfo
+.expo
+.expo-shared
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
+
+# Replit
+.cache/
+.local/
+
+# Local database backups
+backup.zip
+
+# Dados/segredos e saídas de execução
+.env
+.env.*
+!.env.example
+*.dump
+*.sql.bak
+backup*.sql
+screenshots/
+playwright-report/
+test-results/
+
+# Cópias e pacote da actualização clínica
+backups/
+NVUALASOFT_Atualizacao_Clinica/
+
+# Credenciais fiscais e exportações locais
+.agt/
+agt-export/
+.agt-python/
+
+# Generated locally for the restored pass designer.
+artifacts/lab-results/public/vendor/passes-runtime.js

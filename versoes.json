@@ -1,0 +1,2439 @@
+{
+  ".env.example": {
+    "release": "85f625d4886b845a04aebb8eb86f33f6c68c310354f372d06eeec73a4d7d0ef3",
+    "accepted": [
+      "1af456d75e8c152e242ea02b03471c69f319fd769032a16387d7878aa944f989",
+      "4d994b1d38ff26202d2fde7bd42c533fc9fce395aec6039028c02fa75a2b41fd",
+      "4560540fe3a0c5697028d986bee2b584ba52424c04f6ca194cf583c3e20ffa21"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  ".gitignore": {
+    "release": "e228c3f6197c355ce79ddd67f555ba34b07ec182f6e8fbb2e3ebea19a24faf6d",
+    "accepted": [
+      "351d5edacf6b1a9a1c9d736c93b027d2c107ea6d9d15a428a9a4dbaf3ee22196",
+      "6e3ed5c8e950cdca0d2e13660d24e7970ed3f543b624b36a030eaf7ecb6f1f23",
+      "7c001f017331d6019d58d1fc755a42086a9f9e705442e03b303f37f517995bac",
+      "d2ebc1627b81f0fff4f2d3227efccd1e4813b79fe4035118f01440d3871b948c"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "CHANGELOG.md": {
+    "release": "1f930dcefe63bc12f064f5768d5b02642b6fdae53bd7d72203166b7653da2e29",
+    "accepted": [
+      "1ad51d11881be367f57dfdc54e780ed1467c353769e71914e44592d2b1ade623",
+      "c01ef5498362e4fed3a62105ac1cac0e3c06da0640497538fb32b47a94cf4d05",
+      "de5cea6d618e47e74593f26a1cb5bc4cc3f7455848bd5427daa7444af8d31885",
+      "baa4d726ba7893ed96d44f58fb006a2c79e553afbf8358ffa4c8b2af5b586dbc",
+      "e4f36683f57110e4915fede19b34e3c3e0bba8c13b21851531df7666ffaece9e",
+      "e5650c2d93f76c90c9d8276fede0116feff505db77af94191b70e5debc624a14"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "README.md": {
+    "release": "6df51cd0cb9c6cd4fbcac48bea0350671c20d7784e0272d506e8760e24b0c920",
+    "accepted": [
+      "d0df4cb2fc910326dabefac5bcad3658f2ddead9df756f434616e7d218b51da7",
+      "763090296e137cab4cec4cbd6a12349e254225a8c79347ef60663ffd36842525",
+      "ca72221e6e3c789e6e570d95c8eb87a7d2853d37ad5354a4477dc908588ec66f",
+      "ca34755d5bc03c21d572948bb490f4d10473a7ee780aca315e542c6de8831873",
+      "81f871a15a62b1a287c7cc271d22bc207e6f7d5eb2faa8e4a09d5c62715a7ae0",
+      "b7d8a864cfd2965a4da7fc391c10401067f1748b415cbb62fa58fb5dd58d3b70",
+      "a9bda48dfb738a8c3555394b2b92f2f8744544f0183f3a33f29e727b333eabac"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/app.ts": {
+    "release": "178360e8fd168e5ef1ceeefb42aa77eb798847cdd40de5362333432bda43bee2",
+    "accepted": [
+      "42c36a3b23a50b127debb8d00422f5cb5dbcb2d686e11971c62f48e43863a3e8"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/agt/crypto.ts": {
+    "release": "5e48ca3c7a86a38081005607b1f0039df185db3a419d2edaba303ee81261566c",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/agt/replacement.ts": {
+    "release": "230f5b139c7237ee4f1572ac8b4852baa1ce65e3f631dcb437c745bf2b348641",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/agt/runtime.ts": {
+    "release": "6e463809c33d479def7549d074d29ac761a2fe84e87b786000a6ee8c25e9a8b1",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/agt/saft.ts": {
+    "release": "7d23a4959366b52d1108dfff4a70184849ca10b0cc1cdc774c9c665caf8172ae",
+    "accepted": [
+      null,
+      "78cf4dba0ed1ac49634c0ceb7448378dc604fe960ced4d6a3d42d16dccce653b",
+      "d345669d09fe7154c93b97a7bb89749b1f2791a610c56ec81287a4d8c7406228"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/agt/transport.ts": {
+    "release": "ebfafaa772b0a5354bc3910364a652a9dc1cf7a1a5953f6bddd4c49c2f4e410c",
+    "accepted": [
+      null,
+      "8c0e9e150a30caabd805475874395b081b70c33a4e20652bdd656f58cc01bfab"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/agt/wire.ts": {
+    "release": "1d168f0fc3e2c953e288fc593cb7c77120be2d1de1f095b3ea6da7bb39877a33",
+    "accepted": [
+      null,
+      "b970d68386a700aa673fa93dc2b515792a63eca868245ee6ceb7d0383c0716ab"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/billing-catalogue.ts": {
+    "release": "cbe512a0f3f56c45dea53fc733b88f0adf62035de4b04d70fe2bcdf80a2dc914",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/billing-engine.ts": {
+    "release": "1ec199f8e2a05041795b605dea1c4b6ecb3db422d175c06475a44f75cf5542f8",
+    "accepted": [
+      "10e8bd63f4dda958474d41848bbb534c4e58e86f1d8d61e3b495136fe11b0a38",
+      "5ae17115657daecabbab566b92ec432c3f8952f2f8dba01b73c5eaa29279cae6"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/billing-readiness.ts": {
+    "release": "8dcb17c8c2cee8fdcbca4c3ae4471eec9276480e5c358f02b616fd8cd9436433",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/lib/document-signatories.ts": {
+    "release": "604f8633b49d73953240af7501c9c04c2c09b64ae142afa9ba6a7d09193de1ec",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/lib/insurance.ts": {
+    "release": "385bca952918b12fe90b501d554a098a82b387d3e823208510a3d4e4d415ece8",
+    "accepted": [
+      "47c9a98fb1c64454dcca92906ef2f44555a5d7896fc34949aa28cf65bd2e2eba"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/lab-publication.ts": {
+    "release": "520b8cb41d6f18b6f806c21092d3bfa2485abc641b3f066a8d476c24bfbded59",
+    "accepted": [
+      null,
+      "ac549753bcda960d159eab1ebf87efeb717690dcc1f0df6c29414eefc3b61376"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/lib/pharmacy-pos.ts": {
+    "release": "eac7bfecc7784af5653a683753bc803ebac9a187b23eb44a121abe0d403a0681",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/lib/professionals.ts": {
+    "release": "ffaa513f79412aed3207d3c00f8651b7b5650d0f8e334da8810738f82a634914",
+    "accepted": [
+      null,
+      "f6ce63e969a6057c196dfc7aa71ca5e5837ee3e05024174b4b276eae78da657e",
+      "97914f0cacdc281cb761887fe77ecd14a576dbfe7360bfa95b51d87ea922d14f",
+      "022f9b3221e55bb7bf5f3f6f7fe46ff6a6834e07765cf8e1b1973c425fdf4a21"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/agt-homologacao.ts": {
+    "release": "327cf4f473d28e735a5352a96ef70023757c57d8b39da5487207cdb3b172b906",
+    "accepted": [
+      null,
+      "8d69c613a190f906576868bbb757ae22e7be2a38e82c83db98e3d32639cc3bb8"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/ai.ts": {
+    "release": "5d1762afaeff2ceee40b9b6588bca1455bbc5c953141cf77d2ffbc194422bc30",
+    "accepted": [
+      "6b8c3e15a9110d4cfb26af0912abf02b90831fefbad7e906ce5bf9162a65735b"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/assistant-agent.ts": {
+    "release": "7b6742f628df45921ec7d1236d5e95d21215d73ceb308c8d5329860588d242ec",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/billing-integrated.ts": {
+    "release": "655e0a6ba9fc4e523e25615df46944114d0831045cbde62b97de335ba341d8b0",
+    "accepted": [
+      "2a83b579201503ebfe3ac149b1aa9f6f5603e66028c8bb159f47613caee7225f",
+      "43523e34ae2ef7355c1a5d6a97f43dcbdea583567e07665cb0527a3e91235b72",
+      "62c3640323ba69a22ace5643df6b76141fe5cf46353d0452ff3bc87904015021",
+      "68b65286a5947efe0dd816d1223f4f77dad84020ccefd7f9ccaa6038d9a2f719",
+      "6aa06ce4cb64438ff899590c4e38cdc1f9a011e5064f39a894832719ed680a1c",
+      "b7a9493dbafd4660b5bc3e1dd43c660e32093963c0e31ac98e615b7067b31ee2",
+      "d211f88132601d2d8fa46c09b7c72e20e88606c3b9439c5e7c271c5225c64025",
+      "50d943dab369d60b944ae52fc5ed7a4046366526aa4a5f63d4363b9132dd1330",
+      "9535d22e71760f8300747ca45b8bc461bb69bc743a75fa5e1d7eec2ac16394b3"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/cash-ledger.ts": {
+    "release": "64b516b1b5139e5b91f4978c94ac349e0d4124dc38fd4864ec0274c986989f37",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/document-signatories.ts": {
+    "release": "0d23f31f7b18b1af87d65a8345776fe9f62edd6363aa58a37cf3a3e0984643ca",
+    "accepted": [
+      null,
+      "40ca3bbef130c14b17e1234a086149d7d204dd2ce2aa79ac49fefd1731bc095e"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/health.ts": {
+    "release": "d7d5f07a8b0d784210d29edf91bc0707c11fed5856e77eb9037ee4421a6676ce",
+    "accepted": [
+      "0386ceddb4ff4bff220af72ca38a62191ad95a2f41fd619df3bb9ceffce03db2"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/hospital.ts": {
+    "release": "e97927287d2205ef8441aac4d7f2bc03787243fab7a31559f75566e5f52b857b",
+    "accepted": [
+      null,
+      "2cd02887582e5a9df342d8cf827925a5b755e2f1a34683846feeab39a08e6e4d",
+      "5f4d030f6de8e520da69678b23eb67375cd14d013132a2392fb4abe8b85969f4",
+      "316b4981ee6d9bf852d256a65a77c7eb183a74df8dd5d507bbf33c0526980d4e",
+      "404de0d607fc246955fa2d452d8ad7cf021eb86f84e78115809554073a73074c",
+      "71b46615c6df0d230143fcb0f144bdbf245feb40fc5dbf387076b0c17691beb1"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/hr.ts": {
+    "release": "d51de83d2a8ba89cbcb7c8eada1b9e9b8d873e27a42e97ce4871fe9b3a8cc900",
+    "accepted": [
+      "8da48b30fa73303fd22ea445d13363ada7dbe503e8ceedaa9896b4752ff854bb",
+      "a5f5da42988d2798d8e1058912d047ffff48f09fa89bfef1aa1bbe4fe57eabc6"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/index.ts": {
+    "release": "b3e8964dc1632d6930e144392f463ac323bd48a4414f4b88616ad6bd4544e81c",
+    "accepted": [
+      "16863864b98878c637d6628d0cbe877d4723625843538b3d56635427882bc783",
+      "2869f82efa6f38bbab2329adf001115f70919c46a6de92542638a782eae7d008",
+      "335ed7a3d24c5cc60b8b21e98143bcad2fbe701a2a7ce05d7e75125b52c23fbc",
+      "12900811f0fb74ae956cb3a185cb0252a1e6fa1091f1f446f0f40d102938857d"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/institution.ts": {
+    "release": "8f7d8baa99f1161e07909ae9de9f44efe41c15932bc1572ee1ce1804ef7f2df4",
+    "accepted": [
+      null,
+      "995330f48271f682161d34d25925c4031c583081ca0e7c8736ddf988ce3d7142",
+      "5102858f73057fba9cd762bc2e5f28cec62a4215258decf02ce5b4ce459896f8",
+      "ebbd893b5e49a181482f830d75f273d6d268c95ff130d40d2aa196622127553e",
+      "04aafeca0f321cf8245eda21c801c479677c9b76503a3ca7f375ec3c28aa722e",
+      "46a37f13b9051ac7561aa2c2589f70eb4f52133766ad533ebac264720b1ee3bb"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/insurance.ts": {
+    "release": "849e48bfd31b7e9d1f27566b814a30be0b0d0e1f3641ad6e2e9a1d887093c236",
+    "accepted": [
+      "9902af45b5f4e31c4825108f850eab8cb8955981c6d0c6e1c30f2ca740df03f9"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/lab-reports.ts": {
+    "release": "dfd48759e2353e37481227e48d3d1003482fc8d307caf8fb7ac414aefc23ac3c",
+    "accepted": [
+      null,
+      "05b0a6abccfecd85851f0ac2c93b75718fd80ce49b6aa96438dd475e133d9b38",
+      "cf61bcf50d3cf970e59fdfc436f8b0aa2cb0424f04f5af876b78872b1f4c76dc",
+      "2caf19a8c21c431233b7a78057666664e1bcd8f13423451698eb0bbb7fa72b36",
+      "7a58960f933296b67ae575f73e730af8c068145507125114054f81e09fe9193a",
+      "9979d147cb32db4762898d3a19f45f344867f1cf53ad4c35a8e1cffe048883a0"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/lab-workflow.ts": {
+    "release": "a909d55cecaad3e52904c2242cee02b5cc2805d2d79d453cfa8ce4ba614e0f67",
+    "accepted": [
+      null,
+      "32c749e396315354281f23966c906457a48febff3b7b85ebb1c0f874b18ff253",
+      "528cd7ebdce4d006aa67e680652500f9d727460d1b4e8bb2d72cfa042ae2932a",
+      "1025d61d901c590c7d8429d127a05a3ff634a0971d300e5404ba944db5a52161",
+      "435a7052fd0445410114fb611e71e7334e4e7d9a4c43bc4089c87350a46945cf",
+      "fabfa68179bdbe7041b2bad50e6c01bafb506e0043dcb87cf0d98a99c4781109"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/laboratorio.ts": {
+    "release": "3e783531e4722644af794bce7029159bc88ba8dd853d7c2922e1da5a70e15fdd",
+    "accepted": [
+      null,
+      "2bb98ff4b9650e2cecab160099aed314059c1cb4fd35e3d5d7bc73f528d60cd0",
+      "1b576a400beb99e98b70ecbc86c2af91e597607947151736ec4a97d7d61ef9a5"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/api-server/src/routes/nursing-integrated/index.ts": {
+    "release": "f981b5f0e477a4b7c69ed1bf58396f2ba05988e55eb1d88aadc29413a27f9814",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/nursing-integrated/server/domain.ts": {
+    "release": "322090de40667d771181650da5b60eefb9dce82ddb5a4af58ff81ba284e65263",
+    "accepted": [
+      null,
+      "35a58e9d6b479c390f51fabf075e2074a12a09f40c719327c1f709790a54ddff",
+      "7a08245528829ec7516a8a94742cf05c3f278354b11f70ee9e147b920f0f3606"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/nursing-integrated/server/hostPostgresStore.ts": {
+    "release": "251cb8d47bbae0751f80b1aaf22f30ec4efd348285aa5cdac9b4e020780edc65",
+    "accepted": [
+      null,
+      "7cbf562ca1d1f7c927b7702beca4c21ff7e9149ce7d8b5fe0765e233fed71cfb",
+      "fc252c00d1650c3deb5cfcd4ef02758745c4610cae0d70ab6d6466c922511070"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/nursing-integrated/server/nursingRouter.ts": {
+    "release": "d4714b1c8daa5caf03ec8cf683842d58550dfc14676b6ac457fbba73787215bc",
+    "accepted": [
+      null,
+      "9946f4bb9f65e2b091647ab350eeb9ecd2b4519c942bcace3127b06c1ede769b"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/nursing-integrated/src/integrated/model.ts": {
+    "release": "5a20d69ac5bec19d3455786cbbc71c87671d03cf64a6c9f3d0c1d8228ab2e6e8",
+    "accepted": [
+      null,
+      "3c458bddf5eaed502443c6266517205884b3ff75a8a3b309dc3c6a51805bc2d9"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/nursing-integrated/version.json": {
+    "release": "9f1e40cf964ae43f3db526f08e34e264d1a18d83014a13942b9f014c1daae54c",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/patient-portal.ts": {
+    "release": "a3149cae56309184edb7ed6c51953a9bad4db01ab512534ac30a61d1aa2802a7",
+    "accepted": [
+      null,
+      "5bc878f4843709191cb8d54a21557e4e121f9f8c4046ed74f7092f6dfaec15aa"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": false
+  },
+  "artifacts/api-server/src/routes/staff.ts": {
+    "release": "090e50d60e80f7eb40d7630fed113ee8272a39c3261da4cfed4fad8ffc8ba81e",
+    "accepted": [
+      "f0c7d4c950d0eacf5af0eb38719f63cde302bd151e7cf571f023fc838a17a0a5"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/dev-server.mjs": {
+    "release": "b481e998c7c262495d6fccdba052836bd81bf6cd5f9618a0520070dd9d76c32a",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/package.json": {
+    "release": "c7ec3567cc96d2a50e0e27c2b9a12ee96714f7be334b2f41f743b3b722944545",
+    "accepted": [
+      "0acb9cd45bbe46b0b41c1a3101c8a1ca17be96791dafb3bd15199b167c8c9b67",
+      "baf19dac9047135d04aba8bb1e8010d1c1b50bd6c7114a171d9f678f6434fa6a"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/public/portal-paciente/equipa.html": {
+    "release": "6ca284312bcd932e05f8893051f590ed80ecd03e547b047ec8f22b4eed792466",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/public/portal-paciente/equipa.js": {
+    "release": "d0df296cc147fea8a7a876d56d38f65e6d68191015da92fa48a1ff6750054098",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/public/portal-paciente/index.html": {
+    "release": "70894658cd7fe0ffd964255850d448991dbed7ac001e2383437901cfba03c2f0",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/public/portal-paciente/portal.css": {
+    "release": "e96d27105921591dc6fdff5f0c1166bc9ba9247d355e02e28b8fb17f08765e03",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/public/portal-paciente/portal.js": {
+    "release": "346a7115e1425ab7f59d0f29b9729d35d2fc2d610712151f7de288a1d6114e43",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/public/vendor/passes-runtime.js": {
+    "release": "9cc2353fd283aa13a27bddb48791fc8021c63110ae7b40fa4bd0445c300e120e",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/App.tsx": {
+    "release": "045e49ae4d43b1040a06573efb036957066d771f519a5a57e2637ea366465320",
+    "accepted": [
+      "5221fe2b903e0365b246835b6e8688cbe20d39150fa2dfd5f00236cefda1e534",
+      "c21a968e0ff9b4d1dae3ebc89bd23767e853092907c778af4ba544e57d661ad1",
+      "2120d71b2d0004632f6c5b32196cb962a6dbd547478fabc77b609712dfdedb30",
+      "9f5307f25e56c596486435b8127c7761f783bcc57eb889769ef6c3a9397f9463",
+      "e676e96be092fe8e9890838b386e7743d61a89589e8ec45209c665b9b6941b1b"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/components/hospital/AppHeader.tsx": {
+    "release": "0192e5887f3fd7b252be2f0d7c0174acf5367f014f3f16eb1152741ccb246380",
+    "accepted": [
+      "e3e6105c5ee4da2fef60f854bd364f7b414fbee89d05be5d70bf8932432caa97"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/components/hospital/Assistente.tsx": {
+    "release": null,
+    "accepted": [
+      "e6fb5e7253d3bc5d83d9f679ab203e13bc1371d4d638793aa160a755559f0e24"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/components/hospital/InsuranceBilling.tsx": {
+    "release": "99b2c8d31d7fdc690fe6f4153081f8c67db5e91e549639b9fdd5ace7a6789199",
+    "accepted": [
+      "d507d9de71c8d78c661c545a4bc7d44aeaa9ab67b4e73b0a3d58c93d369829d4"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/components/hospital/NVAssistente.tsx": {
+    "release": "c736b3f3cbb182430d7bb4a2120b5f9fdc75b8aad79c24aa01edcbb88c1ac5e4",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/modules/faturacao/Module.tsx": {
+    "release": "2a54b527ce05041833c56ea02b4aebfaa925c88030118e3f602a98b1c6f572b1",
+    "accepted": [
+      "5be9a665b763d56d4a5677ed75f5be2923e9935c78bbc1908f591f3533f5ea20",
+      "9bf449958e3d6dfe244a7bdbff8fea5a4c7af868a20b947ce6a77aff13e61728",
+      "b2b588578d262d2135f7f60ba4625ff5e2064688ce95aaf869336d86989f6b71",
+      "e9b9b03a65516bbc446046d17dbbf160302576a6c2395dd3d0af351e471207f0",
+      "09b5d8e250b4274498594615adc3f2b47830d17fd0585c25accff55961dcb399"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/modules/faturacao/components/AgtHomologacao.tsx": {
+    "release": "941f2c891d2ca72b42e5f562c3522dc7c4a03820afd48d582fc975921a1fa02e",
+    "accepted": [
+      null,
+      "f8b272cf81f831b48a9b20652de92a67c35a5686d6b5c372940200a27989a2e7"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/components/CatalogueCategories.tsx": {
+    "release": "48c0d2bbf0f4a2e9a429173f7cc553e280082c3607a854ff961098a6b1985e3a",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/components/InvoiceItemEditor.tsx": {
+    "release": "2cb87023344f25a98b37e19cbc34b91863b1a1dc7621120935a1175bdce167ae",
+    "accepted": [
+      null,
+      "06389ec2166deda360bd812dc369266122893eb504af65b8520974e123e782f7"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/components/KitsProcedimentosModal.tsx": {
+    "release": "3a3fbd82e6696dfadf3b5aa33f8a7aff6c2617a21f0db99773d7fcd7cf84af05",
+    "accepted": [
+      "63d8c3e6cdfa5b74d6d0d24775b72419507b9d7a8fa32b87dfdefaeb8fcfac50"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/store/AppContext.tsx": {
+    "release": "7aae69fcac257d7cd8407a722f3981370741d1ee6e522fa45af8ac6cf34fa15a",
+    "accepted": [
+      "53bc406f6bcfd3f4987036fc645ded4b7354e150a0188e7c36ba6d1be433e37e",
+      "8deb23d8fbae5b24c44e65f84c145f9acb7b1943e47bc5c05bf3e4a051713dbc",
+      "aae674035407af7b491f3bbea0840381ccf929e34e6fc97e67694d9244385cac",
+      "a461b947aaf4722d7dbabc5d55ba1cd475fabeacb4278eef77d52bc0fbf2bbbf"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/modules/faturacao/styles/ROBOTO-LICENSE.txt": {
+    "release": "061402327a96aadb0bfb694a960ed289ecd38d383e396243831ab81feb109c41",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/styles/reference.ts": {
+    "release": "c05f8cc762c1d452c2663e30c23631999a81eaca0bebc46602ccf6505c775478",
+    "accepted": [
+      null,
+      "eff4165dc88e56640365f40b5be6efa55bd93438ac587bf4cb2d665106a51a8b"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/types/index.ts": {
+    "release": "ea79b00e75d2c682fa550ef4670dd79529154d2929fa8d0d0e493175c5a6ce53",
+    "accepted": [
+      "0c9c7d40e96c7a06bf33e81d1d15752010db766ac2f4e963ed846737f2c2452a",
+      "4785b270dc2e43201557eac1a19c4f0f8dd1e8c45d586575bd6403e4c81eab21",
+      "823769270a293be06d5c1e295131dc96fac61ccbc57562e24270c3a641e7ec29",
+      "b6272dc9b0e4ec75414d8cfe1fb183d62261784a5d660bdd3f76c004fd071109",
+      "ce662522ac4deb80ba39dbf825f81e48416964fc1e681de012d735f8ceb28be4",
+      "e0289875d798c6f1d4532e28d13ed5611aa83ffdd7bdbca8b44b6052452facac"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/utils/agtQr.ts": {
+    "release": "a7170a7148a2b04b5cc34aecc335f7ce24f50fe3a72710a0108e5bf4025c30cd",
+    "accepted": [
+      null,
+      "3f7cdba52f266735e0bcc7b9f43bb75d0b7aab99d98a825bf6d4af8fe0999c83"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/utils/billingNumbers.ts": {
+    "release": "87772f6cae0876bad9c1eb211ba8e1bc9ad18508a31f64db33b77bc69f5c23f8",
+    "accepted": [
+      null,
+      "ffef4343c81b70540426b61006ae7b999cd794b97ba34fce7368e8673aeec819"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/utils/documentCodes.ts": {
+    "release": "96103f79f3a2ff667e4d71151b4fb51937f32a798a0d73c590f01551815b960e",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/utils/faturaGenerator.ts": {
+    "release": "a375b8c36903bf5f2d8661adf2f6ed4cae01fa9991d2feaaece428c8dc58ebb7",
+    "accepted": [
+      "ac3db46c9da5c0cb40648b0e4f6cc0f004bb07361df484cfdc10c0500eec5297"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/utils/posCatalog.ts": {
+    "release": "ac18b3539865bf8fa58307c6594113c1086285fac604131e33129381b2b201cd",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/modules/faturacao/utils/printTemplate.ts": {
+    "release": "78a87a9cb3cf9b350710a1c6c1a2b19f4985f651502bc83392cdfc0f5f1366b6",
+    "accepted": [
+      "074bc094a510bab21402d99e096ddf0e7fd7b8ecc995b17e2fef89dbce1f13e6",
+      "39bcc6d16a1295a78d4235c78a7be6374c65ce511fb1271605217c3770ff1a09",
+      "4d5e0ca07dc997ef97582e60b86052d86181e1af5f86f7f0cb49c84791c506bd",
+      "6d2a0173722cdad359722c46b24924ab6a92e113e1752fcc2462f74c7eb416b4"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/vendor/JSBARCODE-LICENSE.txt": {
+    "release": "636e31528d9409e080917cc4b0c6bc8d6f6f46c07c75c52808709cd81747365c",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/vendor/code128Patterns.ts": {
+    "release": "3b05f435bb2f2c7e64c167845584cd4830b056700b9e5f19399a60ba44a3e8ab",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/views/FaturacaoView.tsx": {
+    "release": "85e7a061d0b03e76282cb692f3bf1be1f0518d59768255c0e5df9bf232e7c916",
+    "accepted": [
+      "17900674bca8c8be1a3b4f8dc3fdec79c20ecc34b358dfd2ee01ec04f30fc0dc",
+      "1d838591fecdaa68958e490c06719aa85723a27f2b904c7d74cdf5a2c3a48b1a",
+      "7f54c644525c33ab05b8da89bdfdc7b2fca436dcca8f33e3ae7ddf1430ecd5e0",
+      "cf9afe2a7a6570063744507c1a2fce77aad1b478341ca164089e3ca1b1bc3b8c",
+      "de3824b39c9c63a96ca7d33a8d54048b8545800f2633be827f3e61dbfc42d4be",
+      "e1d59482fc434b8ea9b1674db7a4e5c0cfa0638db00fc19b0501b9214c09db0b"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/faturacao/views/POSView.tsx": {
+    "release": "2a559df3a50ccd8ee1cbde8c5d29a35082d31e47fc58d8a38d0b2e459a767937",
+    "accepted": [
+      "7ee074b7eb64eca8735b98e3786fcd9c9c89d56ea8c7122ce5378d7861409c3c",
+      "42f4a1078e49634f2bd6bd30c84a09d24b17b194880263af14da66c607b15bab"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/modules/rh/HRWorkspace.css": {
+    "release": "d4577127aded8c2ea7a8212ccf001e96f52bb76da97db19c5bd6d9f067789c80",
+    "accepted": [
+      "3d884dc65d77b2fc258e402c51ca75a894c9790db2cb259f50eee25604b692f7",
+      "3de371e9294efa56e00d5d1a0f1ded2379b92b750220ebb565272def15e3f2f3"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/rh/HRWorkspace.tsx": {
+    "release": "1b34187b32fe756b24a66c2529691c6dc921f8ce337a1dcf4b6ec7537b93697d",
+    "accepted": [
+      "245b7fafca452f67b0acb801e667137e29ee047703f65d5e93fab3bf79ee0c50",
+      "86d922760c44f9091a86532c9a918f39524deb21ff2c64204473ac561d1e84cf",
+      "d9dfe8a84336d881f4b60afa07af5c060be93220c6ace6b206fe4c3049c3fabf"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/modules/rh/LegacyFees.tsx": {
+    "release": "637eb1e3b8b2b3d239734de76a58036e5fb84aa4d07c8013e6c33a0833fdfc39",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/modules/rh/components/RosterCollaboratorCalendarModal.tsx": {
+    "release": "f8c444122d060eb341eb01c2e423da407e8fff38b96b12c18e9d402b9011083c",
+    "accepted": [
+      "e0d74ac4746e0a248b61ae823f63e12940c84d28a53ef863d4e7411dad5ed395"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/rh/rosterColors.css": {
+    "release": "97d2fedad8e4a18727d7012f09d240492f82344924cb271b04dc9eda51807b74",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/rh/utils/PDF_FONT_LICENCE.txt": {
+    "release": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/rh/utils/exportDocuments.ts": {
+    "release": "bc6c6297f76ee1fb61cdc76cca6435068e7145e228af6ca56282d862a48f92f5",
+    "accepted": [
+      "6a7b8e804435c54f7e3acf8f8d4cd61aee4c62e399303e62582bc0dacbe7de79",
+      "a53bb3321c0693a559ae3f900932037b0c029075b16ab8ab63f58a94d8b8b7ab"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/rh/utils/institutionalRoster.ts": {
+    "release": "afc4b3c9ee91f79939c99dce7c9205e7018d018ae687e9b52f8cf05b139d1ddd",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/rh/utils/pdfFonts.ts": {
+    "release": "663f32b3783fbc58d237e700a245b8ab5f56f7fe9144de3f35f0ab7c657d86ed",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/modules/rh/utils/shiftVisual.ts": {
+    "release": "d4662e0322f30c4430fb8f42af78a7d70a71a500da8be48021066048bd4ae249",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/FUNDO.png": {
+    "release": "9a07815cef85f99ddc81159ce1629b481975101a653e79846e8773cd2a54f714",
+    "accepted": [
+      "d4915bf734506a8c17aae4c4428cf3da6f7f9cc6c0d86d51b622bcf433d8d4b7"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/admin/AdminFuncionarios.tsx": {
+    "release": "ed9927abed9006b0896519c8a3900d43d329265d707ac28319f95498776505a7",
+    "accepted": [
+      "9e18d0ca3e39f2e82bbf677641b8be705401e11766a0c58a031454a30c40f3da",
+      "837b5d83da6f51f71d5ec83afb7625321a416375626721d67fc36cbb0b2224fd",
+      "c3682afacf562e213a2ac18a33c052b9b5c7e50d3956405fc87ddbd85325d8eb"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/Configuracoes.tsx": {
+    "release": "2076839a72bf87eb1c09f8dcb6e2786449bc22cef6f614ec23ff40f594806a75",
+    "accepted": [
+      null,
+      "103eeb6e46a9c59b6f8f3e08e5111754e535cfa532298a1e5c31079871c1c57d"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/DocumentSignatures.tsx": {
+    "release": "b5e4e2c7d616be3e1e0c1f490f0a5979d71262a78fc8e40139a8888f0a41c33c",
+    "accepted": [
+      null,
+      "533365c5bbf5e3365a30b777ec732ad3d678adb3918fded956b53e2a9769fe9e"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/Instituicao.tsx": {
+    "release": "ba9bdd8154710f1e683fcbaf9ca632d9447c83984a6de21924496ed2af91eb0c",
+    "accepted": [
+      "71b44f026b5c2484b3bb91fec062b73741438e8a9a9bce9ce86e8e381c7d7855"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/Login.tsx": {
+    "release": "c0f45c4d9dfe41504ba14098d71537338c31fb909a4222de8bc0f18c272744c2",
+    "accepted": [
+      "210697e0a054a8d37041be2ea808a27fae10e2f2f233faa4a6548cd9589d6a32"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/admin/PassApp.tsx": {
+    "release": "618de087bb633da1de8c3f8b42f33e3892f4a835d7ba89f894afe3eb1c3022ac",
+    "accepted": [
+      null,
+      "f108786b6c74a005c1fb78256249500926c3b69d51be952a40d3aa4e6db677c7"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/passes/ORIGEM.md": {
+    "release": "4d97153bcd778df090aa3c573b2198c0ddd875bd3add85b0f48a7808fc873311",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/passes/Workspace.tsx": {
+    "release": "9fa4f7f5b9b557c6f1510d7fcd354e9dc16111aa844e0c277822c47dd0311bea",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/passes/document.ts": {
+    "release": "fff821436b25e047c2fc677de0ae4394abc655b073249cf698ed179965cab56c",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/passes/modelos-originais.html": {
+    "release": "91b03126e70bdc661a2bcd8c6a66e4e8bf8d4ba8f97c6b31f8cbd25fed9b31a0",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/passes/render.ts": {
+    "release": "1bf09b1c9bd941cbc192d7650dd83906639163a498b22ebb7946f6eb80eec39a",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/admin/passes/runtime.mjs": {
+    "release": "20cf1a1d7eebb7c864c0f84dd302bd8cdabac33bd69fe28c1cbd53a9a7c167f8",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/comunicacao/Chat.tsx": {
+    "release": "50e53924df32038c6635e41ca621f634c9b9961ad55f3e0640f766507ce1f835",
+    "accepted": [
+      "1b1c046cf9b05adb1633a336f8848e6d1ad86ca204113ba6700916a2dda0d52d"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/comunicacao/ChatCallService.css": {
+    "release": "74ef9083388c5f37dc54aef191ed92cdcbd07a7b4317cb5fb0571884819ad3fe",
+    "accepted": [
+      "6c9aed53a328fe45d7e86343ccc086b10c3cfa988b64ea5dd466f579a2e41780"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/comunicacao/ChatCallService.tsx": {
+    "release": "b7cd952c1ade624e25c0cc368ba1cc0d6fb96745e1af23400302dd4aa34d1b58",
+    "accepted": [
+      "d94592a5cb3f820cee7b1ee9b83fa3bc19bbd14e44b72e2a775ea36702a00baa"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/comunicacao/Medlik.tsx": {
+    "release": "0621324217fb632e914d1cd2128c3174b2bfce1b94a4771f78dda10112116d6d",
+    "accepted": [
+      "584bc3af890c0efd1c70ee55cd145be52dae2ba2823d3be110cb1402f0cf25c5",
+      "44f3298e69125f82ee26325053c6aaebd04719ddcbcdd0e45b881e2f7c0f3447"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/enfermagem/Enfermagem.tsx": {
+    "release": "9f180ec5f542870b72565bc42b99afcf65e9927a6102fb090b834f20ca910ad7",
+    "accepted": [
+      "bde57a376d9a51f36d9985952117af3f524eb54fee8be6dab90b76ffcd9b16e5"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/components/ClinicalHistory.tsx": {
+    "release": "261ad1b12c6abd61e4f6f3543fd501e7e927f1c56da03f81478f648c13256a86",
+    "accepted": [
+      "e6a2fc24e27704348074c67afabe7ba5f96492727da860a7a9868fcc1d2fd3c6"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/CarePlanBoard.tsx": {
+    "release": "73d8ce36f607fc75bbe0e2cadec11484e982c4ce9e7c3589c60950ff922ee722",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/ClinicalWorkbench.tsx": {
+    "release": "7ec9ea1e39c302886d2d062692a7b520b2ca164c95a1e0b94d7ec78602dd9644",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/MedicationMap.tsx": {
+    "release": "519d842f1275a8e0f0ed921be10afb1512ebc75ec9dbd712ecf9ffc569a3511f",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/NursingModule.tsx": {
+    "release": "9231a63948e636af42ce871ecf1de3ff4bcef71aaf25408fabcba4078119c274",
+    "accepted": [
+      null,
+      "87c2e09a108611c16c0542d0ba6521b3eee6d66d62f9a122a0b0c0855860d6a2",
+      "a9cecdcd2eb1cdf91ea20d5b681f2b54d3ca3725739eae2d98e162d5ed6c3a77"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/PatientClinicalWorkspace.tsx": {
+    "release": "f33214c0805740ac4f887d93c6415e3007755a9596a471fb598395c53400b3c7",
+    "accepted": [
+      null,
+      "018b13649b0346074eb890def4b2acc8ad8f671a63eaf6e851c9083375eea5e3"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/PatientWristband.tsx": {
+    "release": "b84d070f97f4888f13621cb149e4d51b113e811bf4e2dc25053e42286aef04d2",
+    "accepted": [
+      null,
+      "596ae36d6f823f5fbac62f44565c6110395cee6cd6cfe5ca4a3a94aab99cb990"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/api.ts": {
+    "release": "50856fb2dfa32b2d27cb6c8fe99b02b5ff629b317fa3ea9ec497707868603326",
+    "accepted": [
+      null,
+      "6dc4e7919db2be32329a760b30af2675ba7c5a5d7b0610059ce9ed053b20d036"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/clinicalSelectors.ts": {
+    "release": "98fbe902801af614feddfe15e8a550263f92ad432679fac09b45e9bd24e4c7cd",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/model.ts": {
+    "release": "5a20d69ac5bec19d3455786cbbc71c87671d03cf64a6c9f3d0c1d8228ab2e6e8",
+    "accepted": [
+      null,
+      "3c458bddf5eaed502443c6266517205884b3ff75a8a3b309dc3c6a51805bc2d9"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/nursing.css": {
+    "release": "a87483263d896de00a0a619459ceb0d4f2249c70b8c6ecfbec24bac5292eb333",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/integrated/operational.css": {
+    "release": "e167dd4db0225de1b8c60c0e025b0fcb376eccbd874ecbd6c875d97bec11f0a3",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/enfermagem/pages/PrescricoesMedicas.tsx": {
+    "release": "f97e82bfe380f23bbcae64abbecadcdb9dfe400ea2b878345552985c71f26816",
+    "accepted": [
+      "1a7cae27465ecf3dad1e5e2bbda7b61cd755f0d415bedd90e56b3fb993879b8f"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/enfermagem/pages/PrescricoesPage.tsx": {
+    "release": "1cb6d169d4f9630749d87a0c4abfb8e9727501c55a5da9d9898f0baa65d25c18",
+    "accepted": [
+      "974245383a6a26b8ea8213274888b4ba41bceb8ed614bb9a968ed6bce1f909b2"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/enfermagem/pages/RegistosPanel.tsx": {
+    "release": "34514032dc7baabc99e098a2e56780c8f8cfa02da292fe80344b6a1e73e3cd52",
+    "accepted": [
+      "c926ef7b058ab74bde3f71aaa33d8d78cb72ad2253d7f472138366e2676fda10"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/farmacia/Farmacia.tsx": {
+    "release": "9c331c782ed9d4c78d874598dda9ad1905bc94e5eb8f6abca3e129ac25320035",
+    "accepted": [
+      "791dcf19f92cfee3feee9cdec91098e22a6d9e0309ebf21bc5ea551f3b48b89f",
+      "3ef69ffba781e792f6ba5612583b500fc77cfeb4f05edc7ce5b99ccfd95512ca"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/farmacia/PharmacyPOS.tsx": {
+    "release": "f9916743acc749afdd60aad584fed7868c02b63327567728bd6926e54659515d",
+    "accepted": [
+      null,
+      "125a92540959d179da75bbc9cea3913c5e7e469780a5f702c31ac6449916b5ec"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/financas/ContaCorrente.tsx": {
+    "release": "0c704b6f40a84e4b4ae20ec76a3bd320d65daade899f66deaacf405c40c3ee19",
+    "accepted": [
+      null,
+      "4d2386592c47d0c0acfec61e9fd6427dadef7f0a21abfbd9bd2b17732ad1b095"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/financas/Faturacao.tsx": {
+    "release": "27c07c44ea4c4ea37e460c097dd798090f939ba57953b60b0e16698717079f2c",
+    "accepted": [
+      "51a53857e4dd832a5f0122b5e1e9ecca3b3cec8766913788fb5c09cdc0067c93"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/financas/Registos.tsx": {
+    "release": "e4c1fdfcef244e6c87eee4475c0c59010883fd138182360eb9e3b6fe7d172a25",
+    "accepted": [
+      null,
+      "c05eedccdb22a700aa4fe082a371d3fd01f811cb953305de7c93a4c9868c51f5"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/financas/Seguradoras.tsx": {
+    "release": "c72b26e125805b4fb572c7dd4bbf9f88ba8a33d7c813c45a672bc7930b167730",
+    "accepted": [
+      "0259a3cfe8be526033466bf0e025386c27439ca5b45a32c10df50df0e0e39eab",
+      "e5a80694e5ba7bbe1ac1cd324bdc7764e3bd33cd9464351aad826621a6140ada"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/gestao/ServicosHospitalares.tsx": {
+    "release": "80d2cc4e95de11bfe459310dc18758ca28a3c560149b4af5785be77c614f038a",
+    "accepted": [
+      "e635eecdff1eab071e43048c005f4188f0c2526c7beb9b82c7b3780823d69a7d",
+      "c7e7ed938b11356f5bf784c32a578f87f6c3fe283f921ec2bdef49f3f7979061",
+      "6b389f7f2fb6d246037bfcc527ba64975df400fce0593d5ff7d15d6a93b19911"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/laboratorio/CircuitoLaboratorial.tsx": {
+    "release": "fb4f870f9de8223d3bf46557f76b33f57103301cd3c8b050a6a743212e9bce5a",
+    "accepted": [
+      null,
+      "49acdd0aefa135193c66a11d4bc1be127a457330227f88c90a9d1cda37b9fb3a",
+      "ee3a780a1dde4d2fc70f3fa7adb5f4d1779b8a6bccfbcdbd510266e57788141a"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/laboratorio/Historico.tsx": {
+    "release": "470bc49b932edf01037ed9e5231b9ecfe293ab97d2b525a04d49d5f981ea9a52",
+    "accepted": [
+      null,
+      "12b72bfa8f7f5ddacbd4dbae17b50fb3f9104d2910c43a4d485bc31a2a7b1033",
+      "87e682919f31b4e95dc79a7fd4f76c4741f48dc3851bad414e91f963fb1c52a5"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/laboratorio/LancarResultados.tsx": {
+    "release": "266ea17db8c18b298524c9c89f24bc5a27b8081ba790c7a22942cc1776ecc0c8",
+    "accepted": [
+      "199718a2a7b087108b0620c29a61789e223bcceb60c7c7dfee85cfdaa523f0cf"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/laboratorio/ResultadosProntos.tsx": {
+    "release": "b192fedce487c7ef781d65b3322fa7d8d609786ec63742c9743f4aeaefba1f79",
+    "accepted": [
+      null,
+      "37eb796e551dfba2ed591bede64488f7da809267f633f6f491c28949c7ecff32",
+      "61b75428f5c324a7dc7d21aca7f164c8b189bfb1096786cebfa1011e24df3d04",
+      "5c6d5e4f4e25e2587a5b56829ac86152feabc470e1b5f04a2818bc9d7bf2711d",
+      "69db6d3d7a493cea126ff98f16ff8137e54f92eb5bdb3eb1a4788d1f5f1bc8d0"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/laboratorio/operacional/Impressao.ts": {
+    "release": "219d39b1437057e754027259f8016b038156008fa54850675b3a561f9a73f654",
+    "accepted": [
+      null,
+      "c92e6b37223bfaf368ade425af56d5f74bcf6449d1e27bcf5f6f60dd08c28d86"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": false
+  },
+  "artifacts/lab-results/src/pages/laboratorio/operacional/Resultados.tsx": {
+    "release": "e1846455458d863d97d19db0ff05495e23d1319347ad3e0d658e7d8d40cd62f2",
+    "accepted": [
+      "3c86e834b9ce20ad9e11368e93b9d13b8622c1e0307a9b5ba303d5392147d0b2",
+      "ec36c87b7a0e2204c19751de944602b012b5f76668c749fabd858275fd09043d"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/laboratorio/relatorios.ts": {
+    "release": "c869d5dc56560e8e473adee1459fbe30c7a9a4a8d3339c09c506170782b3c912",
+    "accepted": [
+      null,
+      "442202c4f79c1c64448aaa8661485304738d575f966366956054752d16d5cb78",
+      "cdf5809b95fccc8b27e98f2d4ecb404ac449112bbd8e4dcdf277487c3c757a58",
+      "edbd8bea55861a464647da3a55bbe17daaf8672f815256deb0f067ac4a37e7f1"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/medicos/clinica/store.ts": {
+    "release": "8580681bf602fbb5358c02480c46bd05f0ca6cd1c116edb84a9611529f37dd2c",
+    "accepted": [
+      "7421487bbd419520e10ed9f511e70b2a48bd4b42cf039956a197839b59fabb46"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/medicos/clinica/triage.ts": {
+    "release": "97c8c6a1ee00bd27a756abe48a19b7cca0500217eb4d13902b0df053c120180b",
+    "accepted": [
+      "27a85e840d95a9a4f22032d06f99ee1ec859641841b445e9715aa7df20ca8ab7"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/medicos/workspace/Consulta.tsx": {
+    "release": "0e40d1323cc3973f1954e8256429f0c3acae27ad0cd5038fd3d2e2d266c95f9c",
+    "accepted": [
+      "7a5dd778276e7988fbad1fabba1c428acb20b0c84c59cefc2c3eb20b680edd31"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/medicos/workspace/DentistryAssessmentEditor.tsx": {
+    "release": "bec64374b974490d87856f7f0f7387bac7a96f588240524b7dd34380b7fee8e2",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/medicos/workspace/FilaTriagem.tsx": {
+    "release": "4ea135414aa758b1d1d16b9831c51d94aa9230fe9b10e0d82b111f1864c6167e",
+    "accepted": [
+      "6e1e8f028e5942f01b8d066da319ffb8ce02e8fe3323238a38d0448505bf8583"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/medicos/workspace/MedicoWorkspace.tsx": {
+    "release": "85bd164bd72cceac241dc61f957c7170ac62b72faaba3561143c062cd5d1b894",
+    "accepted": [
+      "dc6b8dcb7a6afc7975397c57262b3388341d81607a611cfc4b7131fefa9349a2"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/medicos/workspace/Prescricoes.tsx": {
+    "release": "78abc47e9f5ae3ad86fc5276dc1f38ab7a375a379aecc76e72e2040d411b8ea1",
+    "accepted": [
+      "9eeeb73950c18f70020d1726b199700b8b76112d3102c11be4140e42543441c7",
+      "f55079d219a050630a67eb129d6727aaf4d05273d4aef7b180902fc248691db9"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/medicos/workspace/ResumoEnfermagem.tsx": {
+    "release": "b9a23653d6c5cd4ab71c77daae24934c22c18e696c8901563b4d93808c830dd9",
+    "accepted": [
+      "09603b9486780f2e0501efe683e66910ed8a1c9faadb060621706e69d31ade0c"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/medicos/workspace/dentistry.ts": {
+    "release": "88f0327e5a316b2f183ad930d0488173d1cd31e74c562ca5131e120692a6bac6",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/pages/recepcao/Pacientes.tsx": {
+    "release": "49ac5d450890313bc707df393b61acf67ed5ed7470d852c4dd2f29ed96169c02",
+    "accepted": [
+      null,
+      "333a9f2655bb50af086ec97f3429b54101971369a972c633468b4b9f764e6c67",
+      "7cf374687d8baf7de2de9db1ef0ce8399f90011645429e8fbd84d0e033ba6bca"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/store/AppContext.tsx": {
+    "release": "7622d6185adb1fbc7382a1260cde9b907d1e0befae61fc7c92b25c3816e1663d",
+    "accepted": [
+      null,
+      "53d3028bfbf38d4592ee8be587f6b3e8eddfbaf9a0d16c69a4404ef897d0c4aa"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/styles/nv-digital.css": {
+    "release": "33d843cff9bc61184a3fb0967fa61a527683ffa484b80d94ef7c466330b04f6f",
+    "accepted": [
+      "dbc952a3f26cd15480db90d858a2ca6542aa4decb621a92037c9d3ab3e15959b"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/utils/cashLedger.ts": {
+    "release": "6792a04f45b4d03a1ba0b96a57c52998d69852a67e4826ba22dc81ca08080331",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/utils/displayReference.ts": {
+    "release": "ddec4222be1d0357a9fbffaedf77281039d1c1f477a24b16fd07bfd712872bc4",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/utils/pdfGenerator.ts": {
+    "release": "99804264925050dc93d336cfbd33219e4b2d6cb2a9336981692e494a5674bdbb",
+    "accepted": [
+      null,
+      "52bd773bf3a11f5647e71cf23860230b533196e584f411033ac47cc12da1b632",
+      "ea71d285234f7d9a977b6717237d6de43493a7368bc8adc74117a05f61a9fe2d",
+      "1ffa105a277b4bb726a77c685d3765d4e8d702b0bb161d888985c468b7fac3ff",
+      "1c26987b95a13af9fec5940330a50a7f31489413c3be6f7ea74d2b941e54dba0"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/src/utils/signatureImage.ts": {
+    "release": "1a00b80835c490c1ec0eae4f3f7367eb238a761a1a277a0072633874de9cde2f",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "artifacts/lab-results/vite.config.ts": {
+    "release": "f722eeda6dd8580131e4a503837e7c01fef67ee0fb0ed4a5b36c23922dfc79cc",
+    "accepted": [
+      "03417b581c8b614302f1e1e24bf31f0b7235d6b15010c034368e2ed4e4cf7541",
+      "aa6c3ca7b0f1f3f7e79c535eb9e32fe5123363d3a2f7fe12407a4ca6235a4f4d"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/ACTUALIZAR_NETLIFY.md": {
+    "release": "193d078552d0501c320a5943b38b56c2909b92c23fc3fecf65134219845469a3",
+    "accepted": [
+      null,
+      "695cc71e4452a1b4d818fd38a2e224026b5a4f27ca47ed0c6c7138da0119c47b",
+      "ee009bca810489d82622346b090de2fe2ccb7c9bcbac50248be31cc2eaf4bb34",
+      "bcfc9ed2d156f55004959a468482c84f56c2ae9968828c34b9660f394cb0301e",
+      "0c8b58e4650f87a88089bf40781dfc1451eb918b3b71e4de696a003b9b959a7c",
+      "53fbe285f80bb8fe5ed159b83326a34412601ee8f5e384edf5900ae8b1f4e515",
+      "2d68bc8ac31562a8bf3551524794c921058c66dd0cb40c013f8a86fd95d66648",
+      "ad3729d32b9e739e25bfac72a0d418582063c93a955584b1c9e4cd5785d21821",
+      "5328cc4d167ead5cca3a48bdd1e18082a96de780a458eed7f88e9cd362de684d",
+      "d2582953d570a2082b0526bad75c5f82163986a6426f1374f4a78e98f6a7b974"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/AGT_HOMOLOGACAO_20261029.md": {
+    "release": "66a4b69f4ea9a36b14528102a0ab6025249191070877e6b42e47758687924cbb",
+    "accepted": [
+      null,
+      "d2af647668fc8a0b3a32dc9f8018e4b3b8e30e08dbd9735119dac93bae286b86"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "docs/AGT_MATRIZ_DE_VERIFICACAO.md": {
+    "release": "9d8fdfb43da84a79e018b97564c52edeed18c846eb4c633e47ebec0f60ad7ac2",
+    "accepted": [
+      null,
+      "491794285e78fcf4c3a58a531c64524fc08cff4d20291a3a82085ea7a30c44dc"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "docs/AUDITORIA_CONSOLIDADA_20261105.md": {
+    "release": "4842a132a5fc2eac14c9764ea4a07e9af5315a20d17ffff1d89659c3261ad0fe",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/AUDITORIA_FLUXOS_20261105.md": {
+    "release": "5e9b278d138f903711658c7f8417ea56ddb5ccbbb101bc24fa518acb8e34ae12",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/CORRECOES_ASSINATURAS_IDS_20261105.md": {
+    "release": "e54c94f0b0776d9a234e84c9c0d066a32dcbdde4de044a76dab766c1e8c164ff",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/ENFERMAGEM_2.md": {
+    "release": "50fd3c15364d576dd600a688c7f61718b4c8069de7ee66dcfdfd8fc91c13263b",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "docs/ESTADO_FINAL_TREE.md": {
+    "release": "72719ee0f802764c6dfb1c30c148b39f81829252a0909e62edc3d182a50ad704",
+    "accepted": [
+      "2b4d8d41040ffe34901a7ae3f199b9a811e7e3652eba2c64181a81709d947484"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "docs/FORMACAO_FATURACAO_20261029.md": {
+    "release": "ad19f4bbd37425c027949d39f79a07ecf7020182590235afa37e73a1515ac1fa",
+    "accepted": [
+      null,
+      "7777529b498f70abe329b6b669440227a4705581049bb8128553d600e99499a9",
+      "da3a26c0b8ddb1838d82118574668cebeabf7b9aaf9a47ff45457f3f973f5db8"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "docs/INSTALACAO_E_EXECUCAO.md": {
+    "release": "5032129959b0f3043728b8416b2f55b46e46320ea39d0d74ebef49500694acc6",
+    "accepted": [
+      "215593da64f8fa3f67b51c632a7522c7432076b190418bf619a343684bd74bd0",
+      "0aa4c3a51e86b45065b9866ded5d5ae71bd78462ec550c156116874db415590e"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/LABORATORIO_NUMERACAO.md": {
+    "release": "529eb9656e305381f440562970a9aa98e8397c8af1899d991c3eaa9d2b4f4a4c",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": false
+  },
+  "docs/MEDLINK_CHAT_20261105.md": {
+    "release": "e8ec5153759f840f9b34ee87ed08032f2d67a00e5e4dec6ec404e01b35ed30ec",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/NOMEACAO_TECNICO_SUBSTITUTO_20261105.md": {
+    "release": "9057a1c67bd37bb114c666feda4cbbf63192640849f79738b2a7f1b1cb9d050f",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/NOMEACOES_LABORATORIAIS_20261105.md": {
+    "release": "038b43e80d1d8777de088920a356be78054a91666f6ee7125ee8655c2d0825be",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/NV_ASSISTENTE_IMPLEMENTADO_20261105.md": {
+    "release": "167f46ed4c048fa9e9994faa9038b19dc5a582f630e22b55fc331c4a7ff0173e",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/OTIMIZACAO_FATURACAO_E_VALIDACAO_20261105.md": {
+    "release": "b3e1c122d1c5daa609b21c5cde2e74946a960dd601e9f29d473277e815f87a4b",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/PORTA_3000_CONSOLIDACAO_20261105.md": {
+    "release": "57b6a82e0b915f7e96c4ebad8a6b580f374e9accfab8f8a49f8377973b67d422",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/POS_CATALOGO_FARMACIA_20261105.md": {
+    "release": "18e085f3f32d047246b3a209c812855a1e61bb66fa0906706633a2b72bad3f13",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "docs/POS_FARMACIA_FORMACAO.md": {
+    "release": "e27ba170e5e69e53c49676a7d4c8c6f4df2455443edaadd88c02f876a804fdd9",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "docs/VERIFICACAO.md": {
+    "release": "8656e69967dc0427c8dad4f9f9c60a45e4870ba3b38e4b6487e05151306c3507",
+    "accepted": [
+      "0d73c1e0121b6d3ade3938293958269b74e4e10454fc4fc3a5e6b6c76afdbbe7",
+      "44af8c6bf4afc74d777da1f218d18994567819a42fb24f695e50e7d08b71a46a",
+      "4315d2ba5ad04918c295b7bc510f85969fafaa19e5e1583114747cbd21ad8853"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "docs/agt-minutas/DADOS_PARA_MODELO8_MINUTA.html": {
+    "release": "a11f42abe2445ca479e38ba482edba51352280f3709f90072d5512105430e29b",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "docs/agt-minutas/DECLARACAO_PRODUTOR_MINUTA.html": {
+    "release": "425580d82248d04362307541fd9b4abab825b4942590e0759970f30cdcf3ad30",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "docs/agt-minutas/REQUERIMENTO_AGT_MINUTA.html": {
+    "release": "3ab2136c9c2136299c48003ce1c9c0cfc902a0fa1473fed91299754d55575b20",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "lab-results/vite.config.ts_1_312": {
+    "release": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "lib/api-zod/src/hospital-domain.ts": {
+    "release": "ccb8e5e69e343c916c5cd5599f121b74b04cc315a895ad7e46fadb2e3841b7ae",
+    "accepted": [
+      "aa872fe5f62335e48a9dd5b1660caa0690cfffb00606eed7e8a4b46271fe9b6b",
+      "35d1636acc4c6d6d27369ffcb4057c9e31542135b29ace4148d038669e042d9b",
+      "cf2e1294b2b8cf3d4b0fae3250a58a7c9835e72e72a0fa2bf3ac99495cefc388"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "lib/api-zod/src/hr-domain.ts": {
+    "release": "5902de260a34d444843324aabd59ce1507fe6717761fb36c896d312bf97ef517",
+    "accepted": [
+      "a018ce9e85ac7fe38a6c6d86f287a3e040239bc7654f6cc6ee34398ce31a7107"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "lib/api-zod/src/professionals.ts": {
+    "release": "7225228ccba919246f44687429252027675f5f826505b25e3690099452108331",
+    "accepted": [
+      "e3625378d061cc2a8bdf5fca0c18c4b519a496f08a4ad811cdd3d5bc6fc22b39",
+      "247e224e4452661d24a822401fe09f12cf847e90b051f410268c2d82266e9cee"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "migrations/20261028_portal_pacientes.sql": {
+    "release": "7aad366dbabe5640940e4c91c03e36bca1b51046676920699d95882c74e7cb85",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "migrations/20261029_agt_homologacao.sql": {
+    "release": "5532c90f82413611c5e73aa2938fbccb3b0f6f5a2438707e702babd81dda431c",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "migrations/20261029_enfermagem_integrada.sql": {
+    "release": "f8b8071354b145816da7ffd5639d39b5956733358f1a753ae6dd1eb95e885a66",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "migrations/20261029_rh_chefias_modelo.sql": {
+    "release": "bbf76d6725c17f0769b1f35dae536a97a7bea52ca8223b5ac938d53cf6a23ab0",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "migrations/20261029_rh_descontos_configuraveis.sql": {
+    "release": "87b4e6fe00806a3ad6471317c3ddfee4713d21cf862bf87dd717f9c932d45028",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "migrations/20261103_agt_replacement.sql": {
+    "release": "b01d3ece8a36d2980c5e1300161d7ee321725366aebd12fc9b21270cb8ecbd35",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "migrations/20261103_lab_referencias_institucionais.sql": {
+    "release": "8f4772203cfb193be18e06db80ce681608248e62c7e8eef149ae935ed574facf",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": false
+  },
+  "migrations/20261103_pos_farmacia_formacao.sql": {
+    "release": "2ec2631fa2bb64d08725e3243b51d443ee67580d1e631d533d41377dde49c174",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "migrations/20261105_fluxos_financeiros_assinaturas.sql": {
+    "release": "f413d3c437fc1eed27051afc3b9b021bca30aa731235d87861d3c6c3ca563866",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "migrations/20261105_medlink_pedidos_mensagens.sql": {
+    "release": "f8d4e73161ca6338347734bd9be437484e33d573025641a55d01f8010ac02bd7",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "migrations/20261105_nv_assistente_actions.sql": {
+    "release": "33f4f0b00009f114a324228f98b8b8343c24b11c9a0155005cc64f833bd1abc5",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "netlify.toml": {
+    "release": "ad1ac71fe6672f2c5fe48096090f4957b27600d58778b02673684da01a6d8c27",
+    "accepted": [
+      "72b5322296bbf1dcfa5b783a2478d7ddad97326404dd306a454a2e301ae1396d"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "nv-release.json": {
+    "release": "e5d397092ee286ef78851e16cf2f0eb83a549c6b63ca6a809dfc6a62f74ffa4c",
+    "accepted": [
+      null,
+      "79dc09d20a97a8f5035976800bca8bf8d74083361cc3abd1645e403d117f7c83",
+      "cbfd0645abcad2af9ee53546c28a1245c69ba1c04a47bdbb07f2fae66878bfe5",
+      "1c22258e247304a876d1453513e3b6f9b7fce9ea2f36ed24b50aba30ec8e3322",
+      "98e3a98f8a72b9d46d8af3b167925585f472a5a4ef2cfc54f4062a6e9350f86e",
+      "7f09b8c58814409cb190bc862c0a6cda8c7e3e68956fd97a5e510a0c56525014",
+      "4e3af2f44923df3d023cd06f07f7f3f8286e2181b0f24b7bcd85d71216ff5d37",
+      "76d14b81ad42ee8073d4f2e8fd2ccbb28100d0c786feef9e3ff58d50c22fa324",
+      "dcdbd28a6dd354920154939f38fe83595f5aeff85f79eb18c19154a90f8d71db",
+      "eb2b52998200a4b1df427d5b5fc1b006f06f944f9777795aef503d42ac4b7328",
+      "1f2d31db9371ebe50434f3b060d5cd0f7cba8bafc63de5c4626ae6f9ff863d42",
+      "cada3e05c7d403786b49d2d7972e544007742c59df7e6bd0f48ee62d65005a69"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "package.json": {
+    "release": "af21a036ac052279ba9d5e777bb9ff70eeb6b934cf104300ff2746ea983d98e5",
+    "accepted": [
+      "265443fecdea27e028d7ce4215fef7a54620a04b2ed8bdf8824a128992747a8f",
+      "9f08f835d7951d26496996abc4dbfed9df642b4d7618b765dcd1d2ff6abda908",
+      "ebcae4cd4517ac62ce7dd3aae1b50d368b1a57f838abe2bbdeedeb030efa04f7"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "pnpm-lock.yaml": {
+    "release": "ca4cb4eeb7f21b731d802a4f69ac7945987c89360338c190f2c699709307c784",
+    "accepted": [
+      "19628b148634b02bd1cb9f1ef9c8b0b88d9867bee5ff62b3d4976e061eaa825c",
+      "3e70a7d783535e11e7c909fededcada3263a86035ff795ec3e65f3387c0847b4"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "pnpm-workspace.yaml": {
+    "release": "88b0057296a988dee210942063af48ab713e7df94478480ea6c2c0e0478c1ca1",
+    "accepted": [
+      null,
+      "6795325aff8a5cf08da8c4b9744321d65cc8a9b3d32f3db27ca0798d47f8b074"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "resources/agt/ASSOFT_LICENSE.txt": {
+    "release": "b0ae3b4eb33bf63c99fd4c818419f19296cf03dbfde9331e5856fb192cb3ea82",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "resources/agt/PROVENIENCIA.md": {
+    "release": "262fbb40464e2140d95d7c6f50cc9c6cf6f6268b82862d8d730e27f17da8823f",
+    "accepted": [
+      null,
+      "c03190ccc271514173fe47e87eaf44b95f6386e7caf86b250ed286b86c83fc48"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "resources/agt/SAFTAO1.01_01.xsd": {
+    "release": "e9a938e1f47ac3d84ffbb26d0d95b827fc769a065c9d20533d0262c12f8c2631",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "scripts/agt/configurar.mjs": {
+    "release": "f6b9c787c4963bed1bb5390d0e0207e8541d714b666074a46c1e7158ca328e4a",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "scripts/agt/dossier.mjs": {
+    "release": "cc0d5943093e096145f127cb27291765b66019d4adb5b41b3bd93f35b649eaa4",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "scripts/agt/requirements.txt": {
+    "release": "84daf806ca8060beef346d894aff633c95babaaea4e15f3588d1afa4611c1781",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "scripts/agt/validate_xml.py": {
+    "release": "7f0bbe0ea9cc48de771bbfa47a4577aedeacf23a89ff9c709d910932971ece57",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "scripts/agt/verificar.mjs": {
+    "release": "13bd110084c6ffd29023e01ffe97679d91fd84d3959dfd944d50d59ba4a78455",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "scripts/build-netlify.mjs": {
+    "release": "8f0e43e66600c0a7d3b4a15877b8b632a2308bd6c158b148d19298570b51dd1b",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "scripts/build-pass-vendor.mjs": {
+    "release": "3c1f6224f6daec5bc59eaa44825318996f4978df8c049e2dc8b00d47f1901654",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "scripts/check-database.mjs": {
+    "release": "d2c52733508e16546614034a34342dabf24aad8d25be3ac0060853b39855fa01",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "scripts/check-netlify.mjs": {
+    "release": "31b71741a97e274d49838a98ca0fa1b57c40f57af92f433df2e985585c3ce540",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "scripts/dev.mjs": {
+    "release": "099d78d4f226f2de0f37cacc932448caf5df10a220001dfce345c41ea5c2a509",
+    "accepted": [
+      "e3ecc1de2c43e12fddfc8cc010d591bbaba8aa40ab60fe0678a078f796b74346"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "scripts/netlify-config.mjs": {
+    "release": "111eb9121b27749a020c92eda8ed713fa2a41701157178c0ee3d4102b734f9b2",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "scripts/parar-dev.mjs": {
+    "release": "d72e48170f031d8ed94496d62f074bc3bffde93a5802510dd6f3ad23ba551d54",
+    "accepted": [
+      "5931db1460f469703ef322daebdb1f9508022207ac15ee9538741d98eafc57f3"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "tests/agt-homologacao.test.ts": {
+    "release": "fe5db1cf16fbd3493c020f743a182e759e88a83f708e7aeb8d2c118e7fe657ea",
+    "accepted": [
+      null,
+      "1bb64a40811565e5e459b8e3ef1451add12b48e91fa549faf56287c78d402b89"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "tests/audit-flows.test.ts": {
+    "release": "54ee6ba95f7fc8cfa8b23af2e44cd4a9b7d12fa1b186a420dce67626e0643e2f",
+    "accepted": [
+      null,
+      "be2f338ef0f99ccc1206330bb51118e60019f52089348190d655c9705b36c0f4",
+      "ca5baecc1cac47981a2ebe908bd056d4a54a8c1447f548482352b27f49aa76eb"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "tests/billing-integrated.test.ts": {
+    "release": "6894041ed4e998b37dbe362accc6223ddb228c2746eefbbf4aa3159a03b9aa72",
+    "accepted": [
+      "245f4d6f6405b8082828331e37f158f6795830daa0fc5dc1f9d38c257885514a",
+      "32d896d38631a471201d5783eafaf3a5d6c05cbaf5ee62684c2c75ea1fdd2e07",
+      "779bd15d4cd13e58606cf77be5becb3d9fd3f792564fc532532abd12b7183b40",
+      "b1dba38b3e5aaf2d51a7a2c6090f058a1c2a334b1069e9cd6d7eeb8bab8850fd",
+      "abfcb8ca9032a1c1510b5fae2f704db88c40f028910b1e13b37f6e03560a4304"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "tests/billing-operator-input.test.ts": {
+    "release": "04e561d1f1fa6de04010881a8f969224a89b5d39f6352d965ba34adde8f2c940",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "tests/billing-print.test.ts": {
+    "release": "1902c4921710e360ef2821a98390dba2e27aed9f73cab9bf1aabaf32250c631a",
+    "accepted": [
+      "0195c4e6dbed337f10e2005f1d776fe931a1b0902e2f6268640936359d85afb5",
+      "8e7e6c816e957041d049ed8b2fcaec120b7cb7443eb5238ee105625d9df9435d"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "tests/clinical-flow.test.ts": {
+    "release": "c9c8f8249f9cd9cfbb886b91d79bbb392d4c6b28a821c6c23e5eedf4b2d2d901",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "tests/dev-startup.test.ts": {
+    "release": "cca3cfbe002fa125dfdf2b030f41871429de8535461dc9874f6e366fed4ee9d1",
+    "accepted": [
+      "687497943db02fad57b6cde4204cdf0a4a749d03ab8763df2b0e91e0ea6f0582"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "tests/display-reference.test.ts": {
+    "release": "3bc5842e4f15379b0065d74d7cef42f97ade48edaa828160b602b9e7d5557132",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "tests/hospital.test.ts": {
+    "release": "deeb1d77437f1f135da232c05b7a4675df36126ac36dd89c7eeba2d533b087ea",
+    "accepted": [
+      null,
+      "9eb478ff3487fa792666bae398c709a13f656ad46571fc0d5ffe6ba59cb21bc6",
+      "925f6f45e489c42fc91cd900028083f80205b629680fd400e2c69a54043759d7",
+      "a35ae91775d3807141386348305a0a873f17a348ae23317cbc44de8db00d47d9",
+      "63ee28c5e4ffc50b915d1027b942419362e1e7d9c7b362c971df2ff6546ac93f",
+      "fddddf86801a16a2a74e6f3774e5a746755f88f512a26f303e43fb34b3133212",
+      "3e8cc4f84a3bc804326ddeaeabc8bb99610c49de807db69273f33e2663f78fc2",
+      "cd506509616cc471966c34714e11ab079e49f3fc152c17bb3489833a095c74dd",
+      "160c350e18f94fde40f8af3adafeb9d7196bd8a26879139da6e7296ce3965d9f"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "tests/hr-export.test.ts": {
+    "release": "40ddce843df07dbb9195e3a3bd17596fb2bc95486b74128885fe9b6d79092190",
+    "accepted": [
+      "3f8d682db287d0bfaa4ab40e7b635158209e3ecf51bb2c495a3aa02f2b52001b",
+      "589dd58c292b15272941d1b7d517f0380c77368887a2cb84c34af6df9d3a976c"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "tests/hr.test.ts": {
+    "release": "c059dcb7b0412b902539e33965b1d68c3decee7c14d181c0823424c5d343518c",
+    "accepted": [
+      "3a9c53c5c1b9aba9c8c1926e44ac2233524abe64ebd1cd0a53d736c20b27d33a",
+      "5d4724c2273010d5ab2c8e730c2c147690b2308e88993d6fed0156a4acdb5147"
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "tests/lab-numbering.test.ts": {
+    "release": "910c1e0ba101e7e0786be1daf0ede612cd55d6deea69cee50f59f2287ca54a8b",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": false
+  },
+  "tests/netlify-deployment.test.ts": {
+    "release": "187652ce891a70732a3cf9290d111fdaecc8caee17cfebd7ec60214248f252c2",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "tests/nv-assistente.test.ts": {
+    "release": "b86ec8022ff0bcac02180900505fcdfb289fc0de5fd63ae977bd154b163fe7b1",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "tests/patient-portal.test.ts": {
+    "release": "9aacd4c5c963561442094e813374348b8875f5212561fb9fb53ce4b8372d2de5",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": false,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "tests/pharmacy-pos.test.ts": {
+    "release": "e74c0843099afdb10d2326af0137833a014c3229b8cd6da488a0863223263da8",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": false,
+    "desde_laboratorio": false
+  },
+  "tests/pos-catalog.test.ts": {
+    "release": "e61522dd45944b2c1bb6d5eb97f3d105283038ef159ded73e6383a506ede993e",
+    "accepted": [
+      null
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  },
+  "tests/professionals.test.ts": {
+    "release": "2a8709bd795e19d595de94ad853a879f63654bae6f687d0a345063f0d602b8e5",
+    "accepted": [
+      "28c972cc255c134572b4209448c731634dc8cf3ec8b22e53fdc9588d3c5ddd66"
+    ],
+    "mode": 420,
+    "desde_consolidado": true,
+    "desde_netlify": true,
+    "desde_laboratorio": true
+  }
+}

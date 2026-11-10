@@ -1,0 +1,26 @@
+/* A mesma paleta na lista, calendário, selecção em lote, grelha e legenda.
+   As regras ficam restritas a turnos; o tema global não apaga as cores. */
+.hr-workspace [data-roster-shift],
+.nv-roster-editor [data-roster-shift] {
+  background: var(--roster-shift-bg) !important;
+  color: var(--roster-shift-fg) !important;
+  border-color: var(--roster-shift-fg) !important;
+  opacity: 1 !important;
+}
+.hr-workspace [data-roster-shift] > span,
+.nv-roster-editor [data-roster-shift] > span {
+  color: inherit !important;
+}
+.hr-workspace [data-roster-shift][data-roster-selected="true"],
+.nv-roster-editor [data-roster-shift][data-roster-selected="true"] {
+  outline: 2px solid #0891b2;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px #ffffff;
+}
+@media print {
+  .hr-workspace [data-roster-shift],
+  .nv-roster-editor [data-roster-shift] {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

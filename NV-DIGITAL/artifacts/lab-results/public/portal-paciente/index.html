@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="color-scheme" content="light" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'"
+    />
+    <title>Portal do Paciente · NVUALASOFT</title>
+    <link rel="stylesheet" href="./portal.css" />
+    <script type="module" src="./portal.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Saltar para o conteúdo</a>
+    <div id="app">
+      <main id="main" class="loading">A ligar ao portal…</main>
+    </div>
+    <div id="feedback" role="status" aria-live="polite"></div>
+    <dialog id="detail">
+      <div id="detail-content"></div>
+      <button id="close-detail" class="secondary">Fechar</button
+      ><button id="print-detail">Imprimir / guardar PDF</button>
+    </dialog>
+    <noscript
+      >Active JavaScript para comunicar com o servidor do NVUALASOFT.</noscript
+    >
+  </body>
+</html>

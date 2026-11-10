@@ -1,0 +1,25 @@
+{
+  "name": "@workspace/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema/index.ts"
+  },
+  "scripts": {
+    "push": "node -e \"console.error('Use pnpm db:migrate na raiz. O push autom\u00e1tico foi desactivado para preservar os dados.');process.exit(1)\"",
+    "push-force": "node -e \"console.error('Use pnpm db:migrate na raiz. O push autom\u00e1tico foi desactivado para preservar os dados.');process.exit(1)\""
+  },
+  "dependencies": {
+    "drizzle-orm": "catalog:",
+    "drizzle-zod": "^0.8.3",
+    "pg": "^8.22.0",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/pg": "^8.20.0",
+    "drizzle-kit": "^0.31.10"
+  }
+}

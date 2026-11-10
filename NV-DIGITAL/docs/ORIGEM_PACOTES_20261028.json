@@ -1,0 +1,35 @@
+{
+  "data_entrega": "2026-10-28",
+  "pacotes_aplicados_por_ordem": [
+    {
+      "nome": "NVUALASOFT_Chat_DB.zip",
+      "library_file_id": "libfile_937c13b6215881918bfaa03a9d913334",
+      "data_utc_precisao_minuto": "2026-10-27T16:38:00Z",
+      "bytes": 61424,
+      "sha256": "9006a67df129588f7cee6516c63499ff336cc00f9f6ff83590abc24c0a0f10ef"
+    },
+    {
+      "nome": "NVUALASOFT_Chamadas.zip",
+      "library_file_id": "libfile_75af70d1dbdc8191b0021ea6466231f4",
+      "data_utc_precisao_minuto": "2026-10-27T18:01:00Z",
+      "bytes": 73535,
+      "sha256": "11c3d87a0bb81767e6b12e8457c0f92b4fa668b7960863ada80f81266195399b"
+    },
+    {
+      "nome": "NVUALASOFT_Alertas_Chamadas.zip",
+      "library_file_id": "libfile_6b73a51fafd0819192cac58b99c1de04",
+      "data_utc_precisao_minuto": "2026-10-27T18:36:00Z",
+      "bytes": 18846,
+      "sha256": "00144ef42b7d3fdbee01160dc71e98c764d90d189abf43e19374060cdcaee57a"
+    },
+    {
+      "nome": "NVUALASOFT_Notificacoes.zip",
+      "library_file_id": "libfile_41e40d6bbbc88191b2cc5386bce307ad",
+      "data_utc_precisao_minuto": "2026-10-27T19:01:00Z",
+      "bytes": 34270,
+      "sha256": "689ea468f0502d50eb1bb133da71e8993e9c7d8effef8f25f9a64127c98e941e"
+    }
+  ],
+  "sql_original_preservado": true,
+  "ajuste_integracao": "notifications.ts reconhece versões manuais libertadas de nv_lab_report_versions; teste acrescido."
+}

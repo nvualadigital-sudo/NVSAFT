@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-27T07:31:25.524Z",
+  "environment": "Processo compilado local; ligação fictícia; sem dados de produção",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "path": "/api/healthz",
+      "status": 200,
+      "expected": 200
+    },
+    {
+      "path": "/api/hospital/workspace",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/api/hospital/lab/catalog",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/api/hospital/access",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/api/hospital/services/queimados",
+      "status": 401,
+      "expected": 401
+    },
+    {
+      "path": "/api/ai/status",
+      "status": 401,
+      "expected": 401
+    }
+  ]
+}

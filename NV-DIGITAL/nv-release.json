@@ -1,0 +1,15 @@
+{
+  "version": "2026.11.05-netlify.10",
+  "migrations": {
+    "20261029_enfermagem_integrada.sql": "f8b8071354b145816da7ffd5639d39b5956733358f1a753ae6dd1eb95e885a66",
+    "20261029_rh_descontos_configuraveis.sql": "87b4e6fe00806a3ad6471317c3ddfee4713d21cf862bf87dd717f9c932d45028",
+    "20261103_agt_replacement.sql": "b01d3ece8a36d2980c5e1300161d7ee321725366aebd12fc9b21270cb8ecbd35",
+    "20261103_pos_farmacia_formacao.sql": "2ec2631fa2bb64d08725e3243b51d443ee67580d1e631d533d41377dde49c174",
+    "20261103_lab_referencias_institucionais.sql": "8f4772203cfb193be18e06db80ce681608248e62c7e8eef149ae935ed574facf",
+    "20261029_agt_homologacao.sql": "5532c90f82413611c5e73aa2938fbccb3b0f6f5a2438707e702babd81dda431c",
+    "20261029_rh_chefias_modelo.sql": "bbf76d6725c17f0769b1f35dae536a97a7bea52ca8223b5ac938d53cf6a23ab0",
+    "20261105_fluxos_financeiros_assinaturas.sql": "f413d3c437fc1eed27051afc3b9b021bca30aa731235d87861d3c6c3ca563866",
+    "20261105_medlink_pedidos_mensagens.sql": "f8d4e73161ca6338347734bd9be437484e33d573025641a55d01f8010ac02bd7",
+    "20261105_nv_assistente_actions.sql": "33f4f0b00009f114a324228f98b8b8343c24b11c9a0155005cc64f833bd1abc5"
+  }
+}

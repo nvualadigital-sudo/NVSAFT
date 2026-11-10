@@ -1,0 +1,553 @@
+.nv-call-backdrop {
+  --call-accent: #42dfad;
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(3, 13, 25, 0.78);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+}
+.nv-call-card {
+  width: min(880px, 100%);
+  max-height: calc(100dvh - 48px);
+  overflow: auto;
+  border: 1px solid #ffffff20;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #184a51, #102b39 70%);
+  box-shadow: 0 32px 120px #0008;
+  position: relative;
+}
+.nv-call-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #ffffff12;
+}
+.nv-call-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #9cb5cb;
+}
+.nv-call-brand svg {
+  color: var(--call-accent);
+}
+.nv-call-tools {
+  display: flex;
+  gap: 8px;
+}
+.nv-call-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ffffff22;
+  border-radius: 50%;
+  background: #ffffff0a;
+  color: #dce8f3;
+  cursor: pointer;
+}
+.nv-call-icon:hover {
+  background: #ffffff22;
+}
+.nv-call-icon svg {
+  width: 17px;
+  height: 17px;
+}
+.nv-call-center {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 44px 24px 28px;
+  overflow: hidden;
+}
+.nv-call-avatar {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 34px;
+  background: linear-gradient(145deg, #386a8b, #24516b);
+  box-shadow: 0 0 0 12px #ffffff06;
+  font-size: 34px;
+  font-weight: 650;
+  color: #e4fff5;
+  position: relative;
+  margin-bottom: 26px;
+  flex-shrink: 0;
+}
+.nv-call-ringing .nv-call-avatar:before,
+.nv-call-ringing .nv-call-avatar:after {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border: 1px solid #42dfad55;
+  border-radius: 42px;
+  animation: nv-call-pulse 2.8s ease-out infinite;
+}
+.nv-call-ringing .nv-call-avatar:after {
+  animation-delay: 1.4s;
+}
+.nv-call-name {
+  font-size: clamp(23px, 4vw, 32px);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.nv-call-subtitle {
+  font-size: 14px;
+  color: #a7bfd2;
+  margin: 10px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nv-call-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--call-accent);
+  box-shadow: 0 0 12px #42dfad80;
+}
+.nv-call-ringing .nv-call-dot {
+  animation: nv-call-blink 1.4s infinite;
+}
+.nv-call-time {
+  margin: 12px 0 0;
+  color: var(--call-accent);
+  font-variant-numeric: tabular-nums;
+  font-size: 19px;
+  letter-spacing: 0.08em;
+}
+.nv-call-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid #ffffff22;
+  border-radius: 20px;
+  color: #bed2e3;
+  font-size: 11px;
+  margin-bottom: 26px;
+}
+.nv-call-eyebrow svg {
+  width: 13px;
+  height: 13px;
+}
+.nv-call-stage {
+  position: relative;
+  margin: 0 24px 10px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #03131f;
+  min-height: 260px;
+}
+.nv-call-stage video.nv-call-remote {
+  width: 100%;
+  max-height: 50dvh;
+  min-height: 260px;
+  object-fit: contain;
+  display: block;
+}
+.nv-call-stage .nv-call-local {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 140px;
+  aspect-ratio: 4/3;
+  background: #173b50;
+  border: 1px solid #ffffff44;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.nv-call-local video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+.nv-call-local span {
+  position: absolute;
+  bottom: 5px;
+  left: 8px;
+  font-size: 10px;
+  text-shadow: 0 1px 3px #000;
+}
+.nv-call-audio {
+  display: none !important;
+}
+.nv-call-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 22px;
+  padding: 18px 24px 24px;
+}
+.nv-call-action {
+  border: 0;
+  background: none;
+  color: #c8dae8;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  min-width: 66px;
+}
+.nv-call-action:disabled {
+  opacity: 0.45;
+  cursor: wait;
+}
+.nv-call-action > span:first-child {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 1px solid #ffffff25;
+  background: #ffffff0d;
+  transition:
+    transform 0.15s,
+    background 0.15s;
+}
+.nv-call-action:hover > span:first-child {
+  transform: translateY(-2px);
+  background: #ffffff25;
+}
+.nv-call-action svg {
+  width: 23px;
+  height: 23px;
+}
+.nv-call-action.nv-call-red > span:first-child {
+  background: #ef4c5b;
+  border-color: #ef4c5b;
+  color: white;
+  box-shadow: 0 6px 20px #ef4c5b22;
+}
+.nv-call-action.nv-call-green > span:first-child {
+  background: #22c78b;
+  border-color: #22c78b;
+  color: #052c23;
+  box-shadow: 0 6px 24px #22c78b33;
+}
+.nv-call-action.nv-call-off > span:first-child {
+  background: #d7e6ee;
+  color: #123047;
+}
+.nv-call-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 13px 24px;
+  border-top: 1px solid #ffffff10;
+  font-size: 11px;
+  color: #88a5bb;
+}
+.nv-call-footer svg {
+  width: 13px;
+  height: 13px;
+}
+.nv-call-warning {
+  margin: 0 24px 16px;
+  padding: 11px 14px;
+  border: 1px solid #f4d89436;
+  border-radius: 12px;
+  color: #f7dda4;
+  background: #f4d89409;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.nv-call-warning button {
+  margin-left: 10px;
+  border: 0;
+  border-radius: 6px;
+  background: #f7dda4;
+  color: #38270c;
+  padding: 5px 9px;
+  cursor: pointer;
+}
+.nv-call-error {
+  color: #fecaca;
+  border-color: #ef4c5b55;
+  background: #ef4c5b0a;
+}
+.nv-call-volume {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 24px 15px;
+  color: #9eb9cc;
+  font-size: 11px;
+}
+.nv-call-volume svg {
+  width: 15px;
+  height: 15px;
+}
+.nv-call-volume input {
+  width: 120px;
+  accent-color: #42dfad;
+}
+.nv-call-volume button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  padding: 4px;
+}
+.nv-call-volume output {
+  min-width: 28px;
+}
+.nv-call-alert-toggle {
+  position: fixed;
+  right: 18px;
+  bottom: 104px;
+  z-index: 2500;
+  border: 1px solid #bcd0de;
+  background: #fff;
+  color: #163b56;
+  border-radius: 22px;
+  box-shadow: 0 5px 25px #0002;
+  padding: 9px 13px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  font: 12px system-ui;
+}
+.nv-call-alert-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+.nv-call-alert-toggle i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #eaa72d;
+}
+.nv-call-settings {
+  position: fixed;
+  right: 18px;
+  bottom: 150px;
+  z-index: 3100;
+  width: min(330px, calc(100vw - 36px));
+  padding: 20px;
+  border: 1px solid #cbd9e4;
+  border-radius: 18px;
+  background: white;
+  color: #14334b;
+  box-shadow: 0 12px 60px #0003;
+  font: 13px system-ui;
+}
+.nv-call-settings header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.nv-call-settings header button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: #315169;
+}
+.nv-call-settings p {
+  line-height: 1.6;
+  margin: 8px 0;
+}
+.nv-call-settings button.nv-call-enable {
+  display: block;
+  width: 100%;
+  margin-top: 9px;
+  border: 0;
+  border-radius: 9px;
+  padding: 10px;
+  background: #174e71;
+  color: white;
+  cursor: pointer;
+}
+.nv-call-settings button.nv-call-test {
+  background: #e9f1f6;
+  color: #174e71;
+}
+.nv-call-settings small {
+  display: block;
+  margin-top: 9px;
+  color: #577186;
+  line-height: 1.5;
+}
+.nv-call-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3200;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: calc(100vw - 32px);
+  padding: 14px 18px;
+  background: #133c58;
+  color: white;
+  border: 1px solid #ffffff33;
+  border-radius: 14px;
+  box-shadow: 0 8px 40px #0004;
+  font: 13px system-ui;
+}
+.nv-call-toast button {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+.nv-call-toast svg {
+  width: 18px;
+  height: 18px;
+}
+.nv-call-backdrop.nv-call-mini {
+  inset: auto 18px 158px auto;
+  width: min(350px, calc(100vw - 36px));
+  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
+  display: block;
+}
+.nv-call-mini .nv-call-card {
+  border-radius: 20px;
+}
+.nv-call-mini .nv-call-top {
+  padding: 12px 16px;
+}
+.nv-call-mini .nv-call-center {
+  min-height: 0;
+  padding: 20px 12px 6px;
+}
+.nv-call-mini .nv-call-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 17px;
+  font-size: 18px;
+  margin-bottom: 12px;
+  box-shadow: none;
+}
+.nv-call-mini .nv-call-avatar:before,
+.nv-call-mini .nv-call-avatar:after {
+  inset: -5px;
+  border-radius: 20px;
+}
+.nv-call-mini .nv-call-name {
+  font-size: 18px;
+}
+.nv-call-mini .nv-call-eyebrow,
+.nv-call-mini .nv-call-stage,
+.nv-call-mini .nv-call-footer,
+.nv-call-mini .nv-call-volume {
+  display: none;
+}
+.nv-call-mini .nv-call-actions {
+  padding: 16px;
+  gap: 12px;
+}
+.nv-call-mini .nv-call-action > span:first-child {
+  width: 43px;
+  height: 43px;
+}
+.nv-call-mini .nv-call-warning {
+  margin: 8px 12px;
+  font-size: 11px;
+}
+.nv-call-mini .nv-call-subtitle {
+  font-size: 12px;
+}
+@keyframes nv-call-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+@keyframes nv-call-blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+@media (max-width: 600px) {
+  .nv-call-backdrop {
+    padding: 10px;
+  }
+  .nv-call-card {
+    max-height: calc(100dvh - 20px);
+    border-radius: 22px;
+  }
+  .nv-call-top {
+    padding: 16px;
+  }
+  .nv-call-brand {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+  .nv-call-center {
+    min-height: 250px;
+    padding: 32px 16px 20px;
+  }
+  .nv-call-actions {
+    gap: 12px;
+    padding: 18px 10px;
+  }
+  .nv-call-action {
+    min-width: 55px;
+  }
+  .nv-call-action > span:first-child {
+    width: 52px;
+    height: 52px;
+  }
+  .nv-call-stage {
+    margin: 0 12px 10px;
+    min-height: 200px;
+  }
+  .nv-call-local {
+    width: 100px !important;
+  }
+  .nv-call-warning {
+    margin: 0 14px 12px;
+  }
+  .nv-call-alert-toggle {
+    bottom: 94px;
+  }
+  .nv-call-settings {
+    bottom: 140px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nv-call-ringing .nv-call-avatar:before,
+  .nv-call-ringing .nv-call-avatar:after,
+  .nv-call-dot {
+    animation: none !important;
+  }
+  .nv-call-action > span:first-child {
+    transition: none;
+  }
+}

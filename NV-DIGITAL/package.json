@@ -1,0 +1,42 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
+    "build": "pnpm run typecheck && pnpm --filter @workspace/api-server build && pnpm --filter @workspace/lab-results build",
+    "typecheck:libs": "tsc --build",
+    "typecheck": "pnpm exec tsc -b --force && pnpm --filter @workspace/api-server typecheck && pnpm --filter @workspace/lab-results typecheck",
+    "dev": "node scripts/dev.mjs",
+    "start": "node --env-file-if-exists=.env --enable-source-maps artifacts/api-server/dist/index.mjs",
+    "test": "NODE_ENV=test SESSION_SECRET=automated-tests-only-secret-32-characters DATABASE_URL=postgresql://test:test@127.0.0.1/test node --import tsx --test --test-concurrency=2 tests/*.test.ts",
+    "db:migrate": "node scripts/migrate-direct.mjs",
+    "backup": "node scripts/backup.mjs",
+    "install:app": "node scripts/install-app.mjs",
+    "agt:configurar": "node scripts/agt/configurar.mjs",
+    "agt:verificar": "node --import tsx scripts/agt/verificar.mjs",
+    "agt:dossier": "node --import tsx scripts/agt/dossier.mjs",
+    "build:netlify": "node scripts/build-netlify.mjs",
+    "check:netlify": "node scripts/check-netlify.mjs",
+    "db:status": "node scripts/check-database.mjs"
+  },
+  "private": true,
+  "dependencies": {
+    "@replit/connectors-sdk": "^0.4.1",
+    "pg": "^8.22.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.10",
+    "@types/supertest": "^7.2.1",
+    "drizzle-orm": "0.45.2",
+    "express": "^5.2.1",
+    "prettier": "^3.8.4",
+    "supertest": "^7.3.1",
+    "tsx": "catalog:",
+    "typescript": "~5.9.3"
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "pnpm@11.25.0"
+}

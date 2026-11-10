@@ -1,0 +1,4 @@
+PASS lateral: actual incoming call, rejection, 12-second test setting, alert priority, controls, colours, assistant, chat and institution scope
+PASS cabecalho: actual incoming call, rejection, 12-second test setting, alert priority, controls, colours, assistant, chat and institution scope
+PASS rodape: actual incoming call, rejection, 12-second test setting, alert priority, controls, colours, assistant, chat and institution scope
+PASS cartao: actual incoming call, rejection, 12-second test setting, alert priority, controls, colours, assistant, chat and institution scope

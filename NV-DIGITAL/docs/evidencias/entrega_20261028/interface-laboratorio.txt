@@ -1,0 +1,1 @@
+PASS: supplied layout / colours / units / references; template edits and partial-import failures; ready-result prefill; adding exams keeps values; reason and fixed patient; confirmed draft and disabled printing; external editing opens the same report; failed writes preserve data and retry key; read-only medical profile.

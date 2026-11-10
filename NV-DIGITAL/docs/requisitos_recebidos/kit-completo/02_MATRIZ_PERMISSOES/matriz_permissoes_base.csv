@@ -1,0 +1,24 @@
+﻿Área/Módulo,Acesso indicativo,Regra/limite
+Dashboard e indicadores,Por função e escopo,Agregados; sem dados fictícios
+Pacientes e arquivo clínico,Mínimo necessário,Acesso contextual e auditado
+Agendamentos,Por serviço e função,Receção e profissionais autorizados
+Atendimento clínico único,Médico credenciado; outros conforme cuidado,Todas as especialidades no mesmo módulo
+Enfermagem,Enfermagem e profissionais autorizados,Ações conforme competência
+Urgência e emergência,Equipa autorizada,Protocolos institucionais aprovados
+Internamento e leitos,Equipa de cuidado e administrativos limitados,Separar informação clínica e operacional
+Bloco operatório/maternidade,Equipa autorizada,Acesso por episódio e competência
+Laboratório,Setor e competência,"Amostras, resultados, validação e versões"
+Hemoterapia,Profissionais autorizados,Rastreabilidade e dupla verificação quando exigida
+Imagiologia,Profissionais autorizados,Imagens e relatórios protegidos
+Farmácia,Farmácia e prescritores conforme ação,"Dispensa, lotes e rastreabilidade"
+Stock e compras,Por armazém/serviço e função,Aprovação segregada quando exigida
+Faturação e caixa,Financeiro e funções delegadas,Autoaprovação proibida onde aplicável
+Convênios e seguros,Financeiro/autorizados,Dados mínimos necessários
+Recursos humanos,RH e acesso próprio,Dados pessoais restritos
+Equipamentos/manutenção,Técnicos autorizados,Sem acesso clínico automático
+Documentos e arquivo,Por tipo de documento,Controlo de versões e exportações
+Relatórios e exportações,"Por função, finalidade e escopo",Auditoria e minimização
+Utilizadores e permissões,Administrador autorizado/aprovador,Sem acesso clínico automático
+Configurações,Delegação por domínio,Alterações auditadas
+Agente IA,Igual às permissões do utilizador,Sem ação clínica/financeira autónoma
+Chat,Participantes autorizados,Não substitui registo clínico

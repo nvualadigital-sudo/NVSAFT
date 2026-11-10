@@ -1,0 +1,43 @@
+$ NODE_ENV=test SESSION_SECRET=automated-tests-only-secret-32-characters DATABASE_URL=postgresql://test:test@127.0.0.1/test node --import tsx --test tests/*.test.ts
+✔ encrypted backup round trip rejects wrong keys and tampered archives (195.23344ms)
+✔ revenue totals exclude receipts, proformas and drafts while retaining credit notes and cross-month dates (1.340528ms)
+✔ authentication and tenant isolation for workspace, library and pharmacy (3312.731286ms)
+✔ concurrent-terminal stale version and unauthorized profession cannot overwrite clinical data (11.233779ms)
+✔ library ownership is enforced on folders, content, rename and trash (131.42745ms)
+✔ chat only reaches colleagues in the same institution and direct messages stay private (56.623864ms)
+✔ MEDLIK only exposes authorized shared text and revocation blocks future reading (40.290286ms)
+✔ database foreign key rejects a result associated with another company patient (2.320137ms)
+✔ pharmacy dispenses with prescription balance and stock in one transaction; retry cannot duplicate (74.74391ms)
+✔ reception checks patient institution and persists one arrival per request (25.758527ms)
+✔ logout revokes a real JWT session on the server (20.633345ms)
+✔ billing assigns unique numbers, recalculates totals and does not duplicate a retried paid invoice (36.443853ms)
+✔ a partner cannot read a result from another institution or assign a result to its request (21.729544ms)
+✔ legacy results with a missing patient are retained in the database and withheld from the clinical list (14.829932ms)
+✔ patient and administrative classification commit together and reject another institution or a stale revision (25.552332ms)
+✔ laboratory stock does not silently clamp overselling and a rejected movement leaves no trace (16.332971ms)
+✔ a receipt cannot mark a larger invoice paid and the original issuer is snapshotted (15.336368ms)
+✔ institutional grants require independent verified credentials and cannot cross tenants (92.337393ms)
+✔ laboratory catalog requires approval by another accredited professional and snapshots its version (82.556969ms)
+✔ sample identity, print/reprint and receipt transitions enforce patient matching and idempotency (231.554779ms)
+✔ sample acceptance prevents insufficient volume, tracks aliquots and preserves rejected recollections (185.609777ms)
+✔ lab results require current quality control and independent technical and clinical validators (150.987185ms)
+✔ critical communication requires readback and does not equate notification with acknowledgement (40.078244ms)
+✔ specialised services are opt-in, restrict epidemiology and preserve immutable completed versions (106.109255ms)
+✔ private chat attachments cannot be downloaded by third parties or another institution (50.694377ms)
+✔ audit chain detects tampering and never returns another institution's events (12.725452ms)
+✔ server-side scheduling rejects overlap, foreign patients and deletion without cancellation (29.055757ms)
+✔ sensitive workspace and reports are minimised by profession and export checks the current result version (29.501691ms)
+✔ administrative account listings never expose branch passwords to staff or administrators (12.844136ms)
+✔ financial exports are tenant-scoped, minimised and audited on the server (24.702428ms)
+✔ professional suspension revokes active sessions and delegated permissions immediately (9.938664ms)
+✔ document import uses actual CSV/JSON values and never fabricates a patient, price or stock (2.651653ms)
+✔ versioned migrations install an empty database, replay safely and roll back a failing change (3515.65583ms)
+✔ migration parsing preserves semicolons in quoted SQL and procedural bodies (1.2246ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5814.969529

@@ -1,0 +1,32 @@
+services:
+  turn:
+    image: coturn/coturn:4.18.0
+    restart: unless-stopped
+    network_mode: host
+    command:
+      - -n
+      - --log-file=stdout
+      - --no-cli
+      - --fingerprint
+      - --use-auth-secret
+      - --static-auth-secret=${TURN_SECRET:?Defina TURN_SECRET}
+      - --realm=${TURN_REALM:?Defina TURN_REALM}
+      - --external-ip=${TURN_PUBLIC_IP:?Defina TURN_PUBLIC_IP}
+      - --listening-port=3478
+      - --min-port=49160
+      - --max-port=49200
+      - --user-quota=8
+      - --total-quota=100
+      - --max-bps=1048576
+      - --no-multicast-peers
+      - --denied-peer-ip=0.0.0.0-0.255.255.255
+      - --denied-peer-ip=10.0.0.0-10.255.255.255
+      - --denied-peer-ip=127.0.0.0-127.255.255.255
+      - --denied-peer-ip=169.254.0.0-169.254.255.255
+      - --denied-peer-ip=172.16.0.0-172.31.255.255
+      - --denied-peer-ip=192.168.0.0-192.168.255.255
+      - --denied-peer-ip=::1
+      - --denied-peer-ip=fc00::-fdff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+      - --denied-peer-ip=fe80::-febf:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+      - --no-tls
+      - --no-dtls

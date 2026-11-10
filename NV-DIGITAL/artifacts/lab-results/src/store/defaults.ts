@@ -1,0 +1,15 @@
+export const defaultConfig = {
+  nomeClinica: "Laboratório de Análises Clínicas",
+  nif: "",
+  endereco: "Luanda, Angola",
+  telefone: "900 000 000",
+  email: "laboratorio@email.com",
+  directorTecnico: "Director Técnico",
+  logoData: "",
+  assinaturaData: "",
+  serie: "A",
+  proximoNumeroFatura: 1,
+  ivaTaxa: 14,
+  moeda: "AOA",
+  website: "",
+};
