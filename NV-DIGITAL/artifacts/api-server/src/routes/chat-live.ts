@@ -275,6 +275,8 @@ export function createChatLive(pool: Pool = productionPool) {
     if (key === "settings") {
       if (typeof b.dark === "boolean") patch.dark = b.dark;
       if (["pt", "en", "fr"].includes(b.language)) patch.language = b.language;
+      if (["default", "green", "mint", "blue", "purple", "rose", "orange", "slate", "cream"].includes(b.bubbleColor))
+        patch.bubbleColor = b.bubbleColor;
     } else {
       for (const k of ["muted", "blocked", "pinned", "hidden"])
         if (typeof b[k] === "boolean") patch[k] = b[k];
@@ -287,6 +289,8 @@ export function createChatLive(pool: Pool = productionPool) {
           /^data:image\/(png|jpeg);base64,[A-Za-z0-9+/=]+$/.test(b.wallpaper))
       )
         patch.wallpaper = b.wallpaper;
+      if (["default", "green", "mint", "blue", "purple", "rose", "orange", "slate", "cream"].includes(b.bubbleColor))
+        patch.bubbleColor = b.bubbleColor;
       if (b.clear === true) patch.cutoff = new Date().toISOString();
     }
     await pool.query(

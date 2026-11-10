@@ -54,6 +54,7 @@ interface Chat {
   hidden?: boolean;
   creator?: string;
   wallpaper?: string;
+  bubbleColor?: string;
 }
 
 interface Message {
@@ -147,7 +148,10 @@ const TRANSLATIONS: Record<
     blockContact: "Bloquear contacto",
     unblockContact: "Desbloquear contacto",
     wallpaperTitle: "Papel de parede",
-    wallpaperInfo: "O papel de parede será aplicado apenas a esta conversa.",
+    wallpaperInfo: "Personalize o fundo e a cor das mensagens desta conversa.",
+    bubbleColor: "Cor das mensagens enviadas",
+    bubbleDefault: "Cor padrão",
+    bubbleAllChats: "Usar esta cor como padrão nas outras conversas",
     applyingTo: "A aplicar a",
     colors: "Cores",
     patterns: "Padrões",
@@ -365,7 +369,10 @@ const TRANSLATIONS: Record<
     blockContact: "Block contact",
     unblockContact: "Unblock contact",
     wallpaperTitle: "Wallpaper",
-    wallpaperInfo: "Wallpaper will be applied to this chat only.",
+    wallpaperInfo: "Personalize the wallpaper and message color for this chat.",
+    bubbleColor: "Sent message color",
+    bubbleDefault: "Default color",
+    bubbleAllChats: "Use this color as default in other chats",
     applyingTo: "Applying to",
     colors: "Colors",
     patterns: "Patterns",
@@ -582,7 +589,10 @@ const TRANSLATIONS: Record<
     unblockContact: "Débloquer le contact",
     wallpaperTitle: "Fond d'écran",
     wallpaperInfo:
-      "Le fond d'écran sera appliqué uniquement à cette discussion.",
+      "Personnalisez le fond d'écran et la couleur des messages de cette discussion.",
+    bubbleColor: "Couleur des messages envoyés",
+    bubbleDefault: "Couleur par défaut",
+    bubbleAllChats: "Utiliser cette couleur par défaut dans les autres discussions",
     applyingTo: "Appliquer à",
     colors: "Couleurs",
     patterns: "Motifs",
@@ -1786,6 +1796,19 @@ const WALLPAPERS = [
       "radial-gradient(circle at 50% 50%, rgba(100,100,255,0.05) 0%, transparent 50%)",
   },
 ];
+
+// As cores são preferências visuais individuais; não alteram as mensagens nem as cores do destinatário.
+const BUBBLE_COLOURS = [
+  { id: "default", color: "#116b62", text: "#ffffff", label: "Institucional" },
+  { id: "green", color: "#075e54", text: "#ffffff", label: "Verde escuro" },
+  { id: "mint", color: "#d9fdd3", text: "#183629", label: "Verde claro" },
+  { id: "blue", color: "#2257ae", text: "#ffffff", label: "Azul" },
+  { id: "purple", color: "#6941a5", text: "#ffffff", label: "Roxo" },
+  { id: "rose", color: "#9d336c", text: "#ffffff", label: "Rosa" },
+  { id: "orange", color: "#a64d24", text: "#ffffff", label: "Laranja" },
+  { id: "slate", color: "#374151", text: "#ffffff", label: "Cinza" },
+  { id: "cream", color: "#fff3c4", text: "#433a22", label: "Creme" },
+] as const;
 
 const EMOJI_CATEGORIES = [
   {
@@ -3029,7 +3052,9 @@ const CHAT_CSS = `.laicisa-chat{
 .laicisa-chat .messages-area{padding:24px clamp(14px,4vw,54px);gap:9px;background:var(--WDS-background-wash-inset)}
 .laicisa-chat .message{border-radius:16px;padding:12px 14px;max-width:min(75%,550px);line-height:1.5;box-shadow:0 2px 10px rgba(13,49,50,.08)}
 .laicisa-chat .message.received{border:1px solid var(--WDS-lines-divider);border-top-left-radius:5px}
-.laicisa-chat .message.sent{background:#116b62;border-top-right-radius:5px}
+.laicisa-chat .message.sent{background:var(--nv-chat-sent-background,#116b62);color:var(--nv-chat-sent-text,#fff);border-top-right-radius:5px}
+.laicisa-chat .message.sent .message-meta{color:var(--nv-chat-sent-text,#fff);opacity:.78}
+.laicisa-chat .message.sent .message-meta svg{fill:var(--nv-chat-sent-text,#fff)}
 .laicisa-chat .composer{background:var(--WDS-surface-default);border-top:1px solid var(--WDS-lines-divider);padding:12px 16px}
 .laicisa-chat .composer-input-wrap{border:1px solid var(--WDS-lines-divider);border-radius:14px;background:var(--WDS-surface-emphasized)}
 .laicisa-chat .date-separator{background:var(--WDS-surface-default);border:1px solid var(--WDS-lines-divider);color:var(--WDS-content-deemphasized);border-radius:20px;box-shadow:none}
@@ -3100,6 +3125,7 @@ function ChatView({ session }: ChatAppProps = {}) {
   const [newName, setNewName] = useState("");
   const [toast, setToast] = useState("");
   const [dark, setDark] = useState(savedData.dark);
+  const [defaultBubbleColor, setDefaultBubbleColor] = useState("default");
   const [language, setLanguage] = useState<Language>(savedData.language);
   const [optionsMenuOpen, setOptionsMenuOpen] = useState(false);
   const [contextMenu, setContextMenu] = useState<{
@@ -3243,6 +3269,10 @@ function ChatView({ session }: ChatAppProps = {}) {
       };
     return WALLPAPERS.find((w) => w.id === wpId) || WALLPAPERS[0];
   }, [activeId, wallpapersByChat]);
+  const currentBubble = useMemo(() =>
+    BUBBLE_COLOURS.find((colour) => colour.id === (activeChat?.bubbleColor === "default"
+      ? defaultBubbleColor : (activeChat?.bubbleColor || defaultBubbleColor))) || BUBBLE_COLOURS[0],
+  [activeChat?.bubbleColor, defaultBubbleColor]);
 
   const chatStats = useMemo(() => {
     if (activeId === null) return null;
@@ -3370,7 +3400,7 @@ function ChatView({ session }: ChatAppProps = {}) {
     try {
       const state = await server<{
         chats: Chat[];
-        settings: { dark?: boolean; language?: Language };
+        settings: { dark?: boolean; language?: Language; bubbleColor?: string };
       }>("GET", "/state");
       if (!live.current || seq !== requestSeq.current) return;
       setChats(
@@ -3396,6 +3426,10 @@ function ChatView({ session }: ChatAppProps = {}) {
         setLanguage(state.settings.language || "pt");
         settingsLoaded.current = true;
       }
+      setDefaultBubbleColor(
+        BUBBLE_COLOURS.some((colour) => colour.id === state.settings.bubbleColor)
+          ? state.settings.bubbleColor! : "default",
+      );
       if (selected !== null) {
         const batch: any[] = [];
         let more = false;
@@ -4185,6 +4219,13 @@ function ChatView({ session }: ChatAppProps = {}) {
             </button>
           </div>
           <div className="nav-footer">
+            <button className="nav-item" type="button"
+              title={`${t("theme")}: ${dark ? t("light") : t("dark")}`}
+              aria-label={`${t("theme")}: ${dark ? t("light") : t("dark")}`}
+              onClick={() => void savePreference("settings", { dark: !dark })
+                .then(() => setDark(!dark)).catch(report)}>
+              {dark ? <Icon.Sun width={23} height={23} /> : <Icon.Moon width={23} height={23} />}
+            </button>
             <button
               className="nav-item"
               title={t("metaAI")}
@@ -5121,11 +5162,15 @@ function ChatView({ session }: ChatAppProps = {}) {
               ref={messagesRef}
               aria-live="polite"
               style={{
-                backgroundImage: currentWallpaper.value,
-                backgroundSize: currentWallpaper.size || "cover",
+                backgroundColor: currentWallpaper.type === "solid"
+                  ? currentWallpaper.value : "var(--WDS-background-wash-inset)",
+                backgroundImage: currentWallpaper.type === "solid" ? "none" : currentWallpaper.value,
+                backgroundSize: currentWallpaper.size || (currentWallpaper.type === "image" ? "cover" : "auto"),
                 backgroundRepeat:
                   currentWallpaper.type === "pattern" ? "repeat" : "no-repeat",
-              }}
+                "--nv-chat-sent-background": currentBubble.color,
+                "--nv-chat-sent-text": currentBubble.text,
+              } as React.CSSProperties}
             >
               <div className="date-separator">{t("conversations")}</div>
               {hasMore && (
@@ -6688,6 +6733,43 @@ function ChatView({ session }: ChatAppProps = {}) {
                     {activeChat?.name}
                   </strong>
                 </span>
+              </div>
+            </div>
+
+            <div style={{ padding: "16px 20px", borderBottom: "1px solid var(--WDS-lines-divider)" }}>
+              <h4 style={{ fontSize: 13, fontWeight: 700, color: "var(--WDS-content-default)", marginBottom: 10 }}>
+                {t("bubbleColor")}
+              </h4>
+              <div role="group" aria-label={t("bubbleColor")}
+                style={{ display: "flex", flexWrap: "wrap", gap: 9, alignItems: "center" }}>
+                {BUBBLE_COLOURS.map((colour) => (
+                  <button type="button" key={colour.id}
+                    title={colour.id === "default" ? t("bubbleDefault") : colour.label}
+                    aria-label={colour.id === "default" ? t("bubbleDefault") : colour.label}
+                    aria-pressed={(activeChat?.bubbleColor || "default") === colour.id}
+                    onClick={() => setPreference({ bubbleColor: colour.id })}
+                    style={{
+                      width: 34, height: 34, borderRadius: "50%", background: colour.color,
+                      color: colour.text, cursor: "pointer", display: "grid", placeItems: "center",
+                      border: (activeChat?.bubbleColor || "default") === colour.id
+                        ? "3px solid var(--dashboard-blue)" : "2px solid var(--WDS-lines-divider)",
+                      outline: (activeChat?.bubbleColor || "default") === colour.id ? "2px solid var(--WDS-surface-default)" : undefined,
+                    }}>
+                    {(activeChat?.bubbleColor || "default") === colour.id && <Icon.Check width={17} height={17} />}
+                  </button>
+                ))}
+              </div>
+              <div style={{ display: "flex", gap: 10, alignItems: "center", marginTop: 12 }}>
+                <span style={{ flex: 1, fontSize: 12, color: "var(--WDS-content-deemphasized)" }}>
+                  {t("bubbleDefault")}: {BUBBLE_COLOURS.find((colour) => colour.id === defaultBubbleColor)?.label || "Institucional"}
+                </span>
+                <button type="button"
+                  onClick={() => void savePreference("settings", { bubbleColor: currentBubble.id }).catch(report)}
+                  style={{ border: "1px solid var(--dashboard-blue)", color: "var(--dashboard-blue)",
+                    borderRadius: 12, background: "transparent", padding: "8px 10px", fontSize: 11, fontWeight: 700,
+                    maxWidth: 190, cursor: "pointer" }}>
+                  {t("bubbleAllChats")}
+                </button>
               </div>
             </div>
 
@@ -8381,38 +8463,6 @@ function ChatView({ session }: ChatAppProps = {}) {
       <div className={`toast${toast ? " show" : ""}`} role="status">
         {toast}
       </div>
-
-      <button
-        type="button"
-        onClick={() => {
-          void savePreference("settings", { dark: !dark })
-            .then(() => setDark(!dark))
-            .catch(report);
-          if (!notificationsEnabled) requestNotifications();
-        }}
-        aria-label={`${t("theme")}: ${dark ? t("light") : t("dark")}`}
-        style={{
-          position: "absolute",
-          bottom: 76,
-          left: 14,
-          zIndex: 3,
-          border: "2px solid var(--dashboard-blue-dark)",
-          borderRadius: 20,
-          padding: 8,
-          cursor: "pointer",
-          background: "var(--dashboard-blue)",
-          color: "white",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {dark ? (
-          <Icon.Sun width={18} height={18} />
-        ) : (
-          <Icon.Moon width={18} height={18} />
-        )}
-      </button>
 
       {newChatOpen && (
         <div

@@ -223,12 +223,9 @@ const FLOATING_CSS = `
 .gx-floating-tools{position:fixed;right:20px;bottom:var(--gx-tools-bottom);z-index:35;display:flex;align-items:center;gap:12px}
 .gx-float-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:72px;height:72px;border-radius:50%;border:2px solid #ffffff66;color:#fff;box-shadow:0 5px 20px #071a3340;font-size:10px;font-weight:700;line-height:1.15;transition:transform .15s,box-shadow .15s}
 .gx-float-button:hover{transform:translateY(-3px);box-shadow:0 8px 24px #071a3355}
-.gx-float-button[aria-expanded="true"]{outline:3px solid var(--gx-accent);outline-offset:3px}
-.gx-float-colours{background:linear-gradient(135deg,#1d4ed8,#0f766e)}
 .gx-float-agent{background:linear-gradient(145deg,#8b5cf6,#4c1d95)}
 .gx-float-chat{background:linear-gradient(145deg,#10b981,#065f46)}
-.gx-colour-panel{position:fixed;right:20px;bottom:calc(var(--gx-tools-bottom) + 88px);z-index:45;width:320px;max-width:calc(100vw - 32px);max-height:calc(100dvh - var(--gx-tools-bottom) - 108px);overflow:auto;border:1px solid var(--gx-line);border-radius:16px;background:var(--gx-surface);color:var(--gx-text);box-shadow:0 15px 45px #071a3340;padding:16px}
-.gx-colour-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.gx-colour-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
 .gx-colour-head h2{font-size:14px;font-weight:700;margin:0}
 .gx-colour-head p{font-size:11px;color:var(--gx-muted);margin:4px 0 0}
 .gx-colour-close{width:30px;height:30px;display:grid;place-items:center;border:1px solid var(--gx-line);border-radius:8px;background:var(--gx-surface);color:var(--gx-text)}
@@ -239,6 +236,11 @@ const FLOATING_CSS = `
 .gx-colour-modes{display:flex;gap:8px;padding-top:14px;margin-top:14px;border-top:1px solid var(--gx-line)}
 .gx-colour-modes button{flex:1;border:1px solid var(--gx-line);border-radius:8px;padding:8px 10px;font-size:12px;background:var(--gx-surface);color:var(--gx-text)}
 .gx-colour-modes button[aria-pressed="true"]{background:var(--gx-tint);border-color:var(--gx-accent);font-weight:700}
+.gx-profile-actions{display:flex;gap:6px;padding:10px;border-top:1px solid var(--gx-line)}
+.gx-profile-actions button{display:flex;flex:1;align-items:center;justify-content:center;gap:6px;padding:10px 5px;border:1px solid var(--gx-line);border-radius:8px;background:var(--gx-surface);color:var(--gx-text);font-size:12px;font-weight:600}
+.gx-profile-actions button:hover,.gx-profile-actions button[aria-expanded="true"]{background:var(--gx-tint);border-color:var(--gx-accent)}
+.gx-profile-actions button.gx-profile-logout{color:var(--gx-danger)}
+.gx-profile-colours{padding:12px;border-top:1px solid var(--gx-line);max-height:min(420px,55dvh);overflow:auto}
 .gx .nv-assistant{bottom:calc(var(--gx-tools-bottom) + 88px);z-index:45;max-height:calc(100dvh - var(--gx-tools-bottom) - 108px)}
 .gx .gx-page{color:var(--nv-text);color-scheme:light;background:var(--nv-bg)}
 .gx[data-theme="dark"] .gx-page{background:var(--nv-bg);color:var(--nv-text);color-scheme:dark}
@@ -247,11 +249,11 @@ const FLOATING_CSS = `
 .gx[data-layout="rodape"]{--gx-tools-bottom:calc(82px + env(safe-area-inset-bottom))}
 .gx-floating-tools{right:12px;gap:8px}
 .gx-float-button{width:60px;height:60px;font-size:9px;gap:4px}
-.gx-colour-panel,.gx .nv-assistant{right:12px;bottom:calc(var(--gx-tools-bottom) + 76px);max-height:calc(100dvh - var(--gx-tools-bottom) - 96px)}
+.gx .nv-assistant{right:12px;bottom:calc(var(--gx-tools-bottom) + 76px);max-height:calc(100dvh - var(--gx-tools-bottom) - 96px)}
 }
-@media(max-width:420px){.gx-floating-tools{right:8px;gap:6px}.gx-float-button{width:50px;height:50px;font-size:8px}.gx-colour-panel,.gx .nv-assistant{right:8px;bottom:calc(var(--gx-tools-bottom) + 64px)}}
+@media(max-width:420px){.gx-floating-tools{right:8px;gap:6px}.gx-float-button{width:50px;height:50px;font-size:8px}.gx .nv-assistant{right:8px;bottom:calc(var(--gx-tools-bottom) + 64px)}}
 @media(prefers-reduced-motion:reduce){.gx-float-button{transition:none}.gx-float-button:hover{transform:none}}
-@media print{.gx-floating-tools,.gx-colour-panel,.gx .nv-assistant{display:none!important}.gx .gx-app-main{padding-bottom:0}}
+@media print{.gx-floating-tools,.gx .nv-assistant{display:none!important}.gx .gx-app-main{padding-bottom:0}}
 
 .gx[data-colour="navy"]{--gx-ink:#071a33;--gx-ink2:#05142a;--gx-primary:#1d63b8;--gx-link:#1d63b8;--gx-accent:#1d63b8;--gx-tint:#eaf2fc}
 .gx[data-theme="dark"][data-colour="navy"]{--gx-link:#8ab8f5;--gx-accent:#8ab8f5;--gx-tint:#1b3558}
@@ -862,7 +864,7 @@ function Popover({ children, onClose, align = "right", width = 256 }: { children
     <>
       <div className="fixed inset-0 z-40" onClick={onClose} />
       <div className="gx-pop absolute top-full z-50 mt-1.5 overflow-hidden rounded-lg border gx-surface"
-        style={{ [align]: 0, width, borderColor: C.line, boxShadow: "0 12px 32px rgba(10,42,82,.16)" } as React.CSSProperties}>
+        style={{ [align]: 0, width: `min(${width}px, calc(100vw - 16px))`, borderColor: C.line, boxShadow: "0 12px 32px rgba(10,42,82,.16)" } as React.CSSProperties}>
         {children}
       </div>
     </>
@@ -898,122 +900,80 @@ function LayoutSelector({ current, onChange }: { current: MenuLayout; onChange: 
   );
 }
 
-function UserMenu({ session, onLogout }: { session: Session; onLogout: () => void }) {
+function UserMenu({ session, onLogout, colourTheme, theme, onColour, onMode }: {
+  session: Session; onLogout: () => void; colourTheme: ColourTheme; theme: Theme;
+  onColour: (value: ColourTheme) => void; onMode: (value: Theme) => void;
+}) {
   const [open, setOpen] = useState(false);
+  const [showColours, setShowColours] = useState(false);
   const nome = session.funcionarioNome || session.username;
   return (
     <div className="relative">
-      <button className="gx-btn !p-1 !pr-2.5" onClick={() => setOpen((o) => !o)} aria-haspopup="menu" aria-expanded={open}>
+      <button className="gx-btn !p-1 !pr-2.5" onClick={() => { setOpen((o) => !o); setShowColours(false); }} aria-haspopup="menu" aria-expanded={open}>
         <span className="flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-white" style={{ background: C.primary }}>{inicial(nome)}</span>
         <span className="hidden max-w-[120px] truncate md:inline">{nome}</span>
         <span className="hidden md:inline"><IconChevron open={open} /></span>
       </button>
       {open && (
-        <Popover onClose={() => setOpen(false)} width={236}>
+        <Popover onClose={() => { setOpen(false); setShowColours(false); }} width={316}>
           <div className="border-b px-3.5 py-3" style={{ borderColor: C.line }}>
             <div className="truncate text-sm font-semibold">{nome}</div>
             <div className="text-xs" style={{ color: C.muted }}>{session.funcao ? FUNCAO_LABEL[session.funcao] : "Utilizador"}</div>
             {session.empresaNome && <div className="mt-0.5 truncate text-xs" style={{ color: C.muted }}>{session.empresaNome}</div>}
           </div>
-          <button className="gx-row" style={{ color: C.danger }} onClick={() => { setOpen(false); onLogout(); }}>
-            <IconLogout /> Terminar sessão
-          </button>
+          <div className="gx-profile-actions">
+            <button type="button" aria-expanded={showColours} aria-controls="gx-profile-colours"
+              onClick={() => setShowColours((value) => !value)}>
+              <Svg size={17} html='<circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 3a9 9 0 100 18h1a2 2 0 001-3.7 1.8 1.8 0 011-3.3h2a4 4 0 004-4c0-4-4-7-9-7z"/>' />
+              Cores
+            </button>
+            <button type="button" className="gx-profile-logout" onClick={() => { setOpen(false); onLogout(); }}>
+              <IconLogout /> Terminar sessão
+            </button>
+          </div>
+          {showColours && (
+            <div id="gx-profile-colours" className="gx-profile-colours" role="group" aria-label="Tema da aplicação">
+              <div className="gx-colour-head"><div><h2>Tema da aplicação</h2><p>Preferência da tua conta nesta instituição.</p></div></div>
+              <div className="gx-colour-grid" role="group" aria-label="Cores disponíveis">
+                {COLOUR_THEMES.map((choice) => (
+                  <button type="button" key={choice.id} className="gx-colour-option"
+                    aria-pressed={colourTheme === choice.id} onClick={() => onColour(choice.id)}>
+                    <span className="gx-colour-dot" style={{ background: choice.color, color: choice.id === "light" ? "#17263d" : "#fff" }}>
+                      {colourTheme === choice.id && <span aria-hidden="true">✓</span>}
+                    </span>
+                    <span>{choice.label}</span>
+                  </button>
+                ))}
+              </div>
+              <div className="gx-colour-modes" role="group" aria-label="Luminosidade">
+                <button type="button" aria-pressed={theme === "claro"} onClick={() => onMode("claro")}>Modo claro</button>
+                <button type="button" aria-pressed={theme === "escuro"} onClick={() => onMode("escuro")}>Modo escuro</button>
+              </div>
+            </div>
+          )}
         </Popover>
       )}
     </div>
   );
 }
 
-function FloatingControls({ colourTheme, theme, onColour, onMode, onChat, chatAllowed }: {
-  colourTheme: ColourTheme; theme: Theme;
-  onColour: (value: ColourTheme) => void; onMode: (value: Theme) => void;
-  onChat: () => void; chatAllowed: boolean;
-}) {
-  const [open, setOpen] = useState(false);
-  const trigger = useRef<HTMLButtonElement>(null);
-  const panel = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    panel.current?.querySelector<HTMLButtonElement>("button")?.focus();
-    const outside = (event: PointerEvent) => {
-      const target = event.target as Node | null;
-      if (target && !panel.current?.contains(target) && !trigger.current?.contains(target)) setOpen(false);
-    };
-    const escape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-        trigger.current?.focus();
-      }
-    };
-    document.addEventListener("pointerdown", outside);
-    document.addEventListener("keydown", escape);
-    return () => {
-      document.removeEventListener("pointerdown", outside);
-      document.removeEventListener("keydown", escape);
-    };
-  }, [open]);
-
-  useEffect(() => {
-    const close = () => setOpen(false);
-    window.addEventListener("nv:assistant-open", close);
-    return () => window.removeEventListener("nv:assistant-open", close);
-  }, []);
-
-  function selectColour(value: ColourTheme) {
-    onColour(value);
-    setOpen(false);
-    trigger.current?.focus();
-  }
-
+function FloatingControls({ onChat, chatAllowed }: { onChat: () => void; chatAllowed: boolean }) {
   return (
-    <>
-      {open && (
-        <div ref={panel} id="gx-colour-panel" className="gx-colour-panel" role="dialog" aria-label="Tema da aplicação">
-          <div className="gx-colour-head">
-            <div><h2>Tema da aplicação</h2><p>Preferência da tua conta nesta instituição.</p></div>
-            <button type="button" className="gx-colour-close" aria-label="Fechar cores"
-              onClick={() => { setOpen(false); trigger.current?.focus(); }}>×</button>
-          </div>
-          <div className="gx-colour-grid" role="group" aria-label="Cores disponíveis">
-            {COLOUR_THEMES.map((choice) => (
-              <button type="button" key={choice.id} className="gx-colour-option"
-                aria-pressed={colourTheme === choice.id} onClick={() => selectColour(choice.id)}>
-                <span className="gx-colour-dot" style={{ background: choice.color, color: choice.id === "light" ? "#17263d" : "#fff" }}>
-                  {colourTheme === choice.id && <span aria-hidden="true">✓</span>}
-                </span>
-                <span>{choice.label}</span>
-              </button>
-            ))}
-          </div>
-          <div className="gx-colour-modes" role="group" aria-label="Luminosidade">
-            <button type="button" aria-pressed={theme === "claro"} onClick={() => onMode("claro")}>Modo claro</button>
-            <button type="button" aria-pressed={theme === "escuro"} onClick={() => onMode("escuro")}>Modo escuro</button>
-          </div>
-        </div>
-      )}
-      <div className="gx-floating-tools" role="group" aria-label="Ferramentas flutuantes">
-        <button ref={trigger} type="button" className="gx-float-button gx-float-colours"
-          title="Cores da aplicação" aria-label="Cores da aplicação" aria-expanded={open}
-          aria-controls="gx-colour-panel" onClick={() => setOpen((value) => !value)}>
-          <Svg size={24} html='<circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 3a9 9 0 100 18h1a2 2 0 001-3.7 1.8 1.8 0 011-3.3h2a4 4 0 004-4c0-4-4-7-9-7z"/>' />
-          <span>Cores</span>
-        </button>
+    <div className="gx-floating-tools" role="group" aria-label="Ferramentas flutuantes">
         <button type="button" className="gx-float-button gx-float-agent" title="Agente IA"
           aria-label="Abrir agente IA" aria-haspopup="dialog" aria-controls="nv-assistant"
-          onClick={() => { setOpen(false); window.dispatchEvent(new Event("nv:assistant-open")); }}>
+          onClick={() => window.dispatchEvent(new Event("nv:assistant-open"))}>
           <Svg size={25} html='<rect x="4" y="7" width="16" height="13" rx="4"/><path d="M12 3v4M2 11v5M22 11v5M9 16h6"/><circle cx="8.5" cy="12" r=".5"/><circle cx="15.5" cy="12" r=".5"/>' />
           <span>Agente IA</span>
         </button>
         {chatAllowed && (
           <button type="button" className="gx-float-button gx-float-chat" title="Chat da instituição"
-            aria-label="Abrir chat" onClick={() => { setOpen(false); onChat(); }}>
+            aria-label="Abrir chat" onClick={onChat}>
             <Svg size={25} html='<path d="M21 11.5a8.5 8.5 0 01-8.5 8.5H6l-4 3V11.5a8.5 8.5 0 0117 0z"/><circle cx="7" cy="11.5" r=".5"/><circle cx="11.5" cy="11.5" r=".5"/><circle cx="16" cy="11.5" r=".5"/>' />
             <span>Chat</span>
           </button>
         )}
-      </div>
-    </>
+    </div>
   );
 }
 
@@ -1021,8 +981,9 @@ interface ActionsProps {
   session: Session; layout: MenuLayout; onLayout: (l: MenuLayout) => void;
   onSearch: () => void; onLogout: () => void; onNav: (t: string) => void;
   theme: Theme; onTheme: () => void;
+  colourTheme: ColourTheme; onColour: (value: ColourTheme) => void; onMode: (value: Theme) => void;
 }
-function HeaderActions({ session, layout, onLayout, onSearch, onLogout, onNav, theme, onTheme }: ActionsProps) {
+function HeaderActions({ session, layout, onLayout, onSearch, onLogout, onNav, theme, onTheme, colourTheme, onColour, onMode }: ActionsProps) {
   return (
     <div className="flex min-w-0 flex-wrap items-center justify-end gap-1.5 sm:gap-2">
       <button className="gx-btn" onClick={onSearch} title="Procurar módulo (Ctrl+K)">
@@ -1038,7 +999,7 @@ function HeaderActions({ session, layout, onLayout, onSearch, onLogout, onNav, t
       </button>
       <LayoutSelector current={layout} onChange={onLayout} />
       <div className="gx-bell"><NotificationBell onTabChange={onNav} /></div>
-      <UserMenu session={session} onLogout={onLogout} />
+      <UserMenu session={session} onLogout={onLogout} colourTheme={colourTheme} theme={theme} onColour={onColour} onMode={onMode} />
     </div>
   );
 }
@@ -1785,6 +1746,7 @@ function Shell({ session, onLogout }: { session: Session; onLogout: () => void }
 
   const actions: ActionsProps = {
     session, layout, onLayout: changeLayout, onSearch: () => setPalette(true), onLogout, onNav: handleTabChange,
+    colourTheme, onColour: changeColour, onMode: changeMode,
     theme, onTheme: () => setAppearance((value) => ({ ...value, theme: value.theme === "escuro" ? "claro" : "escuro" })),
   };
 
@@ -1855,8 +1817,7 @@ function Shell({ session, onLogout }: { session: Session; onLogout: () => void }
       <Assistente companyName={session.empresaNome} modules={allowedTabs.map((item) => item.id)} navigate={(module) => {
         if (allowedTabs.some((item) => item.id === module)) handleTabChange(module as Tab);
       }} />
-      <FloatingControls colourTheme={colourTheme} theme={theme} onColour={changeColour} onMode={changeMode}
-        onChat={() => handleTabChange("chat")} chatAllowed={allowedTabs.some((item) => item.id === "chat")} />
+      <FloatingControls onChat={() => handleTabChange("chat")} chatAllowed={allowedTabs.some((item) => item.id === "chat")} />
       {aviso && (
         <div role={aviso.erro ? "alert" : "status"}
           className="fixed left-1/2 top-3 z-[70] flex max-w-[92vw] -translate-x-1/2 items-center gap-3 rounded-full py-1.5 pl-4 pr-2 text-xs font-semibold text-white"

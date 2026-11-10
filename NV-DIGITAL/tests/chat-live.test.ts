@@ -245,9 +245,22 @@ test("preferences, blocking and clear-history apply only to the authenticated us
   );
   await as("bob")
     .patch("/preferences")
-    .send({ conversation: "settings", data: { language: "fr", dark: true } })
+    .send({ conversation: "settings", data: { language: "fr", dark: true, bubbleColor: "cream" } })
     .expect(200);
   assert.equal((await as("bob").get("/state")).body.settings.language, "fr");
+  assert.equal((await as("bob").get("/state")).body.settings.bubbleColor, "cream");
+  await as("bob")
+    .patch("/preferences")
+    .send({ conversation: "d:alice", data: { bubbleColor: "blue" } })
+    .expect(200);
+  const bobState = (await as("bob").get("/state")).body;
+  assert.equal(bobState.chats.find((c: any) => c.id === "d:alice").bubbleColor, "blue");
+  assert.equal((await as("alice").get("/state")).body.chats.find((c: any) => c.id === "d:bob").bubbleColor, undefined);
+  await as("bob")
+    .patch("/preferences")
+    .send({ conversation: "d:alice", data: { bubbleColor: "url(javascript:alert(1))" } })
+    .expect(200);
+  assert.equal((await as("bob").get("/state")).body.chats.find((c: any) => c.id === "d:alice").bubbleColor, "blue");
 });
 test("history pagination preserves older messages and read receipts do not swallow a later arrival", async () => {
   await pg.query(
