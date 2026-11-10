@@ -1,4 +1,5 @@
 import { inputNumber, invoicePreview } from "../utils/billingNumbers";
+import { creditedDocumentNumbers, paginateInvoices } from "../utils/invoiceList";
 import InvoiceItemEditor from "../components/InvoiceItemEditor";
 import { FATURACAO_REFERENCE_CSS } from "../styles/reference";
 import InsuranceBilling from "../../../components/hospital/InsuranceBilling";
@@ -244,6 +245,10 @@ export const FaturacaoView: React.FC<FaturacaoViewProps> = ({
   const [searchTerm, setSearchTerm] = useState(initialSearchFilter);
   const [filterState, setFilterState] = useState<string>(initialStateFilter);
   const [filterType, setFilterType] = useState<string>(initialTypeFilter);
+  const [invoicePage, setInvoicePage] = useState(1);
+  useEffect(() => {
+    setInvoicePage(1);
+  }, [searchTerm, filterState, filterType]);
 
   const [tipoDocumento, setTipoDocumento] = useState<DocumentType>("factura");
   const [estado, setEstado] = useState<DocumentState>("emitida");
@@ -1385,8 +1390,8 @@ export const FaturacaoView: React.FC<FaturacaoViewProps> = ({
   );
 
   const filteredInvoices = useMemo(() => {
+    const q = searchTerm.toLowerCase();
     return faturas.filter((f) => {
-      const q = searchTerm.toLowerCase();
       const matchesSearch =
         f.numero.toLowerCase().includes(q) ||
         f.clienteNome.toLowerCase().includes(q) ||
@@ -1398,20 +1403,23 @@ export const FaturacaoView: React.FC<FaturacaoViewProps> = ({
       return matchesSearch && matchesState && matchesType;
     });
   }, [faturas, searchTerm, filterState, filterType]);
-
-  const stats = useMemo(
-    () => ({
-      totalDocs: faturas.length,
-      totalEmitidas: faturas.filter(
-        (f) => f.estado === "emitida" && !f.agtReplacementNo,
-      ).length,
-      totalPagas: faturas.filter((f) => f.estado === "paga").length,
-      valorPendente: faturas
-        .filter((f) => f.estado === "emitida" && !f.agtReplacementNo)
-        .reduce((s, f) => s + f.total, 0),
-    }),
-    [faturas],
+  const invoiceListing = useMemo(
+    () => paginateInvoices(filteredInvoices, invoicePage),
+    [filteredInvoices, invoicePage],
   );
+  const creditedInvoices = useMemo(() => creditedDocumentNumbers(faturas), [faturas]);
+
+  const stats = useMemo(() => {
+    const summary = { totalDocs: faturas.length, totalEmitidas: 0, totalPagas: 0, valorPendente: 0 };
+    for (const f of faturas) {
+      if (f.estado === "emitida" && !f.agtReplacementNo) {
+        summary.totalEmitidas++;
+        summary.valorPendente += f.total;
+      }
+      if (f.estado === "paga") summary.totalPagas++;
+    }
+    return summary;
+  }, [faturas]);
 
   const currentDocMeta = getDocumentMeta(tipoDocumento);
   const groupedDocTypes = useMemo(() => {
@@ -4869,7 +4877,7 @@ export const FaturacaoView: React.FC<FaturacaoViewProps> = ({
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredInvoices.map((f) => {
+                  {invoiceListing.items.map((f) => {
                     const meta = getDocumentMeta(f.tipoDocumento);
                     const isPaid = f.estado === "paga";
                     const blockedSettlement =
@@ -4878,12 +4886,7 @@ export const FaturacaoView: React.FC<FaturacaoViewProps> = ({
                     const isAnulada = f.estado === "anulada";
                     const isProForma = f.tipoDocumento === "pro-forma";
                     const noFiscal = isProForma || f.estado === "rascunho";
-                    const hasNC = faturas.some(
-                      (d) =>
-                        d.tipoDocumento === "nota-credito" &&
-                        d.documentoOrigem === f.numero &&
-                        d.estado !== "anulada",
-                    );
+                    const hasNC = creditedInvoices.has(f.numero);
                     return (
                       <tr key={f.id}>
                         <td
@@ -5150,6 +5153,20 @@ export const FaturacaoView: React.FC<FaturacaoViewProps> = ({
                   })}
                 </tbody>
               </table>
+              <nav aria-label="Páginas do histórico de facturação" className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 bg-white px-4 py-3 text-xs text-slate-600">
+                <span>
+                  A mostrar <strong>{invoiceListing.start}–{invoiceListing.end}</strong> de <strong>{invoiceListing.total}</strong> documentos
+                </span>
+                <div className="flex items-center gap-3">
+                  <button type="button" className="nvf-btn" disabled={invoiceListing.page === 1} onClick={() => setInvoicePage(invoiceListing.page - 1)}>
+                    <ChevronLeft className="h-4 w-4" /> Anterior
+                  </button>
+                  <span className="whitespace-nowrap">Página {invoiceListing.page} de {invoiceListing.pages}</span>
+                  <button type="button" className="nvf-btn" disabled={invoiceListing.page >= invoiceListing.pages} onClick={() => setInvoicePage(invoiceListing.page + 1)}>
+                    Seguinte <ChevronRight className="h-4 w-4" />
+                  </button>
+                </div>
+              </nav>
             </div>
           )}
         </div>

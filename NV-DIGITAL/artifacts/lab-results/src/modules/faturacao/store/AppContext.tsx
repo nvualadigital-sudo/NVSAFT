@@ -81,6 +81,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     revision = useRef(0),
     fetching = useRef(0),
     count = useRef(0),
+    blockingCount = useRef(0),
+    lastRefreshedAt = useRef(0),
     refreshTimer = useRef<number | null>(null);
   const refresh = useCallback(async () => {
     const seq = ++fetching.current,
@@ -88,6 +90,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const data = await billingRequest<State>("GET", "/state");
     if (mounted.current && seq === fetching.current && r === revision.current) {
       setState(data);
+      lastRefreshedAt.current = Date.now();
       (window as any).__nvBillingAudit = (data as any).audit || {};
       setError("");
     }
@@ -112,7 +115,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
       if (count.current === 0 && document.visibilityState === "visible")
         void refresh().catch((e) => setError(e.message));
     }, 60000);
-    const onFocus = () => scheduleRefresh(1000);
+    // Regressar frequentemente à aba não deve descarregar o estado completo
+    // repetidamente enquanto os dados ainda são recentes.
+    const onFocus = () => {
+      if (document.visibilityState === "visible" && Date.now() - lastRefreshedAt.current > 30000)
+        scheduleRefresh(1000);
+    };
     window.addEventListener("focus", onFocus);
     return () => {
       mounted.current = false;
@@ -128,9 +136,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
     method = "POST",
     update: "full" | "invoice" | "draft" | "delete-invoice" = "full",
   ): Promise<T> {
+    // O auto-guardar de rascunhos não pode bloquear os campos enquanto o
+    // utilizador continua a introduzir linhas; confirmações fiscais mantêm bloqueio.
+    const blocksInterface = update !== "draft";
     count.current++;
     revision.current++;
-    setBusy(count.current);
+    if (blocksInterface) {
+      blockingCount.current++;
+      setBusy(blockingCount.current);
+    }
     try {
       const r = await command<T>(path, b, method);
       if ((update === "invoice" || update === "draft") && (r as any)?.fatura) {
@@ -161,7 +175,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
       throw e;
     } finally {
       count.current--;
-      if (mounted.current) setBusy(count.current);
+      if (blocksInterface) {
+        blockingCount.current--;
+        if (mounted.current) setBusy(blockingCount.current);
+      }
     }
   }
   if (!state)
