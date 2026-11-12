@@ -60,7 +60,10 @@ function Settings() {
         e.preventDefault();
         try {
           const d = Object.fromEntries(fields.map(([k]) => [k, form[k] ?? ""]));
-          d.ivaTaxa = Number(form.ivaTaxa);
+          const taxa = String(form.ivaTaxa ?? "").trim();
+          if (!["0", "5", "7", "14"].includes(taxa))
+            throw new Error("Seleccione expressamente a taxa de IVA aplicável (0%, 5%, 7% ou 14%).");
+          d.ivaTaxa = Number(taxa);
           d.configuracaoFiscal = form.configuracaoFiscal;
           d.formatoImpressaoPadrao = form.formatoImpressaoPadrao;
           d.perfisImpressoras = form.perfisImpressoras;
@@ -75,11 +78,26 @@ function Settings() {
       {fields.map(([k, label]) => (
         <label key={k} className="grid gap-1">
           {label}
-          <input
-            className="rounded border p-2 bg-white text-slate-900"
-            value={form[k] ?? ""}
-            onChange={(e) => setForm({ ...form, [k]: e.target.value })}
-          />
+          {k === "ivaTaxa" ? (
+            <select
+              className="rounded border p-2 bg-white text-slate-900"
+              value={String(form[k] ?? "")}
+              onChange={(e) => setForm({ ...form, [k]: e.target.value })}
+              required
+              aria-label="Taxa de IVA aplicável"
+            >
+              <option value="" disabled>Seleccione a taxa (não determina isenção por si só)</option>
+              {[0, 5, 7, 14].map((rate) => (
+                <option key={rate} value={rate}>{rate}%</option>
+              ))}
+            </select>
+          ) : (
+            <input
+              className="rounded border p-2 bg-white text-slate-900"
+              value={form[k] ?? ""}
+              onChange={(e) => setForm({ ...form, [k]: e.target.value })}
+            />
+          )}
         </label>
       ))}
       <label>

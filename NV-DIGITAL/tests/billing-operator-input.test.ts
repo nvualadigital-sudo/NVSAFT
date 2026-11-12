@@ -4,7 +4,7 @@ import {
   inputNumber,
   invoicePreview,
 } from "../artifacts/lab-results/src/modules/faturacao/utils/billingNumbers";
-import { totals } from "../artifacts/api-server/src/lib/billing-engine";
+import { totals, parseIvaRate } from "../artifacts/api-server/src/lib/billing-engine";
 import {
   code128Bits,
   qrPayload,
@@ -88,6 +88,28 @@ test("invalid discounts give a specific correction without showing a negative to
   assert.equal(invoicePreview(lines, 14, "", "101").total, 0);
   assert.equal(invoicePreview(lines, 14, "", "10,50").error, "");
 });
+
+test("IVA: tax selection is explicit; invalid empty and fractional rates never become exemptions", () => {
+  const line = { descricao: "Teste", quantidade: 1, precoUnitario: 100, ivaIsento: false };
+  for (const rate of [0, 5, 7, 14]) {
+    assert.equal(parseIvaRate(rate), rate);
+    assert.equal(parseIvaRate(String(rate) + "%"), rate);
+    assert.equal(parseIvaRate(String(rate) + ",0"), rate);
+    assert.equal(totals({ tipoDocumento: "factura", linhas: [line], ivaTaxa: rate }).total, 100 + rate);
+  }
+  for (const invalid of [null, undefined, "", " ", "abc", "19", 1, "1%", "14,5", "0,5", NaN, Infinity, {}, "0/14"]) {
+    assert.throws(() => parseIvaRate(invalid), /IVA inválida/);
+    assert.throws(() => totals({ tipoDocumento: "factura", linhas: [line], ivaTaxa: invalid }), /IVA inválida/);
+    assert.match(invoicePreview([line], invalid, "", "").error, /IVA/);
+  }
+  const exempt = totals({ tipoDocumento: "factura", linhas: [{ ...line, ivaIsento: true }], ivaTaxa: 14 });
+  assert.equal(exempt.totalIva, 0);
+  assert.equal(exempt.total, 100);
+  const zero = totals({ tipoDocumento: "factura", linhas: [line], ivaTaxa: 0 });
+  assert.equal(zero.totalIva, 0);
+  assert.equal(zero.linhas[0].ivaIsento, false, "Taxa 0% não atribui automaticamente isenção legal");
+});
+
 test("internal print references are deterministic, privacy limited and contain valid Code128 start and stop symbols", () => {
   const f: any = {
     id: 123,
