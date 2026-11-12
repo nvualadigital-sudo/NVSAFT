@@ -1,8 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "cd NV-DIGITAL && pnpm install --frozen-lockfile",
-  "buildCommand": "cd NV-DIGITAL && pnpm --filter @workspace/api-server run build:vercel && PORT=3000 BASE_PATH=/ pnpm --filter @workspace/lab-results build",
-  "outputDirectory": "NV-DIGITAL/artifacts/lab-results/dist/public",
+  "buildCommand": "pnpm --filter @workspace/api-server run build:vercel && PORT=3000 BASE_PATH=/ pnpm --filter @workspace/lab-results build",
+  "outputDirectory": "artifacts/lab-results/dist/public",
   "rewrites": [
     {
       "source": "/((?!api(?:/|$)).*)",
@@ -10,10 +9,10 @@
     }
   ],
   "functions": {
-    "NV-DIGITAL/api/[...path].ts": {
+    "api/[...path].ts": {
       "runtime": "nodejs22.x",
       "maxDuration": 60,
-      "includeFiles": "NV-DIGITAL/artifacts/api-server/dist-vercel/**"
+      "includeFiles": "artifacts/api-server/dist-vercel/**"
     }
   }
 }
