@@ -10,6 +10,23 @@ export const codes: Record<string, string> = {
 export function check(ok: unknown, message: string): asserts ok {
   if (!ok) throw Object.assign(new Error(message), { status: 400 });
 }
+/** Taxa por defeito da operação (a isenção é definida em cada linha). */
+export const SUPPORTED_IVA_RATES = [0, 5, 7, 14] as const;
+export function parseIvaRate(value: unknown): number {
+  const msg =
+    "Taxa de IVA inválida. Configure expressamente 0%, 5%, 7% ou 14% e confirme o enquadramento fiscal da operação.";
+  if (typeof value === "number") {
+    check(SUPPORTED_IVA_RATES.some((rate) => rate === value), msg);
+    return value;
+  }
+  check(typeof value === "string", msg);
+  const normalized = value.trim().replace(/[\s\u00a0\u202f]/g, "");
+  check(/^(?:0|5|7|14)(?:[.,]0+)?%?$/.test(normalized), msg);
+  const rate = Number(normalized.replace("%", "").replace(",", "."));
+  check(SUPPORTED_IVA_RATES.some((allowed) => allowed === rate), msg);
+  return rate;
+}
+
 export function text(v: unknown, max = 500) {
   check(
     typeof v === "string" && v.length <= max,
@@ -36,17 +53,13 @@ export function totals(d: any, rounding: "legacy" | "agt2" = "legacy") {
     "Introduza entre 1 e 300 linhas.",
   );
   const discount = Number(d.desconto || 0),
-    rate = Number(d.ivaTaxa);
+    rate = parseIvaRate(d.ivaTaxa);
   check(
     Number.isFinite(discount) &&
       discount >= 0 &&
       discount <= 100 &&
       Math.abs(discount * 100 - Math.round(discount * 100)) < 0.0001,
     "Desconto inválido.",
-  );
-  check(
-    [0, 5, 7, 14].includes(rate),
-    "Taxa de IVA não suportada. Confirme o enquadramento tributário.",
   );
   let net = 0n,
     tax = 0n;
