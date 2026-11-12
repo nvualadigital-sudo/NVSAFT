@@ -12,6 +12,7 @@ import { Router, type IRouter } from "express";
 import healthRouter from "./health.js";
 import authRouter from "./auth.js";
 import empresasRouter from "./empresas.js";
+import licencasRouter from "./licencas.js";
 import solicitacoesRouter from "./solicitacoes.js";
 import laboratorioRouter from "./laboratorio.js";
 import aiRouter from "./ai.js";
@@ -81,6 +82,7 @@ router.use("/hospital/nursing-integrated", nursingIntegratedRouter);
 router.use("/hospital", hospitalRouter);
 router.use("/recepcao", receptionRouter);
 router.use(empresasRouter);
+router.use(licencasRouter);
 router.use(solicitacoesRouter);
 
 router.use(laboratorioRouter);
