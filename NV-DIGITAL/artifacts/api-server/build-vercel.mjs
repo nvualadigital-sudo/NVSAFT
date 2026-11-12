@@ -2,7 +2,6 @@ import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { build as esbuild } from "esbuild";
-import esbuildPluginPino from "esbuild-plugin-pino";
 import { rm } from "node:fs/promises";
 
 globalThis.require = createRequire(import.meta.url);
@@ -18,12 +17,23 @@ async function buildVercelApi() {
     platform: "node",
     bundle: true,
     format: "cjs",
+    // Preserve the module location APIs used by the ESM sources in this CJS bundle.
+    define: {
+      "import.meta.dirname": "__dirname",
+      "import.meta.filename": "__filename",
+      "import.meta.url": "__nvVercelModuleUrl",
+    },
     outfile: path.resolve(distDir, "app.cjs"),
     logLevel: "info",
     external: [
       "bcrypt",
       "pg",
       "openai",
+      // Load the logger as a normal Node dependency so its worker paths remain valid.
+      "pino",
+      "pino-http",
+      "pino-pretty",
+      "thread-stream",
       "*.node",
       "sharp",
       "better-sqlite3",
@@ -97,12 +107,10 @@ async function buildVercelApi() {
       "electron"
     ],
     sourcemap: "linked",
-    plugins: [
-      esbuildPluginPino({ transports: ["pino-pretty"] })
-    ],
     banner: {
       js: `const { createRequire: __createRequire } = require("node:module");
 globalThis.require = __createRequire(__filename);
+const __nvVercelModuleUrl = require("node:url").pathToFileURL(__filename).href;
 `,
     },
   });
