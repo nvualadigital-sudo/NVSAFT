@@ -1,0 +1,25 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. Bahmni is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ *
+ * Copyright 2025. Thoughtworks, Inc. Thoughtworks is a registered trademark 
+ * and the Thoughtworks graphic logo is a trademark of Thoughtworks Inc.
+ */
+
+NV-DIGITAL: adaptação dos componentes PatientDetails e GenericServiceRequestTable.
+Origem: https://github.com/Bahmni/bahmni-apps-frontend
+Revisão: 12a0173eecacf49acb95c29cccf3388a98d074e9
+
+As versões originais estão preservadas em docs/third-party/bahmni/upstream.
+Alterações: substituição dos serviços OpenMRS/FHIR pelos registos do NV-DIGITAL;
+substituição das dependências visuais Bahmni/Carbon por componentes locais;
+tradução para português; filtragem por instituição, paciente e atendimento;
+apresentação dos valores laboratoriais e da versão actual.
+
+Os ficheiros PatientDetails.tsx, patient-utils.ts, GenericServiceRequestTable.tsx,
+request-utils.ts e request-models.ts são adaptações cobertas pela MPL 2.0 e pelo
+aviso original acima. A sua licença não é substituída pela licença geral do NV-DIGITAL.
+O código destas adaptações e os respectivos avisos podem ser descarregados na interface.
+

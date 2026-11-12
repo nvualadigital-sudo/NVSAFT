@@ -1,0 +1,459 @@
+.clinical-overview {
+  --co-primary: var(--gx-primary, #0f766e);
+  --co-ink: #172b3a;
+  --co-muted: #627384;
+  color: var(--co-ink);
+  font-family: inherit;
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+.clinical-overview * {
+  box-sizing: border-box;
+}
+.co-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 22px;
+  border: 1px solid #dce7eb;
+  border-radius: 14px;
+  background: linear-gradient(110deg, #eff9f7, #f3f7fc);
+}
+.co-heading h2 {
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1.25;
+  margin: 4px 0 7px;
+}
+.co-heading p,
+.co-record p {
+  margin: 4px 0;
+}
+.co-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  font-weight: 700;
+  color: var(--co-primary);
+}
+.co-heading p,
+.co-panel header > span {
+  font-size: 12px;
+  color: var(--co-muted);
+}
+.co-button {
+  border: 1px solid var(--co-primary);
+  background: var(--co-primary);
+  color: white;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  border-radius: 8px;
+  padding: 9px 13px;
+  cursor: pointer;
+}
+.co-button-secondary {
+  color: var(--co-primary);
+  background: white;
+  border-color: #c8dcdd;
+}
+.co-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+.co-button:focus-visible,
+.co-scope button:focus-visible,
+.clinical-overview summary:focus-visible,
+.clinical-overview th button:focus-visible {
+  outline: 3px solid #34b5a7;
+  outline-offset: 3px;
+}
+.co-scope {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.co-scope button {
+  font: inherit;
+  font-size: 12px;
+  padding: 8px 13px;
+  border-radius: 7px;
+  border: 1px solid #d9e4e8;
+  background: white;
+  color: var(--co-muted);
+  cursor: pointer;
+}
+.co-scope button[aria-pressed="true"] {
+  color: white;
+  background: var(--co-primary);
+  border-color: var(--co-primary);
+}
+.bh-patient {
+  display: flex;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid #dce7eb;
+  border-radius: 12px;
+  background: white;
+}
+.bh-patient-name {
+  font-size: 23px;
+  font-weight: 750;
+  margin: 0 0 10px;
+  letter-spacing: -0.025em;
+}
+.bh-patient-details,
+.bh-patient-identifiers {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.bh-patient-detail {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 12px;
+  margin: 0;
+  color: #526575;
+}
+.bh-patient-detail svg {
+  color: var(--co-primary);
+  flex-shrink: 0;
+}
+.co-alerts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.co-alerts > div {
+  padding: 14px 17px;
+  border-radius: 10px;
+  border: 1px solid #e4d9be;
+  background: #fffaf0;
+}
+.co-alerts strong {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.co-alerts p {
+  font-size: 13px;
+  margin: 5px 0 0;
+  white-space: pre-wrap;
+}
+.co-alerts > div + div {
+  background: #f7fafc;
+  border-color: #dfe7ee;
+}
+.co-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.co-counts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.co-counts > div {
+  border: 1px solid #e1e9ed;
+  border-radius: 11px;
+  padding: 16px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+.co-counts span {
+  font-size: 12px;
+  color: var(--co-muted);
+}
+.co-counts strong {
+  font-size: 25px;
+  color: var(--co-primary);
+}
+.co-panel {
+  border: 1px solid #dce7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  min-width: 0;
+}
+.co-panel > header {
+  padding: 15px 18px;
+  background: #f7fafb;
+  border-bottom: 1px solid #e5edf0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.co-panel h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+}
+.co-record {
+  padding: 15px 18px;
+  border-bottom: 1px solid #e7eef1;
+  font-size: 13px;
+}
+.co-record:last-child {
+  border-bottom: 0;
+}
+.co-record summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.co-record summary > span:first-child {
+  display: grid;
+  gap: 5px;
+}
+.co-record small,
+.co-record-title + small {
+  display: block;
+  color: var(--co-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+.co-record-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.co-pill,
+.bh-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  background: #edf5f5;
+  color: #26625e;
+  white-space: nowrap;
+}
+.bh-tag {
+  background: #fff0ed;
+  color: #b53525;
+  font-weight: 700;
+  margin-top: 5px;
+}
+.co-notes {
+  display: grid;
+  gap: 12px;
+  margin-top: 15px;
+}
+.co-notes dt {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--co-muted);
+  margin-bottom: 4px;
+}
+.co-notes dd {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+.co-diagnosis {
+  font-weight: 650;
+  padding-top: 14px;
+  white-space: pre-wrap;
+}
+.co-record > .co-button {
+  margin-top: 12px;
+}
+.co-columns {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+.co-empty,
+.co-loading {
+  padding: 22px 18px;
+  color: var(--co-muted);
+  font-size: 13px;
+}
+.co-error {
+  padding: 16px;
+  border: 1px solid #efc7c7;
+  background: #fff3f3;
+  color: #9b2424;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.co-medication {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f8fafb;
+  border: 1px solid #e8eef1;
+  border-radius: 8px;
+}
+.co-medication p {
+  font-size: 12px;
+}
+.bh-request-day {
+  border-bottom: 1px solid #e5edf0;
+}
+.bh-request-day > summary {
+  padding: 12px 18px;
+  font-size: 12px;
+  color: #355666;
+  font-weight: 650;
+  background: #fafcfd;
+  cursor: pointer;
+}
+.bh-table-scroll {
+  overflow: auto;
+  max-width: 100%;
+}
+.bh-request-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+.bh-request-table th {
+  padding: 11px 15px;
+  border-bottom: 1px solid #e5edf0;
+  color: #677a87;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+.bh-request-table th button {
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+.bh-request-table td {
+  padding: 13px 15px;
+  vertical-align: top;
+  border-bottom: 1px solid #edf1f3;
+}
+.bh-request-table tr:last-child td {
+  border-bottom: 0;
+}
+.bh-request-name {
+  font-weight: 650;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 0;
+}
+.bh-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 11px;
+}
+.bh-status > span {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #8b99a5;
+}
+.bh-status > span.bh-status-active {
+  background: #d09a27;
+}
+.bh-status > span.bh-status-completed {
+  background: #28936c;
+}
+.bh-status > span.bh-status-revoked {
+  background: #bf5b5b;
+}
+.bh-result {
+  display: grid;
+  gap: 5px;
+  min-width: 110px;
+}
+.bh-result small {
+  font-size: 10px;
+  color: var(--co-muted);
+  white-space: pre-wrap;
+}
+.co-attribution {
+  font-size: 10px;
+  color: var(--co-muted);
+  padding: 6px 0;
+}
+.co-attribution summary {
+  cursor: pointer;
+}
+.co-attribution p {
+  max-width: 650px;
+  line-height: 1.6;
+}
+.co-source-button {
+  font: inherit;
+  color: var(--co-primary);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  padding: 5px 0;
+  cursor: pointer;
+}
+.co-disclosure {
+  margin-top: 16px;
+}
+.co-disclosure > .clinical-overview {
+  margin-top: 16px;
+}
+@media (max-width: 760px) {
+  .co-heading {
+    align-items: flex-start;
+    padding: 16px;
+  }
+  .co-heading h2 {
+    font-size: 21px;
+  }
+  .co-alerts,
+  .co-columns {
+    grid-template-columns: 1fr;
+  }
+  .co-counts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .co-counts > div {
+    padding: 13px;
+  }
+  .bh-patient {
+    padding: 17px;
+  }
+  .bh-patient-name {
+    font-size: 20px;
+  }
+  .bh-patient-details,
+  .bh-patient-identifiers {
+    gap: 9px;
+  }
+  .bh-request-table {
+    min-width: 650px;
+  }
+  .co-panel > header {
+    padding: 13px 15px;
+  }
+  .co-heading > .co-button {
+    font-size: 11px;
+    padding: 8px;
+  }
+  .co-record {
+    padding: 14px 15px;
+  }
+}
