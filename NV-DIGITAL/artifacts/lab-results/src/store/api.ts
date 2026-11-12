@@ -142,6 +142,9 @@ export const api = {
   // ── Empresas / funcionários / parceiros ───────────────────────────────────
   empresas: {
     list: () => req<any[]>("GET", "/empresas"),
+    licencas: () => req<any[]>("GET", "/licencas"),
+    guardarLicenca: (id: string, data: any) => req<any>("PUT", `/licencas/${id}`, data),
+    auditoriaLicenca: (id: string) => req<any[]>("GET", `/licencas/${id}/auditoria`),
     create: (data: any) => req<any>("POST", "/empresas", data),
     update: (id: string, data: any) => req<any>("PUT", `/empresas/${id}`, data),
     delete: (id: string) => req("DELETE", `/empresas/${id}`),
