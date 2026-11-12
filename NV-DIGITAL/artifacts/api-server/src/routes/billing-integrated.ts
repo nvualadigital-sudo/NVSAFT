@@ -46,6 +46,7 @@ import {
   codes,
   digest,
   localStamp,
+  parseIvaRate,
 } from "../lib/billing-engine.js";
 const admins = ["admin", "gestor"],
   cashRoles = [...admins, "financeiro", "rececionista"],
@@ -277,7 +278,13 @@ export function createIntegratedBilling(
       ...defaults,
       ...(base ? camel(base) : {}),
       ...extra,
-      ivaTaxa: Number(extra.ivaTaxa ?? base?.iva_taxa ?? 14),
+      // Conservar configurações antigas inválidas para correcção pelo gestor,
+      // sem as transformar silenciosamente em taxa zero.
+      ivaTaxa: (() => {
+        const raw = extra.ivaTaxa ?? base?.iva_taxa ?? 14;
+        try { return parseIvaRate(raw); }
+        catch { return raw; }
+      })(),
       logoDataUrl: base?.logo_data || "",
       calculoFiscalAGT: agt?.enabled === true,
       ambiente: "homologacao",
@@ -588,10 +595,7 @@ export function createIntegratedBilling(
           );
           const next = { ...before, ...patch };
           check(/^[A-Za-z0-9_-]{1,20}$/.test(next.serie), "Série inválida.");
-          check(
-            [0, 5, 7, 14].includes(Number(next.ivaTaxa)),
-            "Taxa não suportada.",
-          );
+          next.ivaTaxa = parseIvaRate(next.ivaTaxa);
           check(
             ["a4", "termica"].includes(next.formatoImpressaoPadrao),
             "Formato inválido.",
