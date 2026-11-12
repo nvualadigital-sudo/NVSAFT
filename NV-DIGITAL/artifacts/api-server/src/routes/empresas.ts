@@ -17,6 +17,15 @@ import {
 } from "../lib/auth.js";
 
 const SALT_ROUNDS = 12;
+const ALLOWED_COMPANY_MODULES = new Set([
+  "laboratorial", "hospitalar", "escolar",
+  "comercial", "faturacao", "farmacia", "laboratorio",
+]);
+function validateCompanyModules(value: unknown): string[] | null {
+  if (!Array.isArray(value) || value.length === 0 || value.some((x) => typeof x !== "string" || !ALLOWED_COMPANY_MODULES.has(x))) return null;
+  return [...new Set(value)];
+}
+
 
 const router = Router();
 router.use(
@@ -71,8 +80,11 @@ router.post("/empresas", requireDeveloper, async (req, res): Promise<void> => {
     res.status(400).json({ error: "nome, username e password obrigatórios" });
     return;
   }
-  const modulosArr: string[] =
-    Array.isArray(modulos) && modulos.length > 0 ? modulos : ["laboratorial"];
+  const modulosArr = validateCompanyModules(modulos ?? ["laboratorial"]);
+  if (!modulosArr) {
+    res.status(400).json({ error: "Seleccione módulos válidos para a empresa." });
+    return;
+  }
   const hashed = await bcrypt.hash(password, SALT_ROUNDS);
   const [row] = await db
     .insert(empresasTable)
@@ -108,7 +120,14 @@ router.put(
     if (password !== undefined && password !== "")
       updateData.password = await bcrypt.hash(password, SALT_ROUNDS);
     if (ativo !== undefined) updateData.ativo = ativo;
-    if (Array.isArray(modulos)) updateData.modulos = modulos;
+    if (modulos !== undefined) {
+      const validModules = validateCompanyModules(modulos);
+      if (!validModules) {
+        res.status(400).json({ error: "Módulos inválidos ou lista vazia." });
+        return;
+      }
+      updateData.modulos = validModules;
+    }
     const [row] = await db
       .update(empresasTable)
       .set(updateData)
