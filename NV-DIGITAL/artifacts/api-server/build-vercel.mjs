@@ -18,7 +18,8 @@ async function buildVercelApi() {
     platform: "node",
     bundle: true,
     format: "cjs",
-    outfile: path.resolve(distDir, "app.cjs"),
+    outdir: distDir,
+    outExtension: { ".js": ".cjs" },
     logLevel: "info",
     external: [
       "bcrypt",
