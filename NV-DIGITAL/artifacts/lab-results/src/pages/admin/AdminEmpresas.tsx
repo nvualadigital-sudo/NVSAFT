@@ -4,20 +4,23 @@ import { useState, useEffect, useCallback } from "react";
 import { api } from "../../store/api";
 
 const MODULOS_OPTIONS = [
-  {
-    key: "laboratorial",
-    label: "Laboratório de Análises Clínicas",
-    icon: "🧪",
-    color: "#0ea5e9",
-  },
-  {
-    key: "hospitalar",
-    label: "Gestão Hospitalar",
-    icon: "🏥",
-    color: "#10b981",
-  },
-  { key: "escolar", label: "Gestão Escolar", icon: "🎓", color: "#8b5cf6" },
-];
+  { key: "laboratorial", label: "Laboratório (legado)", icon: "🧪", color: "#0ea5e9" },
+  { key: "hospitalar", label: "Hospitalar (legado)", icon: "🏥", color: "#10b981" },
+  { key: "escolar", label: "Escolar (legado)", icon: "🎓", color: "#8b5cf6" },
+  { key: "comercial", label: "Comércio / POS", icon: "🏪", color: "#d97706" },
+  { key: "faturacao", label: "Facturação", icon: "🧾", color: "#2563eb" },
+  { key: "farmacia", label: "Farmácia", icon: "💊", color: "#059669" },
+  { key: "laboratorio", label: "Laboratório independente", icon: "🔬", color: "#0891b2" },
+] as const;
+
+const PERFIS_EMPRESA = [
+  { id: "personalizado", label: "Personalizado", modulos: [] },
+  { id: "loja", label: "Loja / Comércio", modulos: ["comercial", "faturacao"] },
+  { id: "farmacia", label: "Farmácia", modulos: ["farmacia", "faturacao"] },
+  { id: "laboratorio", label: "Laboratório", modulos: ["laboratorio", "faturacao"] },
+  { id: "hospital", label: "Clínica / Hospital", modulos: ["hospitalar", "laboratorial"] },
+] as const;
+
 
 const emptyEmpForm = {
   nome: "",
@@ -262,7 +265,7 @@ export default function AdminEmpresas({ onLogout }: { onLogout: () => void }) {
             Painel do Desenvolvedor
           </div>
           <div className="text-white/70 text-xs">
-            Gestão de Empresas / Laboratórios
+            Gestão de Empresas, Módulos e Licenças
           </div>
         </div>
         <div className="ml-auto flex items-center gap-3">
@@ -317,7 +320,7 @@ export default function AdminEmpresas({ onLogout }: { onLogout: () => void }) {
           <div className="lg:col-span-2 bg-white border border-border rounded-xl shadow-sm p-6 space-y-5">
             <div>
               <h2 className="text-sm font-bold text-primary uppercase tracking-wide mb-4">
-                {editEmpId ? "Editar Empresa" : "Nova Empresa / Laboratório"}
+                {editEmpId ? "Editar Empresa" : "Nova Empresa / Cliente"}
               </h2>
               <form onSubmit={handleEmpSubmit} className="space-y-3">
                 <div className="space-y-1">
@@ -387,6 +390,17 @@ export default function AdminEmpresas({ onLogout }: { onLogout: () => void }) {
                       {showEmpPass ? "🙈" : "👁"}
                     </button>
                   </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-medium text-muted-foreground">Configuração rápida por actividade</label>
+                  <select className={inp} defaultValue="personalizado" onChange={(e) => {
+                    const perfil = PERFIS_EMPRESA.find((p) => p.id === e.target.value);
+                    if (perfil && perfil.modulos.length) setEmpForm({ ...empForm, modulos: [...perfil.modulos] });
+                  }}>
+                    {PERFIS_EMPRESA.map((p) => <option key={p.id} value={p.id}>{p.label}</option>)}
+                  </select>
+                  <p className="text-xs text-muted-foreground">O perfil apenas sugere módulos. A escolha abaixo pode ser personalizada. As contas antigas mantêm os módulos já atribuídos.</p>
                 </div>
 
                 {/* Módulos */}
@@ -476,7 +490,7 @@ export default function AdminEmpresas({ onLogout }: { onLogout: () => void }) {
                 Links para Partilhar
               </h3>
               <UrlBox
-                label="Portal das Empresas (partilhe com o laboratório)"
+                label="Portal das Empresas (partilhe com o cliente)"
                 url={`${origin}/`}
                 color="hsl(162 60% 38%)"
               />
