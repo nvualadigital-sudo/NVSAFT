@@ -45,6 +45,30 @@ export async function tenantGuard(
     res.status(403).json({ error: "Instituição não identificada." });
     return;
   }
+  // Licenças já configuradas bloqueiam novas operações quando suspensas ou expiradas.
+  // Empresas antigas sem registo de licença mantêm acesso, evitando migração destrutiva.
+  if (!["GET", "HEAD"].includes(req.method)) {
+    try {
+      const result = await pool.query(
+        "SELECT estado, inicio, fim FROM public.nv_licencas WHERE empresa_id=$1",
+        [u.empresaId],
+      );
+      const license = result.rows[0];
+      if (license) {
+        const status = await pool.query(
+          "SELECT ($1::date <= CURRENT_DATE AND ($2::date IS NULL OR $2::date >= CURRENT_DATE)) AS dentro_periodo",
+          [license.inicio, license.fim],
+        );
+        if (license.estado !== "activo" || !status.rows[0]?.dentro_periodo) {
+          res.status(403).json({ error: "Licença suspensa, expirada ou ainda não iniciada. Contacte a NV-DIGITAL." });
+          return;
+        }
+      }
+    } catch {
+      res.status(503).json({ error: "Não foi possível validar a licença. Verifique a migração da base de dados." });
+      return;
+    }
+  }
   if (!["GET", "HEAD"].includes(req.method)) {
     const area = req.path.split("/")[1];
     if (roles[area] && !roles[area].includes(u.funcao || "")) {
