@@ -56,8 +56,10 @@ export function invoicePreview(
       fail(
         "Indique um desconto em Kz válido, com até duas casas decimais; por exemplo, 1250,50.",
       );
-    if (![0, 5, 7, 14].includes(tax))
-      fail("Seleccione uma taxa de IVA válida: 0%, 5%, 7% ou 14%.");
+    if (taxInput === null || taxInput === undefined ||
+        (typeof taxInput === "string" && !taxInput.trim()) ||
+        ![0, 5, 7, 14].includes(tax))
+      fail("Seleccione expressamente uma taxa de IVA válida: 0%, 5%, 7% ou 14%.");
     if (!lines.length) return blank;
     let gross = 0n;
     const raw = lines.map((l, i) => {
