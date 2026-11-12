@@ -1553,9 +1553,19 @@ function Shell({ session, onLogout }: { session: Session; onLogout: () => void }
   const preferenceScope = [session.empresaId ?? "", session.funcionarioId ?? session.username].map(encodeURIComponent).join(":");
   const preferenceKey = useCallback((key: string) => [key, preferenceScope].join(":"), [preferenceScope]);
 
+  // Perfis novos: acesso apenas aos módulos contratados. Perfis legados mantêm o comportamento anterior.
+  const moduleTabGrants: Record<string, Tab[]> = {
+    comercial: ["dashboard", "faturacao", "notascredito", "produtos", "contacorrente", "resumofinanceiro", "relatorios", "config", "funcionarios", "instituicao"],
+    faturacao: ["dashboard", "faturacao", "notascredito", "produtos", "contacorrente", "resumofinanceiro", "relatorios", "config", "funcionarios", "instituicao"],
+    farmacia: ["dashboard", "farmacia", "produtos", "faturacao", "notascredito", "contacorrente", "relatorios", "config", "funcionarios", "instituicao"],
+    laboratorio: ["dashboard", "laboratorio", "historico", "exames", "pacientes", "solicitar", "recepcao", "faturacao", "relatorios", "config", "funcionarios", "instituicao"],
+  };
+  const hasLegacyBundle = modulos.some((m) => ["laboratorial", "hospitalar", "escolar"].includes(m));
+  const grants = new Set(modulos.flatMap((m) => moduleTabGrants[m] ?? []));
   const allowedTabs = useMemo(() => ALL_TABS.filter((t) => {
     if (!canAccess(funcao, t.roles)) return false;
-    if (t.modulo && !modulos.includes(t.modulo)) return false;
+    if (!hasLegacyBundle && !grants.has(t.id)) return false;
+    if (t.modulo && !modulos.includes(t.modulo) && !hasLegacyBundle) return false;
     return true;
   }), [funcao, modulos]);
   const groups = useMemo(() => buildGroups(allowedTabs), [allowedTabs]);
