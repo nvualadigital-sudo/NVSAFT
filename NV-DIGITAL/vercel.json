@@ -10,9 +10,10 @@
   ],
   "functions": {
     "api/[...path].ts": {
-      "runtime": "nodejs22.x",
       "maxDuration": 60,
       "includeFiles": "artifacts/api-server/dist-vercel/**"
     }
-  }
+  },
+  "framework": null,
+  "installCommand": "corepack enable && corepack prepare pnpm@11.25.0 --activate && pnpm install --frozen-lockfile --prod=false"
 }
