@@ -2,6 +2,7 @@ import { syncRegistrationInsurance } from "../lib/insurance.js";
 import { savePatientGeography } from "../lib/geography.js";
 import { DomainError } from "../lib/governance.js";
 import { createLibraryRouter } from "./library.js";
+import { createClinicalOverviewRouter } from "./clinical-overview.js";
 import { Router } from "express";
 import { captureClinicalIssuers } from "../lib/professionals.js";
 import { pool as productionPool } from "@workspace/db";
@@ -65,6 +66,7 @@ async function audit(
 export function createHospitalRouter(pool: Pool = productionPool) {
   const r = Router();
   r.use(requireEmpresa);
+  r.use(createClinicalOverviewRouter(pool));
   r.get("/integrity", async (req, res) => {
     const u = getUser(req);
     if (!["admin", "gestor"].includes(u.funcao || "")) {

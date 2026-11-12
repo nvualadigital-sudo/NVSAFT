@@ -17,6 +17,7 @@ import Documentos from "./Documentos";
 import FilaTriagem from "./FilaTriagem";
 import Prescricoes from "./Prescricoes";
 import ResumoEnfermagem from "./ResumoEnfermagem";
+import ProcessoClinico from "../../../modules/bahmni-clinical/ProcessoClinico";
 
 export interface MedicalProps {
   session: ClinicalSession;
@@ -27,6 +28,7 @@ export interface MedicalProps {
 }
 const tabs = [
   ["fila", "Fila / triagem"],
+  ["resumo", "Processo clínico"],
   ["consulta", "Consulta clínica"],
   ["prescricoes", "Prescrições"],
   ["documentos", "Documentos médicos"],
@@ -320,6 +322,32 @@ export default function MedicoWorkspace({
           }}
           onStart={start}
         />
+      ) : tab === "resumo" ? (
+        visit ? (
+          <ProcessoClinico
+            key={org + ":" + visit.patient.id + ":" + visit.id}
+            session={session}
+            patientId={String(visit.patient.id)}
+            episodeId={visit.id}
+            onNavigate={(area, id) => {
+              if (id) {
+                const target = state.visits.find(
+                  (v) =>
+                    v.id === id &&
+                    String(v.patient.id) === String(visit.patient.id),
+                );
+                if (!target) return;
+                setVisitId(target.id);
+                setPatientId(String(target.patient.id));
+              }
+              setTab(area);
+            }}
+          />
+        ) : (
+          <p className="rounded-xl border bg-white p-6">
+            Seleccione uma consulta para abrir o processo clínico.
+          </p>
+        )
       ) : tab === "exames" ? (
         <Laboratorio
           session={session as Session}

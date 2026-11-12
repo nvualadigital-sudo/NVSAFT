@@ -1,0 +1,36 @@
+{
+  "repository": "https://github.com/Bahmni/bahmni-apps-frontend",
+  "revision": "12a0173eecacf49acb95c29cccf3388a98d074e9",
+  "files": [
+    {
+      "upstream": "packages/bahmni-widgets/src/patientDetails/PatientDetails.tsx",
+      "original": "docs/third-party/bahmni/upstream/PatientDetails.tsx",
+      "adapted": "artifacts/lab-results/src/modules/bahmni-clinical/PatientDetails.tsx",
+      "sha": "82ec95cc245cda20c8324a074baf4db9a9ddb1e2"
+    },
+    {
+      "upstream": "packages/bahmni-widgets/src/patientDetails/utils.ts",
+      "original": "docs/third-party/bahmni/upstream/patient-utils.ts",
+      "adapted": "artifacts/lab-results/src/modules/bahmni-clinical/patient-utils.ts",
+      "sha": "cfa0d5ad41b6547892c29a225edd7cb938fe2807"
+    },
+    {
+      "upstream": "packages/bahmni-widgets/src/genericServiceRequest/GenericServiceRequestTable.tsx",
+      "original": "docs/third-party/bahmni/upstream/GenericServiceRequestTable.tsx",
+      "adapted": "artifacts/lab-results/src/modules/bahmni-clinical/GenericServiceRequestTable.tsx",
+      "sha": "948724891303d1ddf2380ec8017975eadd65d253"
+    },
+    {
+      "upstream": "packages/bahmni-widgets/src/genericServiceRequest/utils.ts",
+      "original": "docs/third-party/bahmni/upstream/request-utils.ts",
+      "adapted": "artifacts/lab-results/src/modules/bahmni-clinical/request-utils.ts",
+      "sha": "7abb4ee8b508b25757d51d6ad77aeef9bbba3424"
+    },
+    {
+      "upstream": "packages/bahmni-widgets/src/genericServiceRequest/models.ts",
+      "original": "docs/third-party/bahmni/upstream/request-models.ts",
+      "adapted": "artifacts/lab-results/src/modules/bahmni-clinical/request-models.ts",
+      "sha": "1e96e2ff233f009b9cfbbe0afa030b611b0b569b"
+    }
+  ]
+}

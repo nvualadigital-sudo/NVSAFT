@@ -38,6 +38,7 @@ import {
 } from "./clinicalSelectors";
 import { type ClinicalNavigate } from "./ClinicalWorkbench";
 import { delivered, useClinical } from "../../medicos/clinica/store";
+import { ClinicalOverviewDisclosure } from "../../../modules/bahmni-clinical/ProcessoClinico";
 const soapier = [
   ["subjective", "S", "Subjectivo"],
   ["objective", "O", "Objectivo"],
@@ -221,6 +222,17 @@ export function PatientClinicalWorkspace({
           )}
         </div>
       </section>
+      {allowed(actor, "medico", "enfermeiro", "chefe_enfermagem") && (
+        <ClinicalOverviewDisclosure
+          key={actor.tenantId + ":" + p.id}
+          session={{
+            empresaId: actor.tenantId,
+            empresaNome: actor.tenantName,
+            username: actor.id,
+          }}
+          patientId={p.id}
+        />
+      )}
       <section className="op-surface space-y-3">
         <header className="op-section-head">
           <div>
