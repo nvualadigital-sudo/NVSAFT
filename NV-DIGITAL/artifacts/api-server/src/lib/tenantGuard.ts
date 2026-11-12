@@ -30,7 +30,7 @@ export async function tenantGuard(
 ) {
   const u = getUser(req);
   if (u.role === "developer") {
-    if (!/^\/(empresas|auth)(\/|$)/.test(req.path)) {
+    if (!/^\/(empresas|auth|licencas)(\/|$)/.test(req.path)) {
       res
         .status(403)
         .json({
